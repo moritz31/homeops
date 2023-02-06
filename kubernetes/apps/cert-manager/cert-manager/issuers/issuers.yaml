@@ -1,0 +1,44 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/clusterissuer_v1.json
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: moritz@kirstein.me
+    privateKeySecretRef:
+      name: letsencrypt-production
+    solvers:
+      - dns01:
+          cloudflare:
+            email: moritz@kirstein.me
+            apiKeySecretRef:
+              name: cert-manager-secret
+              key: api-key
+        selector:
+          dnsZones:
+            - kirstein.me
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/clusterissuer_v1.json
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    email: moritz@kirstein.me
+    privateKeySecretRef:
+      name: letsencrypt-staging
+    solvers:
+      - dns01:
+          cloudflare:
+            email: moritz@kirstein.me
+            apiKeySecretRef:
+              name: cert-manager-secret
+              key: api-key
+        selector:
+          dnsZones:
+            - kirstein.me
