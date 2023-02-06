@@ -33,7 +33,6 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-cert-manager
-    - name: cluster-apps-onepassword-connect
   path: ./kubernetes/apps/cert-manager/cert-manager/issuers
   prune: true
   sourceRef:
