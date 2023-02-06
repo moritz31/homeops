@@ -35,7 +35,7 @@ spec:
           secretKeyRef:
             name: external-dns-secret
             key: email
-      - name: CF_API_KEY
+      - name: CF_API_TOKEN
         valueFrom:
           secretKeyRef:
             name: external-dns-secret
@@ -44,7 +44,6 @@ spec:
       - --cloudflare-proxied
       - --annotation-filter=external-dns.alpha.kubernetes.io/target
     policy: sync
-    sources: ["ingress"]
     txtPrefix: k8s.
     txtOwnerId: default
     domainFilters: ["kirstein.me"]
