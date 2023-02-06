@@ -5,7 +5,7 @@ metadata:
   name: flux-webhook
   namespace: flux-system
   annotations:
-    external-dns.alpha.kubernetes.io/target: "ipv4.kirstein.me"
+    external-dns.alpha.kubernetes.io/target: "home.kirstein.me"
 spec:
   ingressClassName: nginx
   rules:
