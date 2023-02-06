@@ -47,6 +47,6 @@ spec:
     sources: ["ingress"]
     txtPrefix: k8s.
     txtOwnerId: default
-    domainFilters: ["${SECRET_DOMAIN}"]
+    domainFilters: ["kirstein.me"]
     podAnnotations:
       secret.reloader.stakater.com/reload: external-dns-secret
