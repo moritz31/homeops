@@ -29,4 +29,4 @@ spec:
   values:
     nfs:
       server: nas01.fritz.box
-      path: /srv/nfs
+      path: /mnt/nfs
