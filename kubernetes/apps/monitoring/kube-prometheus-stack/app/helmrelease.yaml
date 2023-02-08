@@ -37,7 +37,11 @@ spec:
           external-dns.alpha.kubernetes.io/hostname: alertmanager.nas01.kirstein.me
           kubernetes.io/ingress.class: internal-ingress
         ingressClassName: internal-ingress
-        hosts: ["alertmanager.nas01.kirstein.me"]
+        hosts:
+          - &host "alertmanager.nas01.kirstein.me"
+        tls:
+          - hosts:
+            - *host
       config:
         global:
           resolve_timeout: 5m
@@ -70,7 +74,11 @@ spec:
           external-dns.alpha.kubernetes.io/hostname: prometheus.nas01.kirstein.me
           kubernetes.io/ingress.class: internal-ingress
         ingressClassName: internal-ingress
-        hosts: ["prometheus.nas01.kirstein.me"] 
+        hosts: 
+          - &host "prometheus.nas01.kirstein.me"
+        tls:
+          - hosts:
+            - *host
       prometheusSpec:
         ruleSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
