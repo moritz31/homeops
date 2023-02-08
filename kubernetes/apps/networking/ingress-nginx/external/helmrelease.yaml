@@ -45,7 +45,7 @@ spec:
       ingressClassByName: true
       extraArgs:
         default-ssl-certificate: |-
-          networking/kirstein-me
+          networking/kirstein-me-tls
     tcp:
       "8080": default/unifi:8080
     udp:
