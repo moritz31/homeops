@@ -3,7 +3,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: ingress-nginx
+  name: ingress-external-nginx
   namespace: networking
 spec:
   interval: 15m
@@ -38,11 +38,11 @@ spec:
         https: https
         http-alt: http-alt
         stun: stun
-      service:
-        internal:
-          enabled: true
-          annotations:
-            internal: true
+      ingressClassResource:
+        name: external-ingress
+        default: true
+        controllerValue: k8s.io/external-ingress
+      ingressClassByName: true
     tcp:
       "8080": default/unifi:8080
     udp:

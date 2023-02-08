@@ -9,7 +9,7 @@ spec:
   dependsOn:
     - name: cluster-apps-nfs-subdir-external-provisioner
     - name: cluster-apps-cert-manager
-    - name: cluster-apps-ingress-nginx
+    - name: cluster-apps-ingress-external-nginx
   path: ./kubernetes/apps/default/unifi/app
   prune: true
   sourceRef:

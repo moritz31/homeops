@@ -45,7 +45,7 @@ spec:
           cert-manager.io/cluster-issuer: letsencrypt-prod
           nginx.ingress.kubernetes.io/proxy-body-size: 50m
           external-dns.alpha.kubernetes.io/target: home.kirstein.me
-        ingressClassName: "nginx"
+        ingressClassName: "external-ingress"
         hosts:
           - host: unifi-tmp.kirstein.me
             paths:
