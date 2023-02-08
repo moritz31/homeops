@@ -30,6 +30,15 @@ spec:
     keepHistory: false
   values:
     cleanPrometheusOperatorObjectNames: true
+    alertmanager:
+      config:
+        global:
+          resolve_timeout: 5m
+        receivers:
+          - name: heartbeat
+            webhook_configs:
+              - url: "https://push.statuscake.com/${SECRET_ALERTMANAGER_STATUSCAKE_URL}"
+                send_resolved: true
     grafana:
       enabled: false
       forceDeployDashboards: true
