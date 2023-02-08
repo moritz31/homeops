@@ -28,10 +28,20 @@ spec:
     keepHistory: false
   values:
     controller:
+      ports:
+        http: 80
+        https: 443
+        http-alt: 8080
+        stun: 3478
+      targetPorts:
+        http: http
+        https: https
+        http-alt: http-alt
+        stun: stun
       service:
         internal:
           enabled: true
-    # tcp:
-    #   8080: "default/unifi:8080"
-    # udp:
-    #   3478: "default/unifi:3478"
+    tcp:
+      8080: default/unifi:8080
+    udp:
+      3478: default/unifi:3478
