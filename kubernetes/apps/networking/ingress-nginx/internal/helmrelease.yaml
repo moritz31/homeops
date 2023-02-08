@@ -33,3 +33,6 @@ spec:
         default: true
         controllerValue: k8s.io/internal-ingress
       ingressClassByName: true
+      extraArgs:
+        default-ssl-certificate: |-
+          networking/kirstein-me

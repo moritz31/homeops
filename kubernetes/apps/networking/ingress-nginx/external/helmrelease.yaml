@@ -43,6 +43,9 @@ spec:
         default: false
         controllerValue: k8s.io/external-ingress
       ingressClassByName: true
+      extraArgs:
+        default-ssl-certificate: |-
+          networking/kirstein-me
     tcp:
       "8080": default/unifi:8080
     udp:

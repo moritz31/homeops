@@ -38,10 +38,7 @@ spec:
           kubernetes.io/ingress.class: internal-ingress
         ingressClassName: internal-ingress
         hosts:
-          - &host "alertmanager.nas01.kirstein.me"
-        tls:
-          - hosts:
-            - *host
+          - "alertmanager.nas01.kirstein.me"
       config:
         global:
           resolve_timeout: 5m
@@ -75,10 +72,7 @@ spec:
           kubernetes.io/ingress.class: internal-ingress
         ingressClassName: internal-ingress
         hosts: 
-          - &host "prometheus.nas01.kirstein.me"
-        tls:
-          - hosts:
-            - *host
+          - "prometheus.nas01.kirstein.me"
       prometheusSpec:
         ruleSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
