@@ -14,7 +14,7 @@ spec:
       - dns01:
           cloudflare:
             email: moritz@kirstein.me
-            apiKeySecretRef:
+            apiTokenSecretRef:
               name: cert-manager-secret
               key: api-key
         selector:
@@ -36,7 +36,7 @@ spec:
       - dns01:
           cloudflare:
             email: moritz@kirstein.me
-            apiKeySecretRef:
+            apiTokenSecretRef:
               name: cert-manager-secret
               key: api-key
         selector:
