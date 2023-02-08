@@ -28,22 +28,8 @@ spec:
     keepHistory: false
   values:
     controller:
-      ports:
-        http: 80
-        https: 443
-        http-alt: 8080
-        stun: 3478
-      targetPorts:
-        http: http
-        https: https
-        http-alt: http-alt
-        stun: stun
       ingressClassResource:
-        name: external-ingress
-        default: false
-        controllerValue: k8s.io/external-ingress
+        name: internal-ingress
+        default: true
+        controllerValue: k8s.io/internal-ingress
       ingressClassByName: true
-    tcp:
-      "8080": default/unifi:8080
-    udp:
-      "3478": default/unifi:3478
