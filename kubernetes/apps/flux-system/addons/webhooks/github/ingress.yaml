@@ -7,7 +7,7 @@ metadata:
   annotations:
     external-dns.alpha.kubernetes.io/target: "home.kirstein.me"
 spec:
-  ingressClassName: nginx
+  ingressClassName: external-ingress
   rules:
     - host: &host "flux-webhook.kirstein.me"
       http:
