@@ -42,6 +42,6 @@ spec:
         internal:
           enabled: true
     tcp:
-      8080: default/unifi:8080
+      "8080": default/unifi:8080
     udp:
-      3478: default/unifi:3478
+      "3478": default/unifi:3478
