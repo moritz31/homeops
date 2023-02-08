@@ -41,6 +41,8 @@ spec:
       service:
         internal:
           enabled: true
+          annotations:
+            internal: true
     tcp:
       "8080": default/unifi:8080
     udp:
