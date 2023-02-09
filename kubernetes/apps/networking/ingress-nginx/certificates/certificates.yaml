@@ -14,3 +14,4 @@ spec:
   dnsNames:
     - kirstein.me
     - "*.kirstein.me"
+    - "*.nas01.kirstein.me"
