@@ -11,7 +11,7 @@ spec:
     initdb:
       import:
         type: microservice
-        database:
+        databases:
           - teslamate
         source:
           externalCluster: pi-nas
