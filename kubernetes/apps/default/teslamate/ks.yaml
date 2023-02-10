@@ -20,27 +20,24 @@ spec:
       namespace: default
   patches:
     - patch: |-
-        apiVersion: apps/v1
-        kind: Deployment
-        spec:
-          template:
-            spec:
-              containers:
-                - name: teslamate
-                  env:
-                    - name: DATABASE_USER
-                      valueFrom:
-                        secretRef:
-                          name: teslamate-database-app
-                          key: username
-                    - name: DATABASE_PASS
-                      valueFrom:
-                        secretRef:
-                          name: teslamate-database-app
-                          key: password
+        - op: add
+          path: "/spec/template/spec/containers/0/env/-"
+          value:
+            name: DATABASE_USER
+            valueFrom:
+              secretRef:
+                name: teslamate-database-app
+        - op: add
+          path: "/spec/template/spec/containers/0/env/-"
+          value:
+            name: DATABASE_PASSWORD
+            valueFrom:
+              secretRef:
+                name: teslamate-database-app
+                key: password
       target: 
         kind: Deployment
-        version: v1
+        version: apps/v1
         name: teslamate
   interval: 30m
   retryInterval: 1m
