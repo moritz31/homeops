@@ -34,12 +34,12 @@ spec:
         value: teslamate-database-1
       - name: DATABASE_USER
         valueFrom:
-          secretRef:
+          secretKeyRef:
             name: teslamate-database-app
             key: username
       - name: DATABASE_PASS
         valueFrom:
-          secretRef:
+          secretKeyRef:
             name: teslamate-database-app
             key: password
       - name: DATABASE_PASS
