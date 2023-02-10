@@ -18,26 +18,6 @@ spec:
       kind: HelmRelease
       name: teslamate
       namespace: default
-  patches:
-    - patch: |
-        - op: add
-          path: /spec/template/spec/containers/0/env/-
-          value:
-            name: DATABASE_USER
-            valueFrom:
-              secretRef:
-                name: teslamate-database-app
-        - op: add
-          path: /spec/template/spec/containers/0/env/-
-          value:
-            name: DATABASE_PASS
-            valueFrom:
-              secretRef:
-                name: teslamate-database-app
-                key: password
-      target: 
-        kind: Deployment
-        name: teslamate
   interval: 30m
   retryInterval: 1m
   timeout: 3m
