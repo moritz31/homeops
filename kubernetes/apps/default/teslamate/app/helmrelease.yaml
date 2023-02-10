@@ -30,10 +30,19 @@ spec:
     image:
       tag: 1.27.1
     env:
+      - name: DATABASE_HOST
+        value: teslamate-database-1
       - name: DATABASE_USER
         valueFrom:
           secretRef:
             name: teslamate-database-app
+            key: username
+      - name: DATABASE_PASS
+        valueFrom:
+          secretRef:
+            name: teslamate-database-app
             key: password
+      - name: DATABASE_PASS
+        value: teslamate
       - name: DISABLE_MQTT
         value: true
