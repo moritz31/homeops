@@ -2,10 +2,10 @@ apiVersion: v1
 kind: Secret
 metadata:
     name: pi-nas
-    namespace: networking
+    namespace: default
 type: Opaque
 stringData:
-    password: ENC[AES256_GCM,data:d5VB4k5D,iv:jbEDhryupOXXEXgZjWHttEOpFDksNjInUKpOOAyjRiI=,tag:qFffeoIZnPZOlTacC6qoMQ==,type:str]
+    password: ENC[AES256_GCM,data:Bj1ZDU3K,iv:Zevos5Gij/tmKqlYkhspN9BIYuBVzjwqN/3IDpNv7RA=,tag:3nQyL9bkz3vWmW8eHvQfFQ==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -15,14 +15,14 @@ sops:
         - recipient: age1l6hn6tqssp82508dcmyrg0dcxrzjv04m0xc7apcffly02y9prqlsj3zmt2
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBwdXBPc2tCWjF2THN6eFN3
-            Y0Z6RTJ1TFRNeStTRkdTYngrQTBmMGQwWDFRCjRSaXE3Uk9nWEl0WkZ6QW1KNTR6
-            eUc0cENUSjJPUldwRkprRGJQTlVvUEEKLS0tIGVJTzlWRm8yZUlMcElrdm83d1Np
-            T01Ya3k5RWg5ZDhaQThZazhXdzBJZFkKbjPm7z93PkT9pPfUoC6No9v3iP4t8qve
-            oYK3Wbf/Jhh6HQoAXh6tEnx97UDc2uSEybAJunTlu3y9qODw+Y3KLA==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBnR21BZGNxdCtwQitvMXNk
+            OGhFb2ZZWmJucDBtMmhZa0w2TDI5L2VLM1JBCmtIbENQWGl2eC9URVJraXMxZlNH
+            Y0dRd1dDOWZGNGJQemRrdXdvMzByM1UKLS0tIDBBRXVCS3BDQnI2Yk1rWWw2dy9l
+            Y2t0L01IVlNzU3VZYmhCdk55bHZhMkUK5HMSE4ox3nlG06IMXUEj+qYs2oFBXggr
+            dLc+PS0rPH9Ycn6rxWJA3umbO1xU3SuMN7uLoDgfwi9f8I70RnXAxQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-02-10T09:49:05Z"
-    mac: ENC[AES256_GCM,data:BTi2sEg5lEXteAab1aYGS+Zhqo3Cx3TT6xt2aaXSfwtciZwgfKBQQHnCEA2jbO3i4MrBK1qSjXunRqlhI0Lz+nyweeKoXcbPRVjr5HzGWHC/RBFUDE6o2TJYQjkxbwT5zabIyoQdsKRn6xOxk4LgakrhmTfW1oCKV+3psA+XJBU=,iv:bD+Yrbo3LQbFGUuSqdP6b9yLUxRbX8YMOgHOsFC+muk=,tag:a12i7eJIE7r/xZLVsFpz4w==,type:str]
+    lastmodified: "2023-02-10T11:03:03Z"
+    mac: ENC[AES256_GCM,data:U1kTd4e3mIlgt4OUIa4hOKEDhAH/ISQkEjgUGq8kqZaO+I2CDZ7OPD0myTVDt8fLgk93w/4zM5kCWLE+B8hE3NMm4HXBGWcnx6H3J6fOHN6zrKMWDoM5vntFr5DbyUZw01Osr+965JCJu3lBPkG8yYSfmkrpPhG1iPjXSkoSJFI=,iv:PxWct5DtzLh72tgsvN46JT1gTpSXMOMH9X0PirgS3ko=,tag:juggEXr0FwP1n/EMIG5L7w==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.7.3
