@@ -19,24 +19,22 @@ spec:
       name: teslamate
       namespace: default
   patches:
-    - patch: |-
+    - patch: |
         - op: add
-          path: "/spec/template/spec/containers/0/env/-"
+          path: /spec/template/spec/containers/0/env/-
           value:
             name: DATABASE_USER
-            value: |-
-              valueFrom:
-                secretRef:
-                  name: teslamate-database-app
+            valueFrom:
+              secretRef:
+                name: teslamate-database-app
         - op: add
-          path: "/spec/template/spec/containers/0/env/-"
+          path: /spec/template/spec/containers/0/env/-
           value:
             name: DATABASE_PASS
-            value: |-
-              valueFrom:
-                secretRef:
-                  name: teslamate-database-app
-                  key: password
+            valueFrom:
+              secretRef:
+                name: teslamate-database-app
+                key: password
       target: 
         kind: Deployment
         name: teslamate
