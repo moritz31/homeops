@@ -40,6 +40,8 @@ spec:
                           key: password
       target: 
         kind: Deployment
+        version: v1
+        name: teslamate
   interval: 30m
   retryInterval: 1m
   timeout: 3m
