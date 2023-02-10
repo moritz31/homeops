@@ -35,4 +35,5 @@ spec:
           secretRef:
             name: teslamate-database-app
             key: password
-      DISABLE_MQTT: "true"
+      - name: DISABLE_MQTT
+        value: true
