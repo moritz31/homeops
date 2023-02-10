@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: pi-nas
+    namespace: networking
+type: Opaque
+stringData:
+    password: ENC[AES256_GCM,data:d5VB4k5D,iv:jbEDhryupOXXEXgZjWHttEOpFDksNjInUKpOOAyjRiI=,tag:qFffeoIZnPZOlTacC6qoMQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1l6hn6tqssp82508dcmyrg0dcxrzjv04m0xc7apcffly02y9prqlsj3zmt2
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBwdXBPc2tCWjF2THN6eFN3
+            Y0Z6RTJ1TFRNeStTRkdTYngrQTBmMGQwWDFRCjRSaXE3Uk9nWEl0WkZ6QW1KNTR6
+            eUc0cENUSjJPUldwRkprRGJQTlVvUEEKLS0tIGVJTzlWRm8yZUlMcElrdm83d1Np
+            T01Ya3k5RWg5ZDhaQThZazhXdzBJZFkKbjPm7z93PkT9pPfUoC6No9v3iP4t8qve
+            oYK3Wbf/Jhh6HQoAXh6tEnx97UDc2uSEybAJunTlu3y9qODw+Y3KLA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-02-10T09:49:05Z"
+    mac: ENC[AES256_GCM,data:BTi2sEg5lEXteAab1aYGS+Zhqo3Cx3TT6xt2aaXSfwtciZwgfKBQQHnCEA2jbO3i4MrBK1qSjXunRqlhI0Lz+nyweeKoXcbPRVjr5HzGWHC/RBFUDE6o2TJYQjkxbwT5zabIyoQdsKRn6xOxk4LgakrhmTfW1oCKV+3psA+XJBU=,iv:bD+Yrbo3LQbFGUuSqdP6b9yLUxRbX8YMOgHOsFC+muk=,tag:a12i7eJIE7r/xZLVsFpz4w==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3

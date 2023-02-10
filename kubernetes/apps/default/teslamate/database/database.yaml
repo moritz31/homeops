@@ -1,0 +1,32 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/cluster_v1.json
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: teslamate-database
+  namespace: default
+spec:
+  instances: 1
+  bootstrap:
+    initdb:
+      import:
+        type: microservice
+        database:
+          - teslamate
+        source:
+          externalCluster: pi-nas
+  primaryUpdateStrategy: unsupervised
+  storage:
+    size: 1Gi
+    storageClass: nfs-client
+  monitoring:
+    enablePodMonitor: true
+  externalClusters:
+    - name: pi-nas
+      connectionParameters:
+        host: pi-nas.fritz.box
+        user: teslamate
+        dbname: teslamate
+      password:
+        name: pi-nas
+        key: password
