@@ -47,7 +47,7 @@ spec:
           secretKeyRef:
             name: teslamate-encryption
             key: key
-      - name: DATABASE_PASS
-        value: teslamate
+      - name: DATABASE_NAME
+        value: app
       - name: DISABLE_MQTT
         value: true
