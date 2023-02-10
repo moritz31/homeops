@@ -24,20 +24,21 @@ spec:
           path: "/spec/template/spec/containers/0/env/-"
           value:
             name: DATABASE_USER
-            valueFrom:
-              secretRef:
-                name: teslamate-database-app
+            value: |-
+              valueFrom:
+                secretRef:
+                  name: teslamate-database-app
         - op: add
           path: "/spec/template/spec/containers/0/env/-"
           value:
-            name: DATABASE_PASSWORD
-            valueFrom:
-              secretRef:
-                name: teslamate-database-app
-                key: password
+            name: DATABASE_PASS
+            value: |-
+              valueFrom:
+                secretRef:
+                  name: teslamate-database-app
+                  key: password
       target: 
         kind: Deployment
-        version: apps/v1
         name: teslamate
   interval: 30m
   retryInterval: 1m
