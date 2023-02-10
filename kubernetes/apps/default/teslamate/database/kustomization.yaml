@@ -5,6 +5,7 @@ kind: Kustomization
 namespace: default
 resources:
   - ./database.yaml
+  - ./pi-nas.sops.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: teslamate-database
