@@ -30,6 +30,7 @@ spec:
     image:
       tag: 1.27.1
     env:
+        DATABASE_HOST: null
       - name: DATABASE_HOST
         value: teslamate-database-1
       - name: DATABASE_USER
