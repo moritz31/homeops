@@ -36,3 +36,5 @@ spec:
       extraArgs:
         default-ssl-certificate: |-
           networking/kirstein-me-tls
+    tcp:
+        "5432": default/teslamate-database-ro:5432
