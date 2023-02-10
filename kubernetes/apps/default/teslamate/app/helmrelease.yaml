@@ -31,7 +31,7 @@ spec:
       tag: 1.27.1
     env:
       - name: DATABASE_HOST
-        value: teslamate-database-1
+        value: teslamate-database-1.default
       - name: DATABASE_USER
         valueFrom:
           secretKeyRef:
@@ -42,6 +42,11 @@ spec:
           secretKeyRef:
             name: teslamate-database-app
             key: password
+      - name: ENCRYPTION_KEY
+        valueFrom:
+          secretKeyRef:
+            name: teslamate-encryption
+            key: key
       - name: DATABASE_PASS
         value: teslamate
       - name: DISABLE_MQTT

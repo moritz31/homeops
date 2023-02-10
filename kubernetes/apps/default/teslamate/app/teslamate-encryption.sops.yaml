@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: teslamate-encryption
+    namespace: default
+type: Opaque
+stringData:
+    key: ENC[AES256_GCM,data:BLDF5+9iTtT/J3QK61CXYaAMI+0rBLGlYNWW18wobX2nDAFAalWzcw1Wi81vfZMK90y7,iv:ianA0t4rc8jbDL6IzMPrXRN78VOa+VVllOxPqIHiyK4=,tag:ymQRPLzlrNmrPvgKemFjew==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1l6hn6tqssp82508dcmyrg0dcxrzjv04m0xc7apcffly02y9prqlsj3zmt2
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB4S21uejJHRTNOZlM3NlNl
+            MDlXSW9aUWw4bTNEMkxUWEJYTWVySVdvTVFjCjBXWVFGbG9ZQ2lpMDdqQXdJRmxl
+            ODJlaURSZVpneDE4cFBXdmRJd2xXQ1EKLS0tIHBRcUtwTUs5Nm82VG9oWjVNZTNR
+            Z3hSYi82M0JxMTg0YUw3aWVhZGFiUm8KwaXDMl/3LstCHL1OHIbGUXXPnSKJUbNh
+            BHVMoiaLJS2gaYVGeflSdbtSU03Xk7hKzHQMTl/e+I9c8cD+lntIhQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-02-10T12:31:43Z"
+    mac: ENC[AES256_GCM,data:T68/8V2ScesIp87wjjDl6fL8thVCkR/VvpS6WgTLHjHgFAB5vAvt4tcPHhBHQI8WZcyC0WuPo7PyWyizQgPOWf3SFF1MUs9u0ThpEPDx8hVswEo7QjFzDYsydjRaIc54ubSGdCfRVyIDtvzFighNr8kwfhOtlpbj5Ub+3T0UJb8=,iv:4S1vEcbQGTvdvFn5zZo1bh+5yI2cLJCDoqPIxhgu5HA=,tag:DSyj3elmSbkAbZmGBS/LQQ==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3
