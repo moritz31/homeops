@@ -9,3 +9,6 @@ spec:
     spec:
       securityContext:
         runAsUser: 65532
+      env:
+        - name: GRAFANA_IMAGE_TAG
+          value: 9.1.2
