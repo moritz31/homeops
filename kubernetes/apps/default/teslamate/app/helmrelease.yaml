@@ -31,7 +31,7 @@ spec:
       tag: 1.27.1
     env:
       - name: DATABASE_HOST
-        value: teslamate-database-1
+        value: teslamate-database-rw
       - name: DATABASE_USER
         valueFrom:
           secretKeyRef:
