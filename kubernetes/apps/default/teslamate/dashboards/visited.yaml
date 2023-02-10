@@ -1,0 +1,14 @@
+
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata: 
+  name: teslamate-visited
+  namespace: monitoring
+  labels: 
+    app: grafana
+spec:
+  customFolderName: "TeslaMate"
+  url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.27/grafana/dashboards/visited.json
+  plugins:
+    - name: "pr0ps-trackmap-panel"
+      version: "2.1.2"

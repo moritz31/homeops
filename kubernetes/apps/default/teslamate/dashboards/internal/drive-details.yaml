@@ -1,0 +1,11 @@
+
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata: 
+  name: teslamate-internal-drive-details
+  namespace: monitoring
+  labels: 
+    app: grafana
+spec:
+  customFolderName: "TeslaMate_Internal"
+  url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.27/grafana/dashboards/internal/drive-details.json
