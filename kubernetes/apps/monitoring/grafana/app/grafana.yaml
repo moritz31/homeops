@@ -1,0 +1,35 @@
+apiVersion: integreatly.org/v1alpha1
+kind: Grafana
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  client:
+    preferService: true
+  ingress:
+    enabled: True
+    ingressClassName: internal-ingress
+    hostname: grafana.nas01.kirstein.me
+    path: /
+    pathType: Prefix
+    annotations: 
+      external-dns.alpha.kubernetes.io/hostname: grafana.nas01.kirstein.me
+  config:
+    log:
+      mode: "console"
+      level: "error"
+    log.frontend:
+      enabled: true
+    server:
+      domain: grafana.nas01.kirstein.me
+      root_url: "https://%(domain)s"
+  dashboardLabelSelector:
+    - matchExpressions:
+        - { key: app, operator: In, values: [grafana] }
+  resources:
+    # Optionally specify container resources
+    limits:
+      memory: 200Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
