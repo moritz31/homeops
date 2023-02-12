@@ -43,4 +43,4 @@ spec:
         port: /dev/ttyACM0
         adapter: deconz
     securityContext:
-      privileged: true
+      runAsGroup: 20
