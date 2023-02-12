@@ -9,3 +9,4 @@ resources:
   - ./cloudnative-pg/ks.yaml
   - ./teslamate/ks.yaml
   - ./unifi/ks.yaml
+  - ./zigbee2mqtt/ks.yaml
