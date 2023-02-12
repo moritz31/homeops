@@ -47,3 +47,12 @@ spec:
     securityContext:
       privileged: true
       runAsGroup: 20
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "internal-ingress"
+        hosts:
+          - host: "z2m.kirstein.me"
+            paths:
+              - path: /
+                pathType: Prefix
