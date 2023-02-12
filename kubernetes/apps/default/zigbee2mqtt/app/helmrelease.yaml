@@ -51,8 +51,10 @@ spec:
       main:
         enabled: true
         ingressClassName: "internal-ingress"
+        annotations: 
+          external-dns.alpha.kubernetes.io/hostname: z2m.nas01.kirstein.me
         hosts:
-          - host: "z2m.kirstein.me"
+          - host: "z2m.nas01.kirstein.me"
             paths:
               - path: /
                 pathType: Prefix
