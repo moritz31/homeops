@@ -45,4 +45,5 @@ spec:
       mqtt: 
         server: "mqtt://emqx"
     securityContext:
+      privileged: true
       runAsGroup: 20
