@@ -1,19 +1,20 @@
+
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/helmrelease_v2beta1.json
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: zigbee2mqtt
+  name: emqx
   namespace: default
 spec:
   interval: 15m
   chart:
     spec:
-      chart: zigbee2mqtt
-      version: 9.4.2
+      chart: emqx
+      version: 5.0.16
       sourceRef:
         kind: HelmRepository
-        name: k8s-at-home
+        name: emqx
         namespace: flux-system
   maxHistory: 3
   install:
@@ -28,21 +29,10 @@ spec:
     keepHistory: false
   values:
     image:
-      tag: 1.30.1
+      repository: public.ecr.aws/emqx/emqx
+    replicaCount: 1
+    recreatePods: true
     persistence:
-      data:
-        enabled: true
-        storageClass:  nfs-client
-        accessMode: ReadWriteOnce
-        size: 1Gi
-      usb:
-        enabled: true
-        hostPath: /dev/ttyACM0
-    config:
-      serial:
-        port: /dev/ttyACM0
-        adapter: deconz
-      mqtt: 
-        server: "mqtt://emqx"
-    securityContext:
-      runAsGroup: 20
+      enabled: true
+      storageClassName: nfs-client
+      size: 100Mi
