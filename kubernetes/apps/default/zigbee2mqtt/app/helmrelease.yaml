@@ -41,3 +41,5 @@ spec:
     config:
       serial:
         port: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2485719-if00
+    securityContext:
+      privileged: true
