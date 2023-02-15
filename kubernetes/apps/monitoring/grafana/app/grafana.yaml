@@ -4,6 +4,8 @@ metadata:
   name: grafana
   namespace: monitoring
 spec:
+  deployment:
+    replicas: 0
   client:
     preferService: true
   ingress:
