@@ -3,17 +3,17 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: home-assistant
+  name: homebridge
   namespace: default
 spec:
   interval: 15m
   chart:
     spec:
-      chart: home-assistant
-      version: 16.1.2
+      chart: homebridge
+      version: 5.3.2
       sourceRef:
         kind: HelmRepository
-        name: samipsolutions
+        name: k8s-at-home
         namespace: flux-system
   maxHistory: 3
   install:
@@ -26,3 +26,10 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
+  values:
+    image:
+      tag: "2023-01-08"
+    persistence:
+      storage-class: nfs-client
+      accessMode: ReadWriteOnce
+    hostNework: true
