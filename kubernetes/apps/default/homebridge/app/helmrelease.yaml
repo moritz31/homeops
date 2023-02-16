@@ -30,6 +30,8 @@ spec:
     image:
       tag: "2023-01-08"
     persistence:
+      enabled: true
+      size: 1Gi
       storage-class: nfs-client
       accessMode: ReadWriteOnce
     hostNework: true
