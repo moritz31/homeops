@@ -30,6 +30,11 @@ spec:
     image:
       repository: oznu/homebridge
       tag: "2023-01-08"
+    service:
+      main:
+        ports:
+          http:
+            port: 8581
     ingress:
       main:
         enabled: true
