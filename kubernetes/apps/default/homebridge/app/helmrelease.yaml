@@ -53,5 +53,4 @@ spec:
         storageClass:  nfs-client
         accessMode: ReadWriteOnce
         size: 1Gi
-    hostNework: true
-    dnsPolicy: ClusterFirstWithHostNet
+    hostNetwork: true
