@@ -39,8 +39,8 @@ spec:
             paths:
             - path: /
               pathType: Prefix
-    volumeClaimTemplates:
-      - name: data
+    persistence:
+      config:
         mountPath: /homebridge
         storageClass:  nfs-client
         accessMode: ReadWriteOnce
