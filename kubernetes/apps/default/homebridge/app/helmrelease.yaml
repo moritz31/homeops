@@ -28,6 +28,7 @@ spec:
     keepHistory: false
   values:
     image:
+      repository: oznu/homebridge
       tag: "2023-01-08"
     persistence:
       data:
