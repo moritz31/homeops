@@ -39,6 +39,8 @@ spec:
       main:
         enabled: true
         ingressClassName: "internal-ingress"
+        annotations: 
+          external-dns.alpha.kubernetes.io/hostname: hb.nas01.kirstein.me
         hosts:
           - host: hb.nas01.kirstein.me
             paths:
