@@ -47,7 +47,8 @@ spec:
             - path: /
               pathType: Prefix
     persistence:
-      config:
+      homebridge:
+        enabled: true
         mountPath: /homebridge
         storageClass:  nfs-client
         accessMode: ReadWriteOnce
