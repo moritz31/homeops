@@ -9,6 +9,7 @@ resources:
   - ./cloudnative-pg/ks.yaml
   - ./emqx/ks.yaml
   - ./homebridge/ks.yaml
+  - ./mqtt-exporter/ks.yaml
   - ./teslamate/ks.yaml
   - ./unifi/ks.yaml
   - ./zigbee2mqtt/ks.yaml
