@@ -30,3 +30,5 @@ spec:
   values:
     env:
       MQTT_ADDRESS: emqx.default.svc.cluster.local
+    metrics:
+      enabled: true
