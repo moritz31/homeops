@@ -36,12 +36,8 @@ spec:
       enabled: true
       storageClassName: nfs-client
       size: 100Mi
-    ingress:
-      enabled: true
+    service:
+      type: LoadBalancer
       annotations:
-        external-dns.alpha.kubernetes.io/hostname: &host mqtt.nas01.kirstein.me
-      ingressClassName: "internal-ingress"
-      path: /
-      pathType: Prefix
-      hosts:
-        - *host
+        external-dns.alpha.kubernetes.io/hostname: mqtt.nas01.kirstein.me
+      externalTrafficPolicy: Local
