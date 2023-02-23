@@ -28,6 +28,11 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    service:
+      main:
+        type: LoadBalancer
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: mqtt2.nas01.kirstein.me
     persistence:
         data:
           enabled: true
