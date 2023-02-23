@@ -30,5 +30,6 @@ spec:
   values:
     env:
       MQTT_ADDRESS: mosquitto.default.svc.cluster.local
+      MQTT_TOPIC: ahoydtu/#
     metrics:
       enabled: true
