@@ -29,6 +29,6 @@ spec:
     keepHistory: false
   values:
     env:
-      MQTT_ADDRESS: emqx.default.svc.cluster.local
+      MQTT_ADDRESS: mosquitto.default.svc.cluster.local
     metrics:
       enabled: true
