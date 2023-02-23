@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: 45.1.1
+      version: 45.2.0
       sourceRef:
         kind: HelmRepository
         name: prometheus-community
@@ -74,6 +74,8 @@ spec:
         hosts: 
           - "prometheus.nas01.kirstein.me"
       prometheusSpec:
+        scrapeInterval: 1m
+        evaluationInterval: 1m
         ruleSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
         podMonitorSelectorNilUsesHelmValues: false
