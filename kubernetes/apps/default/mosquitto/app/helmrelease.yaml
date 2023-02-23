@@ -32,6 +32,7 @@ spec:
         data:
           enabled: true
           storageClassName: nfs-client
+          accessMode: ReadWriteOnce
           size: 100Mi
     service:
       type: LoadBalancer
