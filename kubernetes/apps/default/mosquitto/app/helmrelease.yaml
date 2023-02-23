@@ -14,7 +14,7 @@ spec:
       version: 4.8.2
       sourceRef:
         kind: HelmRepository
-        name: mosquitto
+        name: k8s-at-home
         namespace: flux-system
   maxHistory: 3
   install:
