@@ -7,7 +7,7 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-apps-emqx
+    - name: cluster-apps-mosquitto
   path: ./kubernetes/apps/default/zigbee2mqtt/app
   prune: true
   sourceRef:
