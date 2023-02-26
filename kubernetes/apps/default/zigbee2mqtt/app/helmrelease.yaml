@@ -43,7 +43,7 @@ spec:
         port: /dev/ttyACM0
         adapter: deconz
       mqtt: 
-        server: "mqtt://emqx"
+        server: "mqtt://mosquitto"
     securityContext:
       privileged: true
       runAsGroup: 20
