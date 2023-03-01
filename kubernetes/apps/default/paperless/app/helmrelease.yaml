@@ -99,6 +99,20 @@ spec:
         ports:
           http:
             port: 8000
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: nginx
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "home.kirstein.me"
+        hosts:
+          - host: &host paperless.kirstein.me
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts: 
+            - *host
     persistence:
       data:
         enabled: true
