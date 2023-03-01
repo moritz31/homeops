@@ -102,7 +102,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: nginx
+        ingressClassName: external-ingress
         annotations:
           external-dns.alpha.kubernetes.io/target: "home.kirstein.me"
         hosts:
