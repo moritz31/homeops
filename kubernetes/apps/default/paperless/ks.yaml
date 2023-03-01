@@ -7,8 +7,8 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-apps-teslamate-database
-    - name: cluster-apps-teslamate-redis
+    - name: cluster-apps-paperless-database
+    - name: cluster-apps-paperless-redis
   path: ./kubernetes/apps/default/paperless/app
   prune: true
   sourceRef:
