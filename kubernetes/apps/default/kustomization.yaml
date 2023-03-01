@@ -10,6 +10,7 @@ resources:
   - ./homebridge/ks.yaml
   - ./mosquitto/ks.yaml
   - ./mqtt-exporter/ks.yaml
+  - ./paperless/ks.yaml
   - ./teslamate/ks.yaml
   - ./unifi/ks.yaml
   - ./zigbee2mqtt/ks.yaml

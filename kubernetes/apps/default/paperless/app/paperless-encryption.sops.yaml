@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: paperless-encryption
+    namespace: default
+type: Opaque
+stringData:
+    key: ENC[AES256_GCM,data:pRZhxZp/Jm6nmiB79VDCoYCmdVb2ML+4KtyRmvMdyuRo/U10jlQZLcPi/+R9zOP40VyFRMEeY8DNSJJuOjseFA==,iv:8OT1MVO6eYjKtMtlX6kEB1sjapvAgEAIn/IE1Aj6dKI=,tag:myBwwMWXgj4ZB6AEe2W5gQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1l6hn6tqssp82508dcmyrg0dcxrzjv04m0xc7apcffly02y9prqlsj3zmt2
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBGcVRBdmVrdHpXSFNFa1gr
+            Q25TWTk3bFkrcUhhWTB2bVhTSHZNUkJhV1hBCnJ4eGJTVHNxWFIvdng5WUdaSHA5
+            eldHRURuRGt0TmNTTHBRcWdSWmRpbVkKLS0tIHVNdnRnZ3d2T24yd3VYSDh0Vml3
+            RXA1cVZHcmFPTXlhN1htanZUOWJETzgKnceQu/fKrL8gVHvFXS7I9qs0qQoaY1WD
+            tWVrwqC8JcJwSJy6AjLxTdpJx97Hc1JO5O5alEf2Q4zKHbHZQo+rig==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-03-01T16:47:26Z"
+    mac: ENC[AES256_GCM,data:AwVvF2pPXBIc4pzCmw+kNuIGEeI9UV6wDvAXDmgvRUxy/vPK+++UcdySaJVtZXEOj03zhnk/JE1gk+POCbYkbsd740K5hwY6N0atHcdf4azWnU2iTSMeYJApmawYfUuhmPZwpzvNKE7v67bwV+llJgXnFRAb6ROOf8/SI5w5bDY=,iv:YmUSIRrvLF9rHzGJ+h0cbvJvCGgEKvk+eHN9w5mE3Cw=,tag:L+W8C8wlYMrISh3HrryVYw==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3

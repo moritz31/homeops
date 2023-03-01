@@ -3,8 +3,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: truecharts
+  name: bitnami
   namespace: flux-system
 spec:
   interval: 2h
-  url: https://charts.truecharts.org
+  url: https://charts.bitnami.com/bitnami
