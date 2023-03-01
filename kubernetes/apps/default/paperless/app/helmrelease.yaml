@@ -78,7 +78,7 @@ spec:
       - name: PAPERLESS_OCR_LANGUAGE
         value: deu+eng
       - name: PAPERLESS_SECRET_KEY
-       valueFrom:
+        valueFrom:
           secretKeyRef:
             name: paperless-encryption
             key: key
