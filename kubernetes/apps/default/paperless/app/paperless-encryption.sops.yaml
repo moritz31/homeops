@@ -5,7 +5,9 @@ metadata:
     namespace: default
 type: Opaque
 stringData:
-    key: ENC[AES256_GCM,data:pRZhxZp/Jm6nmiB79VDCoYCmdVb2ML+4KtyRmvMdyuRo/U10jlQZLcPi/+R9zOP40VyFRMEeY8DNSJJuOjseFA==,iv:8OT1MVO6eYjKtMtlX6kEB1sjapvAgEAIn/IE1Aj6dKI=,tag:myBwwMWXgj4ZB6AEe2W5gQ==,type:str]
+    key: ENC[AES256_GCM,data:xZBFM5kVQxpyr2gijcxqxrwrptoZ9Hg3HfthkTwh/2V2z+lR43G0EvMhlu6NxBg37yRuexLuiBf7HBGgdoUObQ==,iv:OR/y9wLC13JADNMc2uAWZ/9zHsotb3Z07KhZS1BHlzk=,tag:eVdFa41xBrnu3YUesAgHKQ==,type:str]
+    username: ENC[AES256_GCM,data:4GipY/Y=,iv:yrF0FqAyJGqffX8NnWkWABaFmdWNagJPNodYAp+Ox8M=,tag:jENoBOQ79NOfA9YMjtGiZA==,type:str]
+    password: ENC[AES256_GCM,data:xNUKpIhOVb4OWQTvlSB8kjYkjbo=,iv:Z/XEYHwqeWDOA7J8vaeGaOcDMvv+/jSQbfYvfKSIV0c=,tag:VSBOkObeGKYdWFjoYvya7A==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -15,14 +17,14 @@ sops:
         - recipient: age1l6hn6tqssp82508dcmyrg0dcxrzjv04m0xc7apcffly02y9prqlsj3zmt2
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBGcVRBdmVrdHpXSFNFa1gr
-            Q25TWTk3bFkrcUhhWTB2bVhTSHZNUkJhV1hBCnJ4eGJTVHNxWFIvdng5WUdaSHA5
-            eldHRURuRGt0TmNTTHBRcWdSWmRpbVkKLS0tIHVNdnRnZ3d2T24yd3VYSDh0Vml3
-            RXA1cVZHcmFPTXlhN1htanZUOWJETzgKnceQu/fKrL8gVHvFXS7I9qs0qQoaY1WD
-            tWVrwqC8JcJwSJy6AjLxTdpJx97Hc1JO5O5alEf2Q4zKHbHZQo+rig==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBQbVAvUGlqTUY5TjZPam13
+            ZWpwZjA5eDV6M0huMGdGM0xJY0xwSHFuZmdVCjRzd3BGbnVkTjRRcHR1cjNCVU1R
+            VSttdkIxdmUyVDBla1gyQW5BOWVTUnMKLS0tIFN6dWgrcm1wRy9ndmFMZkh4ajZY
+            am0ydmxLTFUwNWlnRFdPNWVpV3plOVEKPK02czlXBbEBEoPeUzLzAGI6Ct2gU8bB
+            0/Bf3MzsEZQ+63rtRHUJx6yjmc4kanb0icsehxNINtU9pIpJUE+KGg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-03-01T16:47:26Z"
-    mac: ENC[AES256_GCM,data:AwVvF2pPXBIc4pzCmw+kNuIGEeI9UV6wDvAXDmgvRUxy/vPK+++UcdySaJVtZXEOj03zhnk/JE1gk+POCbYkbsd740K5hwY6N0atHcdf4azWnU2iTSMeYJApmawYfUuhmPZwpzvNKE7v67bwV+llJgXnFRAb6ROOf8/SI5w5bDY=,iv:YmUSIRrvLF9rHzGJ+h0cbvJvCGgEKvk+eHN9w5mE3Cw=,tag:L+W8C8wlYMrISh3HrryVYw==,type:str]
+    lastmodified: "2023-03-01T17:27:02Z"
+    mac: ENC[AES256_GCM,data:iRfjP3XL6xZeXAbtW869ONt5WW+FEYSPGDH/SVhEIHBrK0SAZk2qDKE+6eFIhudPGy8pcn8v33JD2MqlRDJpi2252T7bnnpu5qinjA5TSLgNp2CwKZE+dcOUR1rnBxLnvPnDnWhNGOpIeirEpgVAFfjSedggxJzUrHjqhKPdafA=,iv:XTlGYnC6KcQS1G2yDdgYx/N5WoPi7PLwv+DqqZSlw2w=,tag:KP9VGtpgi3vSis/M6dBjvw==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.7.3

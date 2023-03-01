@@ -84,6 +84,16 @@ spec:
           secretKeyRef:
             name: paperless-encryption
             key: key
+      - name: PAPERLESS_ADMIN_USER
+        valueFrom:
+          secretKeyRef:
+            name: paperless-encryption
+            key: username
+      - name: PAPERLESS_ADMIN_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: paperless-encryption
+            key: password
     service:
       main:
         ports:
