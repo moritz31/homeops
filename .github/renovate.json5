@@ -27,13 +27,5 @@
   },
   "kubernetes": {
     "fileMatch": ["kubernetes/.+\\.ya?ml$"]
-  },
-  "regexManagers": [
-    {
-      "description": "Process custom dependencies",
-      "fileMatch": [
-        "kubernetes/.+\\.ya?ml$"
-      ]
-    }
-  ]
+  }
 }
