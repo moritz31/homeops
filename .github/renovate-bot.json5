@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "username": "tech-buddy-bot[bot]",
-  "gitAuthor": "tech-buddy-bot-bot <98030736+tech-buddy-bot[bot]@users.noreply.github.com>",
+  "gitAuthor": "tech-buddy-bot-bot <98030737+tech-buddy-bot[bot]@users.noreply.github.com>",
   "repositories": ["moritz31/homeops"]
 }
