@@ -5,6 +5,7 @@ kind: Kustomization
 namespace: default
 resources:
   - ./database.yaml
+  - ./paperless-backup.sops.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: paperless-database
