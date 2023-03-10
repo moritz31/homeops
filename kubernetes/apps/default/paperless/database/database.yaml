@@ -11,6 +11,9 @@ spec:
   storage:
     size: 1Gi
     storageClass: nfs-client
+  bootstrap:
+    recovery:
+      source: &previous-cluster postgres-v2
   postgresql:
     pg_hba:
       - hostssl app app 192.168.178.0/24 md5
