@@ -11,9 +11,6 @@ spec:
   storage:
     size: 1Gi
     storageClass: nfs-client
-  bootstrap:
-    recovery:
-      source: &previous-cluster postgres-v2
   postgresql:
     pg_hba:
       - hostssl app app 192.168.178.0/24 md5
@@ -33,18 +30,3 @@ spec:
         secretAccessKey:
           name: paperless-backup-secret
           key: aws-secret-access-key
-  # Note: externalClusters is needed when recovering from an existing cnpg cluster
-  externalClusters:
-    - name: *previous-cluster
-      barmanObjectStore:
-        wal:
-          compression: bzip2
-          maxParallel: 8
-        destinationPath: s3://postgresql/paperless
-        s3Credentials:
-          accessKeyId:
-            name: paperless-backup-secret
-            key: aws-access-key-id
-          secretAccessKey:
-            name: paperless-backup-secret
-            key: aws-secret-access-key
