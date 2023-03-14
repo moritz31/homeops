@@ -6,6 +6,7 @@ namespace: default
 resources:
   - ./database.yaml
   - ./paperless-backup.sops.yaml
+  - ./scheduledbackup.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: paperless-database
