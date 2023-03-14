@@ -16,3 +16,18 @@ spec:
       - hostssl app app 192.168.178.0/24 md5
   monitoring:
     enablePodMonitor: true
+  backup:
+    retentionPolicy: 30d
+    barmanObjectStore:
+      wal:
+        compression: bzip2
+        maxParallel: 8
+      destinationPath: s3://backup-homelab-kirstein/postgresql/teslamate
+      s3Credentials:
+        accessKeyId:
+          name: teslamate-backup-secret
+          key: aws-access-key-id
+        secretAccessKey:
+          name: teslamate-backup-secret
+          key: aws-secret-access-key
+

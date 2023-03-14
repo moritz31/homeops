@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: teslamate-backup-secret
+    namespace: default
+type: Opaque
+stringData:
+    aws-access-key-id: ENC[AES256_GCM,data:SRwxbBHv7rHtGZjb7vAn546ZQSg=,iv:RxY2l5lhztvZdnRVTWZ1Ma7LK/bJNgDWSq6TTW+y450=,tag:vHhEBvFhJ1xZGG8UbDWd9A==,type:str]
+    aws-secret-access-key: ENC[AES256_GCM,data:SrSSYxxFNHowlC7nfxmU+DF04vcYmpeZopgYQ+ctAi4qamDBXVNybw==,iv:rVgBWytz+HwFBjMeFIJfBhWXN45vzgMKOXflc1Du874=,tag:3CHWTJk9PhBnMdCgXo19EQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1l6hn6tqssp82508dcmyrg0dcxrzjv04m0xc7apcffly02y9prqlsj3zmt2
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB6Y3ZPSWQxMGJDd3p3bnc1
+            Y0RORUdMTGhCVWExWTBBNTB5bENnK3lEWm0wCjRLelNpR2hLNjFZMmRUTXV3WHl1
+            ZGY5b2poSDJyYWsrakxsK01aZ0hscGMKLS0tIEx4Z0w4aUozS2VzM3hsa3NMeElZ
+            SWlhQmhacnUrdGhHVUdSaG9SMTBiQmcKbTtX5eA2Y0q3mcw7zYt9qBRKa3cblQpC
+            mA4JIorhDuH8w1N1YJJo6JMp59TGrR4i+g2WjflzNaD8xFa3pJMp0A==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-03-14T12:34:56Z"
+    mac: ENC[AES256_GCM,data:OKZLFshwlGVk/qyj8QDATX/3Bx40FZD8wfWDp3QZ+SextHHIGlrpzwyAcI9CS7aN8FoIAQM8KhcF4ZC7dA0MvOI2SAlQVRdw96RAnzYmBoSYDeIFLjtuSg6WJDNVse1PgkKaM8PKHlbwvUmTCw8I0h3gu+QBiptGpJU8epQepRs=,iv:vLJt2V7Z8EQ9u0be2+sZPOuGFgfW/p2tAxjRUxOud3o=,tag:4DbFCHNlRn5BoahCl7SwFw==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.3

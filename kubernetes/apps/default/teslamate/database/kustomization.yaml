@@ -5,6 +5,8 @@ kind: Kustomization
 namespace: default
 resources:
   - ./database.yaml
+  - ./scheduledbackup.yaml
+  - ./teslamate-backup.sops.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: teslamate-database
