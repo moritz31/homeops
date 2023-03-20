@@ -5,6 +5,6 @@ kind: Kustomization
 namespace: monitoring
 namePrefix: grafana-operator-
 resources:
-  - github.com/grafana-operator/grafana-operator/tree/8bed473923b59388228d19dc2836a5f7e25b9344/deploy/manifests/v4.10.0
+  - https://github.com/grafana-operator/grafana-operator/deploy/manifests/v4.10.0?ref=v4.10.0
 patchesStrategicMerge:
 - security_context.yaml
