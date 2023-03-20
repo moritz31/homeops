@@ -28,6 +28,10 @@ spec:
       AUTHENTIK_POSTGRESQL__HOST: authentik-database-rw
       AUTHENTIK_POSTGRESQL__NAME: app
     envValueFrom:
+      AUTHENTIK_SECRET_KEY:
+        secretKeyRef:
+          name: authentik-secret
+          key: key
       AUTHENTIK_POSTGRESQL__USER: 
         secretKeyRef:
             name: authentik-database-app
@@ -36,8 +40,6 @@ spec:
         secretKeyRef:
             name: authentik-database-app
             key: password
-    authentik:
-      secret_key: ${AUTHENTIK_SECRET_KEY}
     ingress:
       enabled: true
       ingressClassName: external-ingress
