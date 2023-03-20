@@ -58,3 +58,13 @@ spec:
         create: true
       serviceMonitor:
         create: true
+
+    # Unset default values
+    authentik:
+      postgresql:
+        host: null
+        name: null
+        user: null
+        password: null
+      redis:
+        host: null
