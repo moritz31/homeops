@@ -6,6 +6,9 @@ metadata:
 spec:
   deployment:
     replicas: 1
+    envFrom:
+      - secretRef:
+          name: grafana-secrets
   client:
     preferService: true
   ingress:
@@ -17,6 +20,16 @@ spec:
     annotations: 
       external-dns.alpha.kubernetes.io/hostname: grafana.nas01.kirstein.me
   config:
+    auth: 
+      signout_redirect_url: https://auth.kirstein.me/application/o/grafana/end-session/
+      oauth_auto_login: true
+    auth.generic_oauth:
+      name: authentik
+      enabled: true
+      scopes: openid email profile
+      auth_url: https://auth.kirstein.me/application/o/authorize/
+      token_url: https://auth.kirstein.mey/application/o/token/
+      api_url: https://auth.kirstein.me/application/o/userinfo/
     log:
       mode: "console"
       level: "error"
