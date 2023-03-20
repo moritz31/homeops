@@ -23,10 +23,6 @@ spec:
       enabled: false
     redis:
       enabled: false
-    env:
-      AUTHENTIK_REDIS__HOST: authentik-redis-master
-      AUTHENTIK_POSTGRESQL__HOST: authentik-database-rw
-      AUTHENTIK_POSTGRESQL__NAME: app
     envValueFrom:
       AUTHENTIK_SECRET_KEY:
         secretKeyRef:
@@ -62,9 +58,9 @@ spec:
     # Unset default values
     authentik:
       postgresql:
-        host: null
-        name: null
+        host: authentik-database-rw
+        name: app
         user: null
         password: null
       redis:
-        host: null
+        host: authentik-redis-master
