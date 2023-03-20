@@ -30,6 +30,7 @@ spec:
       auth_url: https://auth.kirstein.me/application/o/authorize/
       token_url: https://auth.kirstein.me/application/o/token/
       api_url: https://auth.kirstein.me/application/o/userinfo/
+      role_attribute_path: contains(info.roles[*], 'admin') && 'GrafanaAdmin' || contains(info.roles[*], 'editor') && 'Editor' || 'Viewer'
     log:
       mode: "console"
       level: "error"
