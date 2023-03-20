@@ -28,7 +28,7 @@ spec:
       enabled: true
       scopes: openid email profile
       auth_url: https://auth.kirstein.me/application/o/authorize/
-      token_url: https://auth.kirstein.mey/application/o/token/
+      token_url: https://auth.kirstein.me/application/o/token/
       api_url: https://auth.kirstein.me/application/o/userinfo/
     log:
       mode: "console"
