@@ -1,0 +1,32 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/cluster_v1.json
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: authentik-database
+  namespace: default
+spec:
+  instances: 1
+  primaryUpdateStrategy: unsupervised
+  storage:
+    size: 1Gi
+    storageClass: nfs-client
+  postgresql:
+    pg_hba:
+      - hostssl app app 192.168.178.0/24 md5
+  monitoring:
+    enablePodMonitor: true
+  backup:
+    retentionPolicy: 30d
+    barmanObjectStore:
+      wal:
+        compression: bzip2
+        maxParallel: 8
+      destinationPath: s3://backup-homelab-kirstein/postgresql/authentik
+      s3Credentials:
+        accessKeyId:
+          name: authentik-backup-secret
+          key: aws-access-key-id
+        secretAccessKey:
+          name: authentik-backup-secret
+          key: aws-secret-access-key

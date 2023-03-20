@@ -1,0 +1,14 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: default
+resources:
+  - ./database.yaml
+  - ./authentik-backup.sops.yaml
+  - ./scheduledbackup.yaml
+labels:
+  - pairs:
+      app.kubernetes.io/name: authentik-database
+      app.kubernetes.io/instance: authentik-database
+      app.kubernetes.io/part-of: authentik
