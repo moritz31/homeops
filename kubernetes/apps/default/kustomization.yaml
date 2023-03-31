@@ -6,6 +6,7 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
+  - ./ahoydtu/ks.yaml
   - ./authentik/ks.yaml
   - ./cloudnative-pg/ks.yaml
   - ./homebridge/ks.yaml

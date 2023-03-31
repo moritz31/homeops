@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: ahoydtu
+  namespace: monitoring
+  labels:
+    k8s-app: ahoydtu
+subsets:
+- addresses:
+  - ip: 1.2.3.4
+  ports:
+  - name: web
+    port: 80
+    protocol: TCP
