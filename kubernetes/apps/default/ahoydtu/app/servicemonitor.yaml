@@ -14,7 +14,7 @@ spec:
       - sourceLabels: [__address__]
         targetLabel: __address__
         regex: (.*)
-        replacement: "ahoydtu.fritz.box"
+        replacement: "ahoy-dtu.fritz.box"
         action: replace
   namespaceSelector:
     matchNames:
