@@ -4,7 +4,6 @@ metadata:
   labels:
     k8s-app: ahoydtu
   name: ahoydtu
-  namespace: monitoring
 spec:
   endpoints:
   - path: /metrics
@@ -13,7 +12,7 @@ spec:
     scheme: http
   namespaceSelector:
     matchNames:
-    - monitoring
+    - default
   selector:
     matchLabels:
       k8s-app: ahoydtu

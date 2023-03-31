@@ -2,7 +2,6 @@ kind: Service
 apiVersion: v1
 metadata:
  name: ahoydtu
- namespace: monitoring
 spec:
  type: ExternalName
  externalName: ahoy-dtu.fritz.box
