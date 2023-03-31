@@ -13,6 +13,7 @@ spec:
     scheme: http
   namespaceSelector:
     matchNames:
-    - default
+    - monitoring
   selector:
-    app: gopher-builder
+    matchLabels:
+      k8s-app: ahoydtu
