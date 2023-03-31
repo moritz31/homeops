@@ -5,5 +5,10 @@ metadata:
   labels:
     k8s-app: ahoydtu
 spec:
- type: ExternalName
- externalName: ahoy-dtu.fritz.box
+  type: ExternalName
+  externalName: ahoy-dtu.fritz.box
+  ports:
+  - name: metrics
+    port: 80
+    protocol: TCP
+    targetPort: 80

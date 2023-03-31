@@ -8,6 +8,6 @@ subsets:
 - addresses:
   - ip: 1.2.3.4
   ports:
-  - name: web
+  - name: metrics
     port: 80
     protocol: TCP
