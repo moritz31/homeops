@@ -1,7 +1,9 @@
 kind: Service
 apiVersion: v1
 metadata:
- name: ahoydtu
+  name: ahoydtu
+  labels:
+    k8s-app: ahoydtu
 spec:
  type: ExternalName
  externalName: ahoy-dtu.fritz.box
