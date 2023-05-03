@@ -29,6 +29,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    defaultRules:
+      create: false
     grafana:
       enabled: false
     alertmanager:
