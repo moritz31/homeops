@@ -29,6 +29,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    fullnameOverride: "victoria-metrics"
     defaultRules:
       create: false
     grafana:
@@ -36,7 +37,6 @@ spec:
     alertmanager:
       enabled: false
     vmsingle:
-      name: "victoria-metrics"
       ingress:
         enabled: true
         annotations:
