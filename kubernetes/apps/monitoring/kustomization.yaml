@@ -9,3 +9,4 @@ resources:
   - ./grafana/ks.yaml
   - ./grafana-operator/ks.yaml
   - ./kube-prometheus-stack/ks.yaml
+  - ./victoria-metrics-stack/ks.yaml
