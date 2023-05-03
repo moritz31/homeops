@@ -14,11 +14,11 @@ spec:
   ingress:
     enabled: True
     ingressClassName: external-ingress
-    hostname: grafana.nas01.kirstein.me
+    hostname: grafana.kirstein.me
     path: /
     pathType: Prefix
     annotations: 
-      external-dns.alpha.kubernetes.io/hostname: grafana.nas01.kirstein.me
+      external-dns.alpha.kubernetes.io/hostname: grafana.kirstein.me
   config:
     auth: 
       signout_redirect_url: https://auth.kirstein.me/application/o/grafana/end-session/
