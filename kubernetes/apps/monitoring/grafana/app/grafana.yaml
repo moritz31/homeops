@@ -13,7 +13,7 @@ spec:
     preferService: true
   ingress:
     enabled: True
-    ingressClassName: internal-ingress
+    ingressClassName: external-ingress
     hostname: grafana.nas01.kirstein.me
     path: /
     pathType: Prefix
@@ -37,7 +37,7 @@ spec:
     log.frontend:
       enabled: true
     server:
-      domain: grafana.nas01.kirstein.me
+      domain: grafana.kirstein.me
       root_url: "https://%(domain)s"
   dashboardLabelSelector:
     - matchExpressions:

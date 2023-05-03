@@ -13,4 +13,4 @@ spec:
         - name: manager
           env:
           - name: GRAFANA_IMAGE_TAG
-            value: 9.4.3
+            value: 9.5.1
