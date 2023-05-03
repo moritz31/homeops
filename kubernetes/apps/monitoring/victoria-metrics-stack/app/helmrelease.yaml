@@ -29,6 +29,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    nameOverride: "victoria-metrics-stack"
+    fullNameOverride: "victoria-metrics-stack"
     defaultRules:
       create: false
     grafana:
