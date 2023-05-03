@@ -51,6 +51,6 @@ spec:
         resources:
           requests:
             storage: 20Gi
-      victoria-metrics-operator:
-        operator:
-          disable_prometheus_converter: false
+    victoria-metrics-operator:
+      operator:
+        disable_prometheus_converter: false
