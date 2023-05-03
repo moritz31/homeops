@@ -29,10 +29,10 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    nameOverride: "victoria-metrics-stack"
-    fullNameOverride: "victoria-metrics-stack"
     defaultRules:
       create: false
+    kubeScheduler:
+      enabled: false
     grafana:
       enabled: false
     alertmanager:
