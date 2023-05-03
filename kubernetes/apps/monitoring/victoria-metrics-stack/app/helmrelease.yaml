@@ -41,7 +41,7 @@ spec:
         enabled: true
         annotations:
           external-dns.alpha.kubernetes.io/hostname: vm.nas01.kirstein.me
-          kubernetes.io/ingress.class: internal-ingress
+        ingressClassName: internal-ingress
         hosts: 
           - "vm.nas01.kirstein.me"
       storage:
