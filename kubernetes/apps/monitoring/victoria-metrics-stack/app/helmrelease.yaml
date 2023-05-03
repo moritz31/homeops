@@ -31,13 +31,12 @@ spec:
   values:
     defaultRules:
       create: false
-    kubeScheduler:
-      enabled: false
     grafana:
       enabled: false
     alertmanager:
       enabled: false
     vmsingle:
+      name: "victoria-metrics"
       ingress:
         enabled: true
         annotations:
