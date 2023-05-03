@@ -91,7 +91,7 @@ spec:
         walCompression: true
         enableAdminAPI: true
         retention: ""
-        retentionSize: 100G
+        retentionSize: 100GB
         storageSpec:
           volumeClaimTemplate:
             spec:
