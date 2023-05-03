@@ -44,3 +44,10 @@ spec:
           kubernetes.io/ingress.class: internal-ingress
         hosts: 
           - "vm.nas01.kirstein.me"
+      storage:
+        storageClassName: nfs-client
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 20Gi
