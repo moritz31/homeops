@@ -29,6 +29,14 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    kubeEtcd:
+      enabled: false
+    kubeControllerManager:
+      enabled: false
+    kubeProxy:
+      enabled: false
+    kubeScheduler:
+      enabled: false
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
       ingress:
