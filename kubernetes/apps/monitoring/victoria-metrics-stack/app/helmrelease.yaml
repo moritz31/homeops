@@ -35,7 +35,7 @@ spec:
     grafana:
       enabled: false
     alertmanager:
-      alertmanager:
+      spec:
         ingress:
           enabled: true
           annotations:
