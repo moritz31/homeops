@@ -37,11 +37,11 @@ spec:
     alertmanager:
       enabled: false
     vmsingle:
+      retentionPeriod: 2y
       ingress:
         enabled: true
         annotations:
           external-dns.alpha.kubernetes.io/hostname: vm.nas01.kirstein.me
-          nginx.ingress.kubernetes.io/proxy-body-size: 10G
         ingressClassName: internal-ingress
         hosts: 
           - "vm.nas01.kirstein.me"
