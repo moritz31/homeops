@@ -30,8 +30,6 @@ spec:
     keepHistory: false
   values:
     fullnameOverride: "victoria-metrics"
-    defaultRules:
-      create: false
     grafana:
       enabled: false
     alertmanager:
