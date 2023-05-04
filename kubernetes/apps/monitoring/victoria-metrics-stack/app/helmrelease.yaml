@@ -35,37 +35,36 @@ spec:
     grafana:
       enabled: false
     alertmanager:
-      spec:
-        ingress:
-          enabled: true
-          annotations:
-            external-dns.alpha.kubernetes.io/hostname: alertmanager.nas01.kirstein.me
-            kubernetes.io/ingress.class: internal-ingress
-          ingressClassName: internal-ingress
-          hosts:
-            - "alertmanager.nas01.kirstein.me"
-        config:
-          global:
-            resolve_timeout: 5m
-          receivers:
-            - name: heartbeat
-              webhook_configs:
-                - url: "https://push.statuscake.com/${SECRET_ALERTMANAGER_STATUSCAKE_URL}"
-                  send_resolved: true
-            - name: "null"
-          route:
-            group_by: ["alertname", "job"]
-            group_wait: 45s
-            group_interval: 10m
-            repeat_interval: 12h
-            receiver: "null"
-            routes:
-              - receiver: heartbeat
-                group_wait: 0s
-                group_interval: 2m
-                repeat_interval: 2m
-                matchers:
-                  - alertname =~ "Watchdog"
+      ingress:
+        enabled: true
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: alertmanager.nas01.kirstein.me
+          kubernetes.io/ingress.class: internal-ingress
+        ingressClassName: internal-ingress
+        hosts:
+          - "alertmanager.nas01.kirstein.me"
+      config:
+        global:
+          resolve_timeout: 5m
+        receivers:
+          - name: heartbeat
+            webhook_configs:
+              - url: "https://push.statuscake.com/${SECRET_ALERTMANAGER_STATUSCAKE_URL}"
+                send_resolved: true
+          - name: "null"
+        route:
+          group_by: ["alertname", "job"]
+          group_wait: 45s
+          group_interval: 10m
+          repeat_interval: 12h
+          receiver: "null"
+          routes:
+            - receiver: heartbeat
+              group_wait: 0s
+              group_interval: 2m
+              repeat_interval: 2m
+              matchers:
+                - alertname =~ "Watchdog"
     vmsingle:
       spec:
         retentionPeriod: 2y
