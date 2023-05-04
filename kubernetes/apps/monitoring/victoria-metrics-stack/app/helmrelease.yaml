@@ -30,6 +30,15 @@ spec:
     keepHistory: false
   values:
     fullnameOverride: "victoria-metrics"
+    defaultRules:
+      rules:
+        etcd: false
+        kubeApiserver: false
+        kubeApiserverAvailability: false
+        kubeApiserverBurnrate: false
+        kubeApiserverSlos: false
+        kubelet: false
+        kubeScheduler: false
     grafana:
       enabled: false
     alertmanager:
