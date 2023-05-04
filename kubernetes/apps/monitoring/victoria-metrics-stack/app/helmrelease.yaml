@@ -37,7 +37,15 @@ spec:
     alertmanager:
       enabled: false
     vmsingle:
-      retentionPeriod: 2y
+      spec:
+        retentionPeriod: 2y
+        storage:
+          storageClassName: nfs-client
+          accessModes:
+          - ReadWriteOnce
+          resources:
+            requests:
+              storage: 20Gi
       ingress:
         enabled: true
         annotations:
@@ -45,13 +53,7 @@ spec:
         ingressClassName: internal-ingress
         hosts: 
           - "vm.nas01.kirstein.me"
-      storage:
-        storageClassName: nfs-client
-        accessModes:
-        - ReadWriteOnce
-        resources:
-          requests:
-            storage: 20Gi
+     
     victoria-metrics-operator:
       operator:
         disable_prometheus_converter: false
