@@ -41,6 +41,16 @@ spec:
         kubeScheduler: false
     grafana:
       enabled: false
+    kubelet:
+      enabled: false
+    kubeApiServer:
+      enabled: false
+    kubeControllerManager:
+      enabled: false
+    kubeEtcd:
+      enabled: false
+    kubeScheduler:
+      enabled: false
     alertmanager:
       ingress:
         enabled: true
@@ -88,7 +98,6 @@ spec:
         ingressClassName: internal-ingress
         hosts: 
           - "vm.nas01.kirstein.me"
-     
     victoria-metrics-operator:
       operator:
         disable_prometheus_converter: false
