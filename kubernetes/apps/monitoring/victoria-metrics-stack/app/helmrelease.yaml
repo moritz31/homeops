@@ -39,7 +39,6 @@ spec:
         enabled: true
         annotations:
           external-dns.alpha.kubernetes.io/hostname: alertmanager.nas01.kirstein.me
-          kubernetes.io/ingress.class: internal-ingress
         ingressClassName: internal-ingress
         hosts:
           - "alertmanager.nas01.kirstein.me"
