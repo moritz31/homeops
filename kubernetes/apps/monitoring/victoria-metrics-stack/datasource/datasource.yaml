@@ -10,6 +10,3 @@ spec:
   - name: prometheus
     type: prometheus
     url: https://vm.nas01.kirstein.me
-  plugins:
-      - name: fetzerch-sunandmoon-datasource
-        version: 0.3.0

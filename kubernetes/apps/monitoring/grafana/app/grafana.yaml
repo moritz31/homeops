@@ -9,6 +9,8 @@ spec:
     envFrom:
       - secretRef:
           name: grafana-secrets
+      - secretRef:
+          name: grafana-env
   client:
     preferService: true
   ingress:
