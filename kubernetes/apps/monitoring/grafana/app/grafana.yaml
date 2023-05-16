@@ -21,6 +21,7 @@ spec:
     pathType: Prefix
     annotations: 
       external-dns.alpha.kubernetes.io/hostname: grafana.kirstein.me
+      external-dns.alpha.kubernetes.io/target: home.kirstein.me
   config:
     auth: 
       signout_redirect_url: https://auth.kirstein.me/application/o/grafana/end-session/
