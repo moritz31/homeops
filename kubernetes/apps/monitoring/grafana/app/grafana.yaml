@@ -23,6 +23,10 @@ spec:
       external-dns.alpha.kubernetes.io/hostname: grafana.kirstein.me
       external-dns.alpha.kubernetes.io/target: home.kirstein.me
   config:
+    alerting:
+      enabled: false
+    unified_alerting:
+      enabled: false
     auth: 
       signout_redirect_url: https://auth.kirstein.me/application/o/grafana/end-session/
       oauth_auto_login: true
