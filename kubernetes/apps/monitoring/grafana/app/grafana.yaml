@@ -52,7 +52,8 @@ spec:
   resources:
     # Optionally specify container resources
     limits:
+      cpu: 50Mi
       memory: 200Mi
     requests:
-      cpu: 100m
+      cpu: 50Mi
       memory: 100Mi
