@@ -45,15 +45,15 @@ spec:
                 pathType: Prefix
   config:
     alerting:
-      enabled: false
+      enabled: "false"
     unified_alerting:
-      enabled: false
+      enabled: "false"
     auth: 
       signout_redirect_url: https://auth.kirstein.me/application/o/grafana/end-session/
-      oauth_auto_login: true
+      oauth_auto_login: "true"
     auth.generic_oauth:
       name: authentik
-      enabled: true
+      enabled: "true"
       scopes: openid email profile
       auth_url: https://auth.kirstein.me/application/o/authorize/
       token_url: https://auth.kirstein.me/application/o/token/
@@ -63,7 +63,7 @@ spec:
       mode: "console"
       level: "error"
     log.frontend:
-      enabled: true
+      enabled: "true"
     server:
       domain: grafana.kirstein.me
       root_url: "https://%(domain)s"
