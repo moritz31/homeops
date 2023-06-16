@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana-operator-controller-manager
+spec:
+  template:
+    spec:
+      containers:
+        - name: manager
+          image: ghcr.io/grafana-operator/grafana-operator:v5.0.1

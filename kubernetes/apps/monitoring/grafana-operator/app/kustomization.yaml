@@ -6,3 +6,5 @@ namespace: monitoring
 namePrefix: grafana-operator-
 resources:
   - https://github.com/grafana-operator/grafana-operator/deploy/kustomize/overlays/cluster_scoped
+patches:
+- path: patch-version.yaml
