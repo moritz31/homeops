@@ -21,6 +21,7 @@ spec:
                     name: grafana-env
               resources:
                 limits:
+                  cpu: 50m
                   memory: 200Mi
                 requests:
                   cpu: 50m
