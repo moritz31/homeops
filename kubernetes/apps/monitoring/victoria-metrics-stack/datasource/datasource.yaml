@@ -8,7 +8,7 @@ spec:
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
-  datasources:
-  - name: prometheus
+  datasource:
+    name: prometheus
     type: prometheus
     url: https://vm.nas01.kirstein.me
