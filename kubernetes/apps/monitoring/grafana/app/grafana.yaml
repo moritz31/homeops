@@ -1,16 +1,24 @@
-apiVersion: integreatly.org/v1alpha1
+apiVersion: integreatly.org/v1beta1
 kind: Grafana
 metadata:
   name: grafana
   namespace: monitoring
+  labels:
+    dashboards: "grafana"
 spec:
   deployment:
-    replicas: 1
-    envFrom:
-      - secretRef:
-          name: grafana-secrets
-      - secretRef:
-          name: grafana-env
+    spec:
+      replicas: 1
+    template:
+      spec:
+        containers
+          - name: grafana
+            image: grafana/grafana:10.0.0
+            envFrom:
+              - secretRef:
+                  name: grafana-secrets
+              - secretRef:
+                  name: grafana-env
   client:
     preferService: true
   ingress:
@@ -46,9 +54,6 @@ spec:
     server:
       domain: grafana.kirstein.me
       root_url: "https://%(domain)s"
-  dashboardLabelSelector:
-    - matchExpressions:
-        - { key: app, operator: In, values: [grafana] }
   resources:
     # Optionally specify container resources
     limits:
