@@ -11,7 +11,7 @@ spec:
       replicas: 1
     template:
       spec:
-        containers
+        containers:
           - name: grafana
             image: grafana/grafana:10.0.0
             envFrom:
