@@ -1,11 +1,13 @@
 ---
-apiVersion: integreatly.org/v1alpha1
-kind: GrafanaDataSource
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
 metadata:
   namespace: monitoring
   name: prometheus-datasource
 spec:
-  name: Prometheus
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
   datasources:
   - name: prometheus
     type: prometheus
