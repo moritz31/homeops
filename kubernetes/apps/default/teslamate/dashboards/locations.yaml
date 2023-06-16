@@ -1,11 +1,12 @@
 
-apiVersion: integreatly.org/v1alpha1
+apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata: 
   name: teslamate-locations
   namespace: monitoring
-  labels: 
-    app: grafana
 spec:
-  customFolderName: "TeslaMate"
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  folder: "TeslaMate"
   url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.27/grafana/dashboards/locations.json

@@ -1,16 +1,19 @@
 ---
-apiVersion: integreatly.org/v1alpha1
-kind: GrafanaDataSource
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
 metadata:
   namespace: monitoring
   name: teslamate-datasource
 spec:
-  name: TeslaMate
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
   datasources:
   - name: TeslaMate
     type: postgres
     database: app
     editable: false
+    access: proxy
     jsonData:
       connMaxLifetime: 14400
       maxIdleConns: 2
