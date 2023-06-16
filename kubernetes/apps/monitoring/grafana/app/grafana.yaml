@@ -14,6 +14,9 @@ spec:
           containers:
             - name: grafana
               image: grafana/grafana:10.0.0
+              securityContext:
+                allowPrivilegeEscalation: true
+                readOnlyRootFilesystem: false
               envFrom:
                 - secretRef:
                     name: grafana-secrets
