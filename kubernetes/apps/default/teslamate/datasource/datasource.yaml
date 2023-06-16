@@ -8,8 +8,8 @@ spec:
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
-  datasources:
-  - name: TeslaMate
+  datasource:
+    name: TeslaMate
     type: postgres
     database: app
     editable: false
