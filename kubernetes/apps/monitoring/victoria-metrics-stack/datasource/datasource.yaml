@@ -11,4 +11,5 @@ spec:
   datasource:
     name: prometheus
     type: prometheus
+    access: proxy
     url: https://vm.nas01.kirstein.me
