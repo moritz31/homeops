@@ -25,17 +25,24 @@ spec:
                 requests:
                   cpu: 50m
                   memory: 100Mi
-  client:
-    preferService: true
   ingress:
-    enabled: True
-    ingressClassName: external-ingress
-    hostname: grafana.kirstein.me
-    path: /
-    pathType: Prefix
-    annotations: 
-      external-dns.alpha.kubernetes.io/hostname: grafana.kirstein.me
-      external-dns.alpha.kubernetes.io/target: home.kirstein.me
+    metadata:
+      annotations: 
+        external-dns.alpha.kubernetes.io/hostname: grafana.kirstein.me
+        external-dns.alpha.kubernetes.io/target: home.kirstein.me
+    spec:
+      ingressClassName: external-ingress
+      rules:
+        - host: grafana.kirstein.me
+          http:
+            paths:
+              - backend:
+                  service:
+                    name: grafana-service
+                    port:
+                      number: 3000
+                path: /
+                pathType: Prefix
   config:
     alerting:
       enabled: false
