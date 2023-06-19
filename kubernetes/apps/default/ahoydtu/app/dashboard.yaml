@@ -7,5 +7,4 @@ spec:
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
-  folder: "General"
   url: "https://raw.githubusercontent.com/moritz31/homeops/main/kubernetes/apps/default/ahoydtu/app/solar.json"
