@@ -10,6 +10,7 @@ resources:
   - ./authentik/ks.yaml
   - ./cloudnative-pg/ks.yaml
   - ./homebridge/ks.yaml
+  - ./lldap/ks.yaml
   - ./mosquitto/ks.yaml
   - ./paperless/ks.yaml
   - ./teslamate/ks.yaml
