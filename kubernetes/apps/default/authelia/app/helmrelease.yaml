@@ -1,0 +1,83 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: authelia
+  namespace: default
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.5.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+     domain: kirstein.me
+    controller:
+      type: statefulset
+    image:
+      repository: ghcr.io/authelia/authelia
+      # TODO Switch to Authelia release tag on next release
+      tag: master@sha256:9ec88ac73269855f3a0e0b80ed6ee4980decd81fb12901ff39cd9d8d2cf9b6fc
+    args: ["--config", "/etc/authelia/config.yaml"]
+    service:
+      main:
+        ports:
+          http:
+            port: &port 80
+          metrics:
+            enabled: true
+            port: 8080
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "external-ingress"
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "home.kirstein.me"
+        hosts:
+          - host: &host auth2.kirstein.me
+            paths:
+              - path: /
+        tls:
+            hosts:
+              - *host
+    env:
+    - name: TZ
+      value: Europe/Berlin
+    envFrom:
+      - secretRef:
+          name: authelia-secret
+    enableServiceLinks: false
+    resources:
+      requests:
+        cpu: "0.25"
+        memory: 50Mi
+      limits:
+        memory: 120Mi
+    rbac:
+      enabled: true
+  # secret:
+  #   existingSecret: authelia-secrets
+    persistence:
+      config:
+        enabled: true
+        type: configMap
+        name: authelia-config
+        subPath: config.yaml
+        mountPath: /etc/authelia/config.yaml
+        readOnly: false
