@@ -36,5 +36,8 @@ data:
       disable_startup_check: true
       filesystem:
         filename: /config/notification.txt
+    session:
+      domain: kirstein.me
+      secret: test
     server:
       port: 80
