@@ -54,6 +54,7 @@ spec:
             paths:
               - path: /
         tls:
+          - secretName: authelia-tls-certificate
             hosts:
               - *host
     env:
