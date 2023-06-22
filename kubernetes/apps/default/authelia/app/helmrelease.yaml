@@ -66,9 +66,9 @@ spec:
     resources:
       requests:
         cpu: "0.25"
-        memory: 50Mi
+        memory: 250Mi
       limits:
-        memory: 120Mi
+        memory: 250Mi
     rbac:
       enabled: true
   # secret:
