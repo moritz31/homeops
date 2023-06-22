@@ -32,8 +32,7 @@ spec:
       type: statefulset
     image:
       repository: ghcr.io/authelia/authelia
-      # TODO Switch to Authelia release tag on next release
-      tag: master@sha256:9ec88ac73269855f3a0e0b80ed6ee4980decd81fb12901ff39cd9d8d2cf9b6fc
+      tag: 4.37.5
     args: ["--config", "/etc/authelia/config.yaml"]
     service:
       main:
