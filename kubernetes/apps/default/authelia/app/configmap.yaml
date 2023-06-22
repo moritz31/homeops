@@ -16,7 +16,7 @@ data:
         disable: true
       ldap:
         implementation: custom
-        url: ldap://lldap.lldap.svc.cluster.local:3890
+        url: ldap://lldap.default.svc.cluster.local:3890
         base_dn: dc=kirstein,dc=me
         username_attribute: uid
         additional_users_dn: ou=people
