@@ -52,9 +52,17 @@ data:
           userinfo_signing_algorithm: none
     notifier:
       disable_startup_check: true
-      filesystem:
-        filename: /config/notification.txt
+      smtp:
+        host: box.kirstein.me
+        port: 465
+        sender: "Authelia"
     session:
       domain: kirstein.me
     server:
       port: 80
+    webauthn:
+      disable: false
+      display_name: Authelia
+      attestation_conveyance_preference: indirect
+      user_verification: preferred
+      timeout: 60s
