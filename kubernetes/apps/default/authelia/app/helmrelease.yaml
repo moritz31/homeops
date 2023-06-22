@@ -27,7 +27,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
-     domain: kirstein.me
+    domain: kirstein.me
     controller:
       type: statefulset
     image:
