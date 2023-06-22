@@ -33,23 +33,23 @@ data:
         - name: internal
           networks: ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
     identity_providers:
-    oidc:
-      ## The other portions of the mandatory OpenID Connect 1.0 configuration go here.
-      ## See: https://www.authelia.com/c/oidc
-      clients:
-      - id: grafana
-        description: Grafana
-        secret: '$argon2id$v=19$m=65536,t=3,p=4$1nSraidgD3Kv8pP+03dtvg$pcly6K00hDJ1ZkP1ZzqnDN0HZ5b7ccVlFqEice2Xst0'
-        public: true
-        authorization_policy: two_factor
-        redirect_uris:
-          - https://grafana.kirstein.me/login/generic_oauth
-        scopes:
-          - openid
-          - profile
-          - groups
-          - email
-        userinfo_signing_algorithm: none
+      oidc:
+        ## The other portions of the mandatory OpenID Connect 1.0 configuration go here.
+        ## See: https://www.authelia.com/c/oidc
+        clients:
+        - id: grafana
+          description: Grafana
+          secret: '$argon2id$v=19$m=65536,t=3,p=4$1nSraidgD3Kv8pP+03dtvg$pcly6K00hDJ1ZkP1ZzqnDN0HZ5b7ccVlFqEice2Xst0'
+          public: true
+          authorization_policy: two_factor
+          redirect_uris:
+            - https://grafana.kirstein.me/login/generic_oauth
+          scopes:
+            - openid
+            - profile
+            - groups
+            - email
+          userinfo_signing_algorithm: none
     notifier:
       disable_startup_check: true
       filesystem:
