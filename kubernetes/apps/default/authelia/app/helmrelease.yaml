@@ -81,3 +81,9 @@ spec:
         subPath: config.yaml
         mountPath: /etc/authelia/config.yaml
         readOnly: false
+      data:
+        enabled: true
+        mountPath: /config
+        storageClass:  nfs-client
+        accessMode: ReadWriteOnce
+        size: 1Gi
