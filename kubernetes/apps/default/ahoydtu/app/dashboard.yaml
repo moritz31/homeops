@@ -10,5 +10,4 @@ spec:
   plugins:
     - name: fetzerch-sunandmoon-datasource
       version: 0.3.0
-  folder: "Solar"
   url: "https://raw.githubusercontent.com/moritz31/homeops/main/kubernetes/apps/default/ahoydtu/app/solar.json"
