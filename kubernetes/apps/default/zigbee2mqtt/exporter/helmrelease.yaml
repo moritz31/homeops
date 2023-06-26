@@ -30,7 +30,7 @@ spec:
       MQTT_ADDRESS: mosquitto
       MQTT_TOPIC: "zigbee2mqtt/#"
       MQTT_V5_PROTOCOL: "True"
-      PROMETHEUS_PORT: &port 80
+      PROMETHEUS_PORT: &port 8080
       PROMETHEUS_PREFIX: zigbee2mqtt_
       ZIGBEE2MQTT_AVAILABILITY: "True"
     service:
