@@ -15,4 +15,4 @@ spec:
     - default
   selector:
     matchLabels:
-      k8s-app: zigbee2mqtt-exporter
+      app.kubernetes.io/name: zigbee2mqtt-exporter
