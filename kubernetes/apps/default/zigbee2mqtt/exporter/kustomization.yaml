@@ -5,7 +5,7 @@ kind: Kustomization
 namespace: default
 resources:
   - ./helmrelease.yaml
-  - ./servicemonitor.yaml
+  - ./servicescrape.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: zigbee2mqtt-exporter
