@@ -5,6 +5,7 @@ metadata:
 spec:
   endpoints:
   - port: http
+    path: ''
   selector:
     matchLabels:
       app.kubernetes.io/name: zigbee2mqtt-exporter
