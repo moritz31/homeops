@@ -6,7 +6,7 @@ spec:
   endpoints:
   - path: /
     interval: 30s
-    port: http
+    port: "80"
     scheme: http
   namespaceSelector:
     matchNames:
