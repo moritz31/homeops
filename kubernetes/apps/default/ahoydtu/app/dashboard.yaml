@@ -3,6 +3,7 @@ kind: GrafanaDashboard
 metadata:
   name: solar-overview
 spec:
+  allowCrossNamespaceImport: true
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
