@@ -2,12 +2,12 @@ apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
   name: solar-overview
+  namespace: monitoring
 spec:
-  allowCrossNamespaceImport: true
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
   plugins:
     - name: fetzerch-sunandmoon-datasource
       version: 0.3.0
-  url: "https://raw.githubusercontent.com/moritz31/homeops/main/kubernetes/apps/default/ahoydtu/app/solar.json"
+  url: "https://raw.githubusercontent.com/moritz31/homeops/main/kubernetes/apps/default/ahoydtu/dashboard/solar.json"
