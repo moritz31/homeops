@@ -2,7 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    k8s-app: zigbee2mqtt-exporter
+    app.kubernetes.io/name: zigbee2mqtt-exporter
   name: zigbee2mqtt-exporter
 spec:
   endpoints:
