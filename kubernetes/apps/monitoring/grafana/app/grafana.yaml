@@ -66,7 +66,7 @@ spec:
       groups_attribute_path: groups
       name_attribute_path: name
       use_pkce: "true"
-      role_attribute_path: contains(info.roles[*], 'grafana_admin') && 'GrafanaAdmin' || contains(info.roles[*], 'grafana_editor') && 'Editor' || 'Viewer'
+      role_attribute_path: contains(groups[*], 'grafana_admin') && 'GrafanaAdmin' || contains(groups[*], 'grafana_editor') && 'Editor' || 'Viewer'
     log:
       mode: "console"
       level: "error"
