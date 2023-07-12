@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
         - name: manager
-          image: ghcr.io/grafana-operator/grafana-operator:v5.0.1
+          image: ghcr.io/grafana-operator/grafana-operator:v5.1.0
