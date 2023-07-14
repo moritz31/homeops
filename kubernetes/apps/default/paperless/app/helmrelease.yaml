@@ -29,7 +29,7 @@ spec:
   values:
     image:
       repository: ghcr.io/paperless-ngx/paperless-ngx
-      tag: 1.16.2
+      tag: 1.16.5
     env:
       - name: COMPOSE_PROJECT_NAME
         value: paperless-ngx
