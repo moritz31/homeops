@@ -26,3 +26,13 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
+  values:
+    agones:
+      controller:
+        replicas: 1 
+      ping:
+        install: false
+      allocator:
+        install: false
+      extensions:
+        replicas: 1
