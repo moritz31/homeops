@@ -1,0 +1,12 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/kustomization
+apiVersion: kustomize.config.k8s.io/v1
+kind: Kustomization
+namespace: agones-system
+resources:
+  - ./helmrelease.yaml
+labels:
+  - pairs:
+      app.kubernetes.io/name: agones
+      app.kubernetes.io/instance: agones
+      app.kubernetes.io/part-of: agones
