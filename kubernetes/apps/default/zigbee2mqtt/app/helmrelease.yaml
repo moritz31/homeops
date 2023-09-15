@@ -28,7 +28,7 @@ spec:
     keepHistory: false
   values:
     image:
-      tag: 1.31.2
+      tag: 1.33.0
     persistence:
       data:
         enabled: true
