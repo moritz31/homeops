@@ -31,7 +31,7 @@ spec:
       type: statefulset
     image:
       repository: ghcr.io/lldap/lldap
-      tag: v0.4.3
+      tag: v0.5.0
     env:
       TZ: Europe/Berlin
       LLDAP_HTTP_PORT: &http-port 80
