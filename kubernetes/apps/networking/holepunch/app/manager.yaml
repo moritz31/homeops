@@ -30,7 +30,7 @@ spec:
         - /manager
         args:
         - --enable-leader-election
-        image: ghcr.io/jameslaverack/holepunch:latest
+        image: ghcr.io/jameslaverack/holepunch:v0.2.0
         name: manager
         resources:
           limits:
