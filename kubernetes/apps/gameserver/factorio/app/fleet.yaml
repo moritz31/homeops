@@ -20,9 +20,10 @@ spec:
       container: factorio-fleet
       ports:
       - name: default
-        portPolicy: Dynamic
+        portPolicy: Static
         container: factorio-fleet
         containerPort: 34197
+        hostPort: 7337
         protocol: UDP
       health:
         disabled: false
