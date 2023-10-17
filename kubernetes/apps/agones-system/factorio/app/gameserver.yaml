@@ -19,8 +19,6 @@ spec:
     logLevel: Info
     grpcPort: 9357
     httpPort: 9358
-  players:
-    initialCapacity: 32
   template:
     metadata:
       labels:
