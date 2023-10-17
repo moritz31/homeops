@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: gameserver
 resources:
 - allocation.yaml
-- gameserver.yaml
+- cm.yaml
 - fleet.yaml
 labels:
   - pairs:
