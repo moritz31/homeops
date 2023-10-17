@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: factorio-config
+  name: factorio-fleet-config
 data:
   # FCTR_SERVERNAME: ""
   # FCTR_DESCRIPTION: ""
