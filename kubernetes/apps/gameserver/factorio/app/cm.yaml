@@ -3,11 +3,11 @@ kind: ConfigMap
 metadata:
   name: factorio-fleet-config
 data:
-  # FCTR_SERVERNAME: ""
+  FCTR_SERVERNAME: "KIRSTEIN_K3S"
   # FCTR_DESCRIPTION: ""
   # FCTR_ADMINS: ""
   # FCTR_MAXPLAYERS: ""
-  # FCTR_PUBLIC: ""
+  FCTR_PUBLIC: false
   # FCTR_LAN: ""
   # FCTR_USERNAME: ""
   # FCTR_PASSWORD: ""

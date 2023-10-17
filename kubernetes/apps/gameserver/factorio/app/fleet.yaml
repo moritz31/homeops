@@ -78,14 +78,5 @@ spec:
               configMap:
                 name: factorio-fleet-config
             - name: data-storage
-              ephemeral:
-                volumeClaimTemplate:
-                  metadata:
-                    labels:
-                      game: factorio
-                  spec:
-                    accessModes: ["ReadWriteOncePod"]
-                    storageClassName: "nfs-client"
-                    resources:
-                      requests:
-                        storage: 10Gi
+              persistentVolumeClaim:
+                claimName: factorio-data

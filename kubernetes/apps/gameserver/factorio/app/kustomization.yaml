@@ -5,6 +5,7 @@ resources:
 # - allocation.yaml
 - cm.yaml
 - fleet.yaml
+- pvc.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: factorio
