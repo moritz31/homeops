@@ -30,6 +30,9 @@ spec:
     agones:
       controller:
         replicas: 1 
+      gameservers:
+        namspaces:
+         - gameserver
       ping:
         install: false
       allocator:
