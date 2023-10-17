@@ -1,0 +1,67 @@
+apiVersion: "agones.dev/v1"
+kind: GameServer
+metadata:
+  name: factorio-gds
+spec:
+  container: factorio-server
+  ports:
+  - name: default
+    portPolicy: Dynamic
+    container: factorio-server
+    containerPort: 34197
+    protocol: UDP
+  health:
+    disabled: false
+    initialDelaySeconds: 45
+    periodSeconds: 5
+    failureThreshold: 3
+  sdkServer:
+    logLevel: Info
+    grpcPort: 9357
+    httpPort: 9358
+  players:
+    initialCapacity: 32
+  template:
+    metadata:
+      labels:
+        app: factorio
+    spec:
+      containers:
+        - name: factorio-server
+          image: docker.io/grubertech/factorio:v1.1.76
+          envFrom:
+            - configMapRef:
+                name: factorio-config
+          ports:
+            - name: main
+              containerPort: 34197
+              protocol: UDP
+            - name: rcon
+              containerPort: 27015
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 200m
+              memory: 400Mi
+            limits:
+              cpu: 450m
+              memory: 750Mi
+          volumeMounts:
+            - name: mapgen-config
+              mountPath: /config/map-gen-settings.json
+              subPath: map-gen-settings.json
+            - name: map-config
+              mountPath: /config/map-settings.json
+              subPath: map-settings.json
+            - name: data-storage
+              mountPath: /factorio
+      volumes:
+        - name: map-config
+          configMap:
+            name: factorio-config
+        - name: mapgen-config
+          configMap:
+            name: factorio-config
+        - name: data-storage
+          persistentVolumeClaim:
+            claimName: factorio-data
