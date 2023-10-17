@@ -30,12 +30,12 @@ spec:
     agones:
       controller:
         replicas: 1 
-      gameservers:
-        namespaces:
-         - "gameserver"
       ping:
         install: false
       allocator:
         install: false
       extensions:
         replicas: 1
+    gameservers:
+      namespaces:
+        - "gameserver"
