@@ -34,7 +34,7 @@ spec:
       ping:
         install: false
       allocator:
-        install: false
+        install: true
       extensions:
         replicas: 1
     gameservers:
