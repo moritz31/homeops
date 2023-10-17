@@ -1,0 +1,92 @@
+apiVersion: "agones.dev/v1"
+kind: Fleet
+metadata:
+  name: factorio
+  labels:
+    game: factorio
+spec:
+  replicas: 1
+  scheduling: Packed
+  eviction:
+    safe: Always
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      labels:
+        game: factorio
+    spec:
+      container: factorio-fleet
+      ports:
+      - name: default
+        portPolicy: Dynamic
+        container: factorio-fleet
+        containerPort: 34197
+        protocol: UDP
+      health:
+        disabled: false
+        initialDelaySeconds: 45
+        periodSeconds: 5
+        failureThreshold: 3
+      sdkServer:
+        logLevel: Info
+        grpcPort: 9357
+        httpPort: 9358
+      players:
+        initialCapacity: 32
+      template:
+        metadata:
+          labels:
+            game: factorio
+        spec:
+          containers:
+            - name: factorio-fleet
+              image: docker.io/salmonit/agones-factorio:1.1.92
+              envFrom:
+                - configMapRef:
+                    name: factorio-fleet-config
+              ports:
+                - name: main
+                  containerPort: 34197
+                  protocol: UDP
+                - name: rcon
+                  containerPort: 27015
+                  protocol: TCP
+              resources:
+                requests:
+                  cpu: 200m
+                  memory: 400Mi
+                limits:
+                  cpu: 450m
+                  memory: 750Mi
+              volumeMounts:
+                - name: mapgen-config
+                  mountPath: /config/map-gen-settings.json
+                  subPath: map-gen-settings.json
+                - name: map-config
+                  mountPath: /config/map-settings.json
+                  subPath: map-settings.json
+                - name: data-storage
+                  mountPath: /factorio
+          volumes:
+            - name: map-config
+              configMap:
+                name: factorio-fleet-config
+            - name: mapgen-config
+              configMap:
+                name: factorio-fleet-config
+            - name: data-storage
+              ephemeral:
+                volumeClaimTemplate:
+                  metadata:
+                    labels:
+                      game: factorio
+                  spec:
+                    accessModes: ["ReadWriteOncePod"]
+                    storageClassName: "nfs-client"
+                    resources:
+                      requests:
+                        storage: 10Gi
