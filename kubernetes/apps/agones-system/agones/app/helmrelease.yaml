@@ -28,6 +28,7 @@ spec:
     keepHistory: false
   values:
     agones:
+      featureGates: "PlayerTracking=true"
       controller:
         replicas: 1 
       ping:
