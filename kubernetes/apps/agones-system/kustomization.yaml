@@ -7,4 +7,3 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./agones/ks.yaml
-  - ./factorio/ks.yaml
