@@ -65,7 +65,7 @@ spec:
         receivers:
           - name: heartbeat
             webhook_configs:
-              - url: "https://push.statuscake.com/$SECRET_ALERTMANAGER_STATUSCAKE_URL}"
+              - url: "https://push.statuscake.com/${SECRET_ALERTMANAGER_STATUSCAKE_URL}"
                 send_resolved: true
           - name: "null"
         route:
