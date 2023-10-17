@@ -7,8 +7,6 @@ metadata:
 spec:
   replicas: 1
   scheduling: Packed
-  eviction:
-    safe: Always
   strategy:
     type: RollingUpdate
     rollingUpdate:
