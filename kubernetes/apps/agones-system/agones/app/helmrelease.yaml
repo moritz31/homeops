@@ -31,7 +31,7 @@ spec:
       controller:
         replicas: 1 
       gameservers:
-        namspaces:
+        namespaces:
          - gameserver
       ping:
         install: false
