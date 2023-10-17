@@ -32,7 +32,7 @@ spec:
         replicas: 1 
       gameservers:
         namespaces:
-         - gameserver
+         - "gameserver"
       ping:
         install: false
       allocator:
