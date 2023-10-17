@@ -2,7 +2,6 @@ apiVersion: "allocation.agones.dev/v1"
 kind: GameServerAllocation
 metadata:
   name: factorio-policy
-  namespace: gameserver
   labels:
     game: factorio
 spec:
