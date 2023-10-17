@@ -5,7 +5,7 @@ metadata:
 data:
   FCTR_SERVERNAME: "KIRSTEIN_K3S"
   # FCTR_DESCRIPTION: ""
-  # FCTR_ADMINS: ""
+  FCTR_ADMINS: "salmonit"
   # FCTR_MAXPLAYERS: ""
   FCTR_PUBLIC: "false"
   # FCTR_LAN: ""
