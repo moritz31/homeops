@@ -43,7 +43,7 @@ data:
       "_starting_area_comment": "Multiplier for 'biter free zone radius'",
       "starting_area": 1,
 
-      "peaceful_mode": true,
+      "peaceful_mode": false,
       "autoplace_controls":
       {
         "coal": {"frequency": 1, "size": 1, "richness": 1},
@@ -53,7 +53,7 @@ data:
         "uranium-ore": {"frequency": 1, "size": 1, "richness": 1},
         "crude-oil": {"frequency": 1, "size": 1, "richness": 1},
         "trees": {"frequency": 1, "size": 1, "richness": 1},
-        "enemy-base": {"frequency": 0, "size": 1, "richness": 1}
+        "enemy-base": {"frequency": 1, "size": 1, "richness": 1}
       },
 
       "cliff_settings":
@@ -72,7 +72,7 @@ data:
         "cliff_elevation_interval": 40,
 
         "_richness_comment": "Called 'cliff continuity' in the map generator GUI. 0 will result in no cliffs, 10 will make all cliff rows completely solid",
-        "richness": 0
+        "richness": 5
       },
 
       "_property_expression_names_comment":
@@ -114,7 +114,7 @@ data:
       },
       "pollution":
       {
-        "enabled": false,
+        "enabled": true,
         "_comment_min_to_diffuse_1": "these are values for 60 ticks (1 simulated second)",
         "_comment_min_to_diffuse_2": "amount that is diffused to neighboring chunk",
         "diffusion_ratio": 0.02,
@@ -131,14 +131,14 @@ data:
       },
       "enemy_evolution":
       {
-        "enabled": false,
+        "enabled": true,
         "time_factor": 0.000004,
         "destroy_factor": 0.002,
         "pollution_factor": 0.0000009
       },
       "enemy_expansion":
       {
-        "enabled": false,
+        "enabled": true,
         "min_base_spacing": 3,
         "max_expansion_distance": 7,
         "friendly_base_influence_radius": 2,
