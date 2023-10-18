@@ -29,12 +29,15 @@ spec:
   values:
     agones:
       featureGates: "PlayerTracking=true"
+      metrics:
+        serviceMonitor:
+          enabled: true
       controller:
         replicas: 1 
       ping:
         install: false
       allocator:
-        install: true
+        install: false
       extensions:
         replicas: 1
     gameservers:
