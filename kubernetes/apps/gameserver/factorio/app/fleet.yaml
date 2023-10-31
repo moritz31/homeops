@@ -43,7 +43,7 @@ spec:
         spec:
           containers:
             - name: factorio-fleet
-              image: docker.io/salmonit/agones-factorio:1.1.91
+              image: docker.io/salmonit/agones-factorio:1.1.94
               envFrom:
                 - configMapRef:
                     name: factorio-fleet-config
