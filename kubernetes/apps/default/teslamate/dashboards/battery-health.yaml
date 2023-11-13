@@ -1,0 +1,12 @@
+
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDashboard
+metadata: 
+  name: teslamate-battery-health
+  namespace: monitoring
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  folder: "TeslaMate"
+  url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.27/grafana/dashboards/battery-health.json
