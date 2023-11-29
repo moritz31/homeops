@@ -11,7 +11,7 @@ spec:
     matchLabels:
       dashboards: "grafana"
   folder: "TeslaMate"
-  url: https://raw.githubusercontent.com/adriankumpf/teslamate/v1.27/grafana/dashboards/visited.json
+  url: https://raw.githubusercontent.com/adriankumpf/teslamate/master/grafana/dashboards/visited.json
   plugins:
     - name: "pr0ps-trackmap-panel"
       version: "2.1.2"

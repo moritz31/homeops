@@ -28,7 +28,7 @@ spec:
     keepHistory: false
   values:
     image:
-      tag: 1.27.4
+      tag: 1.28.2
     env:
       - name: DATABASE_HOST
         value: teslamate-database-rw
@@ -51,3 +51,14 @@ spec:
         value: app
       - name: DISABLE_MQTT
         value: true
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "internal-ingress"
+        annotations: 
+          external-dns.alpha.kubernetes.io/hostname: tesla.nas01.kirstein.me
+        hosts:
+          - host: tesla.nas01.kirstein.me
+            paths:
+            - path: /
+              pathType: Prefix
