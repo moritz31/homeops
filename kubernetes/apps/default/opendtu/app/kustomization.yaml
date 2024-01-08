@@ -9,6 +9,6 @@ resources:
   - ./servicemonitor.yaml
 labels:
   - pairs:
-      app.kubernetes.io/name: ahoydtu
-      app.kubernetes.io/instance: ahoydtu
-      app.kubernetes.io/part-of: ahoydtu
+      app.kubernetes.io/name: opendtu
+      app.kubernetes.io/instance: opendtu
+      app.kubernetes.io/part-of: opendtu

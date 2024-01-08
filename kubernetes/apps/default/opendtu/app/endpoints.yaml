@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Endpoints
 metadata:
-  name: ahoydtu-parents
+  name: opendtu
   labels:
-    k8s-app: ahoydtu-parents
+    k8s-app: opendtu
 subsets:
 - addresses:
   - ip: 1.2.3.4

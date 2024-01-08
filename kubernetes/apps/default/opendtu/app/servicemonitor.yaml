@@ -2,11 +2,11 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   labels:
-    k8s-app: ahoydtu-parents
-  name: ahoydtu-parents
+    k8s-app: opendtu
+  name: opendtu
 spec:
   endpoints:
-  - path: /metrics
+  - path: /api/prometheus/metrics
     interval: 30s
     port: metrics
     scheme: http
@@ -14,11 +14,11 @@ spec:
       - sourceLabels: [__address__]
         targetLabel: __address__
         regex: (.*)
-        replacement: "192.168.1.157"
+        replacement: "opendtu.fritz.box"
         action: replace
   namespaceSelector:
     matchNames:
     - default
   selector:
     matchLabels:
-      k8s-app: ahoydtu-parents
+      k8s-app: opendtu

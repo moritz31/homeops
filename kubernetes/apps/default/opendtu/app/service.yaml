@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: ahoydtu
+  name: opendtu
   labels:
-    k8s-app: ahoydtu
+    k8s-app: opendtu
 spec:
   type: ExternalName
-  externalName: ahoy-dtu.fritz.box
+  externalName: opendtu.fritz.box
   ports:
   - name: metrics
     port: 80

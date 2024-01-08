@@ -6,12 +6,12 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
-  - ./ahoydtu/ks.yaml
   - ./authelia/ks.yaml
   - ./cloudnative-pg/ks.yaml
   - ./homebridge/ks.yaml
   - ./lldap/ks.yaml
   - ./mosquitto/ks.yaml
+  - ./opendtu/ks.yaml
   - ./paperless/ks.yaml
   - ./teslamate/ks.yaml
   - ./unifi/ks.yaml
