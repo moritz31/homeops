@@ -14,5 +14,6 @@ resources:
   - ./opendtu/ks.yaml
   - ./paperless/ks.yaml
   - ./teslamate/ks.yaml
+  - ./tibber-exporter/ks.yaml
   - ./unifi/ks.yaml
   - ./zigbee2mqtt/ks.yaml

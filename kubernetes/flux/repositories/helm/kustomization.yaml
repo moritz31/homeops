@@ -13,4 +13,5 @@ resources:
   - metallb.yaml
   - nfs-subdir-external-provisioner.yaml
   - prometheus-community.yaml
+  - tibber.yaml
   - victoriametrics.yaml
