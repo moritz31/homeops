@@ -51,6 +51,20 @@ data:
             - groups
             - email
           userinfo_signing_algorithm: none
+        - id: paperless
+          description: Grafana
+          secret: '$argon2id$v=19$m=65536,t=3,p=4$1nSraidgD3Kv8pP+03dtvg$pcly6K00hDJ1ZkP1ZzqnDN0HZ5b7ccVlFqEice2Xst0'
+          public: false
+          authorization_policy: two_factor
+          consent_mode: implicit
+          redirect_uris:
+            - https://paperless.kirstein.me
+          scopes:
+            - openid
+            - profile
+            - groups
+            - email
+          userinfo_signing_algorithm: none
     notifier:
       disable_startup_check: true
       smtp:

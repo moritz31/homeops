@@ -79,10 +79,8 @@ spec:
         value: true
       - name: PAPERLESS_OCR_LANGUAGE
         value: deu+eng
-      - name: PAPERLESS_ENABLE_HTTP_REMOTE_USER
-        value: TRUE
-      - name: PAPERLESS_HTTP_REMOTE_USER_HEADER_NAME
-        value: HTTP_X_AUTHENTIK_USERNAME
+      - name: PAPERLESS_APPS
+        value: allauth.socialaccount.providers.openid_connect
       - name: PAPERLESS_SECRET_KEY
         valueFrom:
           secretKeyRef:
@@ -98,6 +96,11 @@ spec:
           secretKeyRef:
             name: paperless-encryption
             key: password
+      - name: PAPERLESS_SOCIALACCOUNT_PROVIDERS
+        valueFrom:
+          secretKeyRef:
+            name: paperless-encryption
+            key: paperless_socialaccount_providers
     service:
       main:
         ports:
