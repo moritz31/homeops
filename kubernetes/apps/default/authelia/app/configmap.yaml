@@ -58,7 +58,7 @@ data:
           authorization_policy: two_factor
           consent_mode: implicit
           redirect_uris:
-            - https://paperless.kirstein.me/accounts/oidc/authelia/login/callback
+            - https://paperless.kirstein.me/accounts/oidc/authelia/login/callback/
           scopes:
             - openid
             - profile
