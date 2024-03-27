@@ -12,6 +12,7 @@ resources:
   - k8s-at-home.yaml
   - metallb.yaml
   - nfs-subdir-external-provisioner.yaml
+  - node-red.yaml
   - prometheus-community.yaml
   - tibber.yaml
   - victoriametrics.yaml
