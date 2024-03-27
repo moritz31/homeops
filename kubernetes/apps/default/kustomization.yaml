@@ -11,6 +11,7 @@ resources:
   - ./homebridge/ks.yaml
   - ./lldap/ks.yaml
   - ./mosquitto/ks.yaml
+  - ./node-red/ks.yaml
   - ./opendtu/ks.yaml
   - ./paperless/ks.yaml
   - ./teslamate/ks.yaml
