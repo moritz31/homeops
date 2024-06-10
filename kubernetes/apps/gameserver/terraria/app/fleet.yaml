@@ -41,7 +41,7 @@ spec:
             game: terraria
         spec:
           containers:
-              - name: terraria-fleet
+            - name: terraria-fleet
               image: docker.io/grubertech/terraria:1.4.4.9
               envFrom:
                 - configMapRef:
