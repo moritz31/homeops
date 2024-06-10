@@ -64,8 +64,8 @@ spec:
                 - name: worlds-data
                   mountPath: /root/.local/share/Terraria/Worlds
           volumes:
-             - name: config-volume
-                configMap:
+            - name: config-volume
+              configMap:
                   name: terraria-cm
             - name: worlds-data
               persistentVolumeClaim:
