@@ -1,13 +1,13 @@
 apiVersion: "allocation.agones.dev/v1"
 kind: GameServerAllocation
 metadata:
-  name: factorio-policy
+  name: terraria-policy
   labels:
-    game: factorio
+    game: terraria
 spec:
   selectors:
     - matchLabels:
-        agones.dev/fleet: factorio
+        agones.dev/fleet: terraria
       gameServerState: Ready
       players:
         minAvailable: 0

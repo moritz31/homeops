@@ -3,10 +3,10 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-gameserver-factorio
+  name: cluster-apps-gameserver-terraria
   namespace: flux-system
 spec:
-  path: ./kubernetes/apps/gameserver/factorio/app
+  path: ./kubernetes/apps/gameserver/terraria/app
   prune: true
   sourceRef:
     kind: GitRepository
