@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: terraria-cm
+  labels:
+    game: terraria
+data:
+  TERRARIA_WORLDNAME: "test-server"
+  TERRARIA_WORLDSEED: "test123"
+  TERRARIA_USECONFIGFILE: "No"
+  TERRARIA_MAXPLAYERS: "1"
+  TERRARIA_PASS: ""
+  serverconfig.txt: |
+    autocreate=2
+    worldname=world
+    difficulty=0
+    maxplayers=8
+    worldpath=/root/.local/share/Terraria/Worlds
+    world=/root/.local/share/Terraria/Worlds/world.wld

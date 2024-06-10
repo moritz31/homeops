@@ -7,3 +7,4 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./factorio/ks.yaml
+  - ./terraria/ks.yaml

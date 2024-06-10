@@ -5,7 +5,7 @@ metadata:
   labels:
     game: factorio
 spec:
-  replicas: 1
+  replicas: 0
   scheduling: Packed
   strategy:
     type: RollingUpdate

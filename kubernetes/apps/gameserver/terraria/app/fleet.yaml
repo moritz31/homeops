@@ -1,0 +1,72 @@
+apiVersion: "agones.dev/v1"
+kind: Fleet
+metadata:
+  name: terraria
+  labels:
+    game: terraria
+spec:
+  replicas: 1
+  scheduling: Packed
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      labels:
+        game: terraria
+    spec:
+      container: terraria-fleet
+      ports:
+      - name: default
+        portPolicy: Static
+        container: terraria-fleet
+        containerPort: 7777
+        hostPort: 7777
+        protocol: TCP
+      health:
+        initialDelaySeconds: 160
+        periodSeconds: 5
+        failureThreshold: 3
+      sdkServer:
+        logLevel: Info
+        grpcPort: 9357
+        httpPort: 9358
+      players:
+        initialCapacity: 16
+      template:
+        metadata:
+          labels:
+            game: terraria
+        spec:
+          containers:
+              - name: terraria-fleet
+              image: docker.io/grubertech/terraria:1.4.4.9
+              envFrom:
+                - configMapRef:
+                    name: terraria-cm
+              ports:
+                - name: main
+                  containerPort: 7777
+                  protocol: TCP
+              resources:
+                requests:
+                  cpu: 250m
+                  memory: 512Mi
+                limits:
+                  cpu: 1000m
+                  memory: 1024Mi
+              volumeMounts:
+                - name: config-volume
+                  mountPath: /server/Linux/serverconfig.txt
+                  subPath: serverconfig.txt
+                - name: worlds-data
+                  mountPath: /root/.local/share/Terraria/Worlds
+          volumes:
+             - name: config-volume
+                configMap:
+                  name: terraria-cm
+            - name: worlds-data
+              persistentVolumeClaim:
+                claimName: terraria-data
