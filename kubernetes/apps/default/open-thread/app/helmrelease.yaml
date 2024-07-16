@@ -27,6 +27,10 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    image:
-      repository: openthread/otbr
-      tag: "latest"
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              repository: openthread/otbr
+              tag: "latest"
