@@ -13,7 +13,7 @@ resources:
   - ./mosquitto/ks.yaml
   - ./node-red/ks.yaml
   - ./opendtu/ks.yaml
-  - ./openthread/ks.yaml
+  - ./open-thread/ks.yaml
   - ./paperless/ks.yaml
   - ./teslamate/ks.yaml
   - ./tibber-exporter/ks.yaml
