@@ -46,5 +46,5 @@ spec:
     podSecurityContext:
       privileged: true
     persistentVolumeClaims:
-      sabnzbd-config:
+      jellyfin-config:
         storageClassName: "nfs-client"
