@@ -5,6 +5,7 @@ kind: Kustomization
 namespace: kube-system
 resources:
   - ./helmrelease.yaml
+  - ./helmrelease2.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: nfs-subdir-external-provisioner
