@@ -34,14 +34,10 @@ spec:
             claimName: 'sonarr-config'
         downloads:
           persistentVolumeClaim:
-            claimName: 'downloads'
+            claimName: 'media-data'
         tv:
           persistentVolumeClaim:
-            claimName: 'tv'
+            claimName: 'media-data'
     persistentVolumeClaims:
       sonarr-config:
         storageClassName: "nfs-client"
-      downloads:
-        storageClassName: "nfs-data"
-      tv:
-        storageClassName: "nfs-data"
