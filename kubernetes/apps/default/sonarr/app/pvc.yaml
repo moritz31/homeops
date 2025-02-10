@@ -7,6 +7,9 @@ spec:
   accessModes:
     - ReadWriteMany
   storageClassName: nfs-data
+  resources:
+    requests:
+      storage: 400Gi
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -16,3 +19,6 @@ spec:
   accessModes:
     - ReadWriteMany
   storageClassName: nfs-data
+  resources:
+    requests:
+      storage: 400Gi
