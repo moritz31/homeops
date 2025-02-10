@@ -28,7 +28,7 @@ spec:
     keepHistory: false
   values:
     application:
-      config: {}
+      config: nil
       urlBase: ''
     ingress:
       enabled: true
