@@ -49,6 +49,8 @@ spec:
             secretKeyRef:
               name: external-dns-internal-unifi-secret
               key: password
+        - name: UNIFI_SITE
+          value: "5vphwlie"
         livenessProbe:
           httpGet:
             path: /healthz
