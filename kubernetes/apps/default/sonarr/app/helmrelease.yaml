@@ -30,3 +30,7 @@ spec:
     persistentVolumeClaims:
       sonarr-config:
         storageClassName: "nfs-client"
+      downloads:
+        storageClassName: "nfs-data"
+      tv:
+        storageClassName: "nfs-data"
