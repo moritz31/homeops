@@ -26,3 +26,7 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
+  values:
+    persistentVolumeClaims:
+      sonarr-config:
+        storageClassName: "nfs-client"
