@@ -27,6 +27,17 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    deployment:
+      container:
+        volumeMounts:
+        - name: 'config'
+          mountPath: '/config'
+        - name: 'usenet'
+          mountPath: '/data/usenet'
+      volumes:
+        usenet:
+          persistentVolumeClaim:
+            claimName: usenet-data
     persistentVolumeClaims:
       sabnzbd-config:
         storageClassName: "nfs-client"
