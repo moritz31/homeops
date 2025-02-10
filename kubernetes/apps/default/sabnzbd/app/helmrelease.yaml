@@ -28,6 +28,8 @@ spec:
     keepHistory: false
   values:
     secrets: null
+    metrics: 
+      enabled: false
     application:
       config: null
       urlBase: ''
@@ -49,3 +51,4 @@ spec:
     persistentVolumeClaims:
       sabnzbd-config:
         storageClassName: "nfs-client"
+  
