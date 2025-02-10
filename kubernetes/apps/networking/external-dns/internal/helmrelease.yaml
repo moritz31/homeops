@@ -48,8 +48,6 @@ spec:
           secretKeyRef:
             name: external-dns-internal-unifi-secret
             key: password
-      - name: LOG_LEVEL
-        value: *logLevel
       livenessProbe:
         httpGet:
           path: /healthz
