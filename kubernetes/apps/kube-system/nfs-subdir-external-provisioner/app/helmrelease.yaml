@@ -30,3 +30,5 @@ spec:
     nfs:
       server: nas01.fritz.box
       path: /mnt/nfs
+    storageClass:
+      name: nfs-client
