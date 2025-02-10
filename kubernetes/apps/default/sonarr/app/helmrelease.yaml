@@ -29,6 +29,9 @@ spec:
   values:
     deployment:
       volumes:
+        config:
+          persistentVolumeClaim:
+            claimName: 'sonarr-config'
         downloads:
           persistentVolumeClaim:
             claimName: 'downloads'
