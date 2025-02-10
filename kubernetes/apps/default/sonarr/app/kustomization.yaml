@@ -5,7 +5,6 @@ kind: Kustomization
 namespace: default
 resources:
   - ./helmrelease.yaml
-  - ./paperless-encryption.sops.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: sonarr
