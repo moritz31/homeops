@@ -65,8 +65,9 @@ spec:
     - --ignore-ingress-tls-spec
     policy: sync
     txtPrefix: k8s.
-    txtOwnerId: default
+    txtOwnerId: internal
     domainFilters: ["int.kirstein.me"]
+    sources: ["ingress", "service"]
     podAnnotations:
       secret.reloader.stakater.com/reload: external-dns-secret
 
