@@ -28,14 +28,17 @@ spec:
     keepHistory: false
   values:
     deployment:
+      container:
+        volumeMounts:
+        - name: 'config'
+          mountPath: '/config'
+        - name: 'data'
+          mountPath: '/data'
       volumes:
         config:
           persistentVolumeClaim:
             claimName: 'sonarr-config'
-        downloads:
-          persistentVolumeClaim:
-            claimName: 'media-data'
-        tv:
+        data:
           persistentVolumeClaim:
             claimName: 'media-data'
     persistentVolumeClaims:
