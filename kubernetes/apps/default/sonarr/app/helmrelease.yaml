@@ -27,13 +27,14 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    volumes:
-      downloads:
-        persistentVolumeClaim:
-          claimName: 'downloads'
-      tv:
-        persistentVolumeClaim:
-          claimName: 'tv'
+    deployment:
+      volumes:
+        downloads:
+          persistentVolumeClaim:
+            claimName: 'downloads'
+        tv:
+          persistentVolumeClaim:
+            claimName: 'tv'
     persistentVolumeClaims:
       sonarr-config:
         storageClassName: "nfs-client"
