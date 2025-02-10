@@ -17,6 +17,7 @@ resources:
   - ./paperless/ks.yaml
   - ./teslamate/ks.yaml
   - ./tibber-exporter/ks.yaml
+  - ./radarr/ks.yaml
   - ./sabnzbd/ks.yaml
   - ./sonarr/ks.yaml
   - ./unifi/ks.yaml
