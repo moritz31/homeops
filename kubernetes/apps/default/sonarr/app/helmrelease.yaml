@@ -28,7 +28,7 @@ spec:
     keepHistory: false
   values:
     volumes:
-      download:
+      downloads:
         persistentVolumeClaim:
           claimName: 'downloads'
       tv:
