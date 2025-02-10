@@ -1,0 +1,75 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: external-dns-internal
+  namespace: networking
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: external-dns
+      version: 1.14.5
+      sourceRef:
+        kind: HelmRepository
+        name: external-dns
+        namespace: flux-system
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    interval: 2m
+    # logLevel: debug
+    provider: webhook
+    webhook:
+      image:
+        repository: ghcr.io/kashalls/external-dns-unifi-webhook
+        tag: main # replace with a versioned release tag  
+      env:
+      - name: UNIFI_HOST
+        value: https://unifi.kirstein.me # replace with the address to your UniFi router/controller
+      - name: UNIFI_EXTERNAL_CONTROLLER
+        value: "true"
+      - name: UNIFI_USER
+        valueFrom:
+          secretKeyRef:
+            name: external-dns-internal-unifi-secret
+            key: username
+      - name: UNIFI_PASS
+        valueFrom:
+          secretKeyRef:
+            name: external-dns-internal-unifi-secret
+            key: password
+      - name: LOG_LEVEL
+        value: *logLevel
+      livenessProbe:
+        httpGet:
+          path: /healthz
+          port: http-webhook
+        initialDelaySeconds: 10
+        timeoutSeconds: 5
+      readinessProbe:
+        httpGet:
+          path: /readyz
+          port: http-webhook
+        initialDelaySeconds: 10
+        timeoutSeconds: 5
+    extraArgs:
+    - --ignore-ingress-tls-spec
+    policy: sync
+    txtPrefix: k8s.
+    txtOwnerId: default
+    domainFilters: ["int.kirstein.me"]
+    podAnnotations:
+      secret.reloader.stakater.com/reload: external-dns-secret
+
+
+      
