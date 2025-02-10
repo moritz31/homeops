@@ -9,6 +9,7 @@ resources:
   - ./authelia/ks.yaml
   - ./cloudnative-pg/ks.yaml
   - ./homebridge/ks.yaml
+  - ./jellyfin/ks.yaml
   - ./lldap/ks.yaml
   - ./mosquitto/ks.yaml
   - ./node-red/ks.yaml
