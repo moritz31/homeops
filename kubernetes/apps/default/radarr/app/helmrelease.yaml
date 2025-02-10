@@ -3,14 +3,14 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: sabnzbd
+  name: radarr
   namespace: default
 spec:
   interval: 15m
   chart:
     spec:
-      chart: sabnzbd
-      version: 0.2.0
+      chart: radarr
+      version: 0.7.0
       sourceRef:
         kind: HelmRepository
         name: media-servarr
@@ -28,23 +28,30 @@ spec:
     keepHistory: false
   values:
     application:
-      config: null
       urlBase: ''
     ingress:
       enabled: true
       className: internal-ingress
-      host: sabnzbd.int.kirstein.me
+      host: radarr.int.kirstein.me 
     deployment:
       container:
         volumeMounts:
         - name: 'config'
           mountPath: '/config'
+        - name: 'media'
+          mountPath: '/data/media'
         - name: 'usenet'
           mountPath: '/data/usenet'
       volumes:
+        config:
+          persistentVolumeClaim:
+            claimName: 'radarr-config'
+        media:
+          persistentVolumeClaim:
+            claimName: 'media-data'
         usenet:
           persistentVolumeClaim:
-            claimName: usenet-data
+            claimName: 'usenet-data'
     persistentVolumeClaims:
-      sabnzbd-config:
+      radarr-config:
         storageClassName: "nfs-client"
