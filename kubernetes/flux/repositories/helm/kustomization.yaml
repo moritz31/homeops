@@ -10,6 +10,7 @@ resources:
   - ingress-nginx.yaml
   - jetstack.yaml
   - k8s-at-home.yaml
+  - media-servarr.yaml
   - metallb.yaml
   - nfs-subdir-external-provisioner.yaml
   - node-red.yaml
