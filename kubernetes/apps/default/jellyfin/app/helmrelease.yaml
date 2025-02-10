@@ -28,6 +28,18 @@ spec:
     keepHistory: false
   values:
     application:
+      config:
+      # Network Options
+      - filename: 'network.xml'
+        contents: |
+          <?xml version="1.0" encoding="utf-8"?>
+          <NetworkConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <HttpServerPortNumber>8096</HttpServerPortNumber>
+            <EnableHttps>false</EnableHttps>
+            <PublicPort>8096</PublicPort>
+            <EnableRemoteAccess>true</EnableRemoteAccess>
+          </NetworkConfiguration>
+        mountPath: '/config/config/network.xml'
       urlBase: ''
     ingress:
       enabled: true
