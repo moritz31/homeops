@@ -30,5 +30,5 @@ spec:
     nfs:
       server: nas01.fritz.box
       path: /data
-    storage:
+    storageClass:
       name: nfs-data
