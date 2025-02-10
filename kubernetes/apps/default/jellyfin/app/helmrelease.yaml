@@ -27,6 +27,10 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    ingress:
+      enabled: true
+      className: internal-ingress
+      host: jellyfin.int.kirstein.me 
     deployment:
       container:
         securityContext:
