@@ -32,7 +32,7 @@ spec:
       type: statefulset
     image:
       repository: ghcr.io/authelia/authelia
-      tag: 4.38.10
+      tag: 4.38.18
     args: ["--config", "/etc/authelia/config.yaml"]
     service:
       main:
