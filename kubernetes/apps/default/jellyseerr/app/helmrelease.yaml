@@ -1,0 +1,39 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: jellyseerr
+  namespace: default
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: jellyseerr
+      version: 0.3.0
+      sourceRef:
+        kind: HelmRepository
+        name: media-servarr
+        namespace: flux-system
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    application:
+      config: null
+      urlBase: ''
+    ingress:
+      enabled: true
+      className: internal-ingress
+      host: jellyseerr.int.kirstein.me 
+    persistentVolumeClaims:
+      jellyseerr-config:
+        storageClassName: "nfs-client"
