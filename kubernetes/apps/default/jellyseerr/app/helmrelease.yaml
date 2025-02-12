@@ -30,6 +30,10 @@ spec:
     application:
       config: null
       urlBase: ''
+    deployment:
+      container:
+        image:
+          tag: '2.3.0'
     ingress:
       enabled: true
       className: internal-ingress
