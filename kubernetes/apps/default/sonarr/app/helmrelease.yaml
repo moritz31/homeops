@@ -29,6 +29,12 @@ spec:
   values:
     application:
       urlBase: ''
+      config:
+        filename: 'config.xml'
+        content: |
+          <Config>
+            <ApiKey>${SECRET_SONARR_API_KEY}</ApiKey>
+          </Config>
     ingress:
       enabled: true
       className: internal-ingress
