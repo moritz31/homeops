@@ -33,6 +33,10 @@ spec:
         filename: 'config.xml'
         contents: |
           <Config>
+            <LogLevel>info</LogLevel>
+            <EnableSsl>False</EnableSsl>
+            <AnalyticsEnabled>False</AnalyticsEnabled>
+            <AuthenticationMethod>External</AuthenticationMethod>
             <ApiKey>${SECRET_SONARR_API_KEY}</ApiKey>
           </Config>
     ingress:
