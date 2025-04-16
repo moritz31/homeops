@@ -59,6 +59,7 @@ spec:
         type: persistentVolumeClaim
         accessMode: ReadWriteOnce
         storageClass: nfs-client
+        size: 1Gi
       config-file:
         type: configMap
         name: recyclarr-configmap
@@ -66,7 +67,6 @@ spec:
           - path: /config/recyclarr.yml
             subPath: recyclarr.yml
             readOnly: true
-            size: 1Gi
       config-logs:
         type: emptyDir
         globalMounts:
