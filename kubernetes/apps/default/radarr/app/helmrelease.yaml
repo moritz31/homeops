@@ -31,7 +31,7 @@ spec:
       urlBase: ''
       config:
         filename: 'config.xml'
-        content: |
+        contents: |
           <Config>
             <ApiKey>${SECRET_RADARR_API_KEY}</ApiKey>
           </Config>

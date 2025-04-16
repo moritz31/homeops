@@ -31,7 +31,7 @@ spec:
       urlBase: ''
       config:
         filename: 'config.xml'
-        content: |
+        contents: |
           <Config>
             <ApiKey>${SECRET_SONARR_API_KEY}</ApiKey>
           </Config>
