@@ -28,6 +28,7 @@ spec:
     keepHistory: false
   values:
     application:
+      port: 80
       urlBase: ''
       config:
         filename: 'config.xml'
@@ -38,6 +39,7 @@ spec:
             <AnalyticsEnabled>False</AnalyticsEnabled>
             <AuthenticationMethod>External</AuthenticationMethod>
             <ApiKey>${SECRET_SONARR_API_KEY}</ApiKey>
+            <Port>80</Port>
           </Config>
     ingress:
       enabled: true
