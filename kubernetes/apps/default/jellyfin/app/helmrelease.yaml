@@ -44,8 +44,8 @@ spec:
       urlBase: ''
     ingress:
       enabled: true
-      className: internal-ingress
-      host: jellyfin.int.kirstein.me 
+      className: external-ingress
+      host: jellyfin.kirstein.me 
     deployment:
       container:
         securityContext:
