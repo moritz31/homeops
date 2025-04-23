@@ -46,6 +46,8 @@ spec:
       enabled: true
       className: external-ingress
       host: jellyfin.kirstein.me 
+      annotations:
+          external-dns.alpha.kubernetes.io/target: "home.kirstein.me"
     deployment:
       container:
         securityContext:
