@@ -45,7 +45,10 @@ spec:
     ingress:
       enabled: true
       className: external-ingress
-      host: jellyfin.kirstein.me 
+      host: &host jellyfin.kirstein.me 
+      tls:
+      - hosts: 
+        - *host
       annotations:
           external-dns.alpha.kubernetes.io/target: "home.kirstein.me"
     deployment:
