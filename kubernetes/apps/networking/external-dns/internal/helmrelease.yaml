@@ -65,11 +65,12 @@ spec:
           timeoutSeconds: 5
     extraArgs:
     - --ignore-ingress-tls-spec
+    - --ingress-class=internal-ingress
     policy: sync
     txtPrefix: k8s.
     txtOwnerId: internal
-    domainFilters: ["int.kirstein.me"]
-    sources: ["ingress", "service"]
+    domainFilters: ["kirstein.me"]
+    sources: ["ingress"]
     podAnnotations:
       secret.reloader.stakater.com/reload: external-dns-secret
 
