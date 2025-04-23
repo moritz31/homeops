@@ -1,0 +1,67 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: external-dns-hetzner
+  namespace: networking
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: external-dns
+      version: 1.14.5
+      sourceRef:
+        kind: HelmRepository
+        name: external-dns
+        namespace: flux-system
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    interval: 2m
+    # logLevel: debug
+    provider: 
+      name: webhook
+      webhook:
+        image:
+          repository: ghcr.io/mconfalonieri/external-dns-hetzner-webhook
+          tag: v0.7.0
+        env:
+        - name: HETZNER_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: external-dns-hetzner-credentials
+              key: api-key
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: http-wh-metrics
+          initialDelaySeconds: 10
+          timeoutSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: http-wh-metrics
+          initialDelaySeconds: 10
+          timeoutSeconds: 5
+    extraArgs:
+    - --ignore-ingress-tls-spec
+    - --ingress-class=external-ingress
+    policy: sync
+    txtPrefix: k8s.
+    txtOwnerId: external
+    domainFilters: ["kirstein.me"]
+    sources: ["ingress"]
+    podAnnotations:
+      secret.reloader.stakater.com/reload: external-dns-secret
+
+
+      
