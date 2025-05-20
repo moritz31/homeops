@@ -52,18 +52,17 @@ spec:
           mountPath: '/config'
         - name: 'media'
           mountPath: '/data/media'
-        - name: 'usenet'
+          subPath: '/data/media'
+        - name: 'media'
           mountPath: '/data/usenet'
+          subPath: '/data/usetnet'
       volumes:
         config:
           persistentVolumeClaim:
             claimName: 'sonarr-config'
         media:
           persistentVolumeClaim:
-            claimName: 'media-data'
-        usenet:
-          persistentVolumeClaim:
-            claimName: 'usenet-data'
+            claimName: 'shared-media-data'
     persistentVolumeClaims:
       sonarr-config:
         storageClassName: "nfs-client"
