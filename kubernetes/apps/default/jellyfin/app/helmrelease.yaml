@@ -60,12 +60,13 @@ spec:
           mountPath: '/config'
         - name: 'media'
           mountPath: '/data/media'
+          subPath: 'media'
         - name: 'hardware'
           mountPath: '/dev/dri'
       volumes:
         media:
           persistentVolumeClaim:
-            claimName: media-data
+            claimName: shared-media-data
         hardware:
           hostPath:
             path: /dev/dri

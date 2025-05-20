@@ -52,18 +52,17 @@ spec:
           mountPath: '/config'
         - name: 'media'
           mountPath: '/data/media'
-        - name: 'usenet'
+          subPath: 'media'
+        - name: 'media'
           mountPath: '/data/usenet'
+          subPath: 'usenet'
       volumes:
         config:
           persistentVolumeClaim:
             claimName: 'radarr-config'
         media:
           persistentVolumeClaim:
-            claimName: 'media-data'
-        usenet:
-          persistentVolumeClaim:
-            claimName: 'usenet-data'
+            claimName: 'shared-media-data'
     persistentVolumeClaims:
       radarr-config:
         storageClassName: "nfs-client"

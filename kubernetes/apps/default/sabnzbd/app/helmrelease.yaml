@@ -44,10 +44,11 @@ spec:
           mountPath: '/config'
         - name: 'usenet'
           mountPath: '/data/usenet'
+          subPath: 'usenet'
       volumes:
         usenet:
           persistentVolumeClaim:
-            claimName: usenet-data
+            claimName: shared-media-data
     persistentVolumeClaims:
       sabnzbd-config:
         storageClassName: "nfs-client"
