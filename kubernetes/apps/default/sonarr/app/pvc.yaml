@@ -22,3 +22,29 @@ spec:
   resources:
     requests:
       storage: 400Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-media-data
+spec:
+  capacity:
+    storage: 800Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    path: /data
+    server: nas01.localdomain
+  persistentVolumeReclaimPolicy: Retain
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-data
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeName: pv-media-data
+  resources:
+    requests:
+      storage: 800Gi  # Or higher if needed
