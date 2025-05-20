@@ -52,10 +52,10 @@ spec:
           mountPath: '/config'
         - name: 'media'
           mountPath: '/data/media'
-          subPath: '/data/media'
+          subPath: 'media'
         - name: 'media'
           mountPath: '/data/usenet'
-          subPath: '/data/usetnet'
+          subPath: 'usenet'
       volumes:
         config:
           persistentVolumeClaim:
