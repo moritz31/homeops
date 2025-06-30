@@ -54,15 +54,18 @@ spec:
             port: 8123
     ingress:
       app:
-        ingressClassName: internal-ingress
+        className: internal-ingress
         hosts:
-          - host: hass.int.kirstein.me
+          - host: &host hass.int.kirstein.me
             paths: 
               - path: /
                 pathType: Prefix
                 service: 
                   identifier: app
                   port: http
+        tls:
+          - hosts:
+            - *host
     persistence:
       config:
         existingClaim: home-assistant
