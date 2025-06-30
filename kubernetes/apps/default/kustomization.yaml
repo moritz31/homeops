@@ -8,7 +8,7 @@ resources:
   # Flux-Kustomizations
   - ./authelia/ks.yaml
   - ./cloudnative-pg/ks.yaml
-  - ./home-assitant/ks.yaml
+  - ./home-assistant/ks.yaml
   - ./homebridge/ks.yaml
   - ./jellyfin/ks.yaml
   - ./jellyseerr/ks.yaml
