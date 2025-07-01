@@ -38,6 +38,7 @@ spec:
               limits:
                 memory: 2Gi
     defaultPodOptions:
+      hostNetwork: true
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
@@ -81,4 +82,3 @@ spec:
                 subPath: tts
               - path: /tmp
                 subPath: tmp
-    hostNetwork: true
