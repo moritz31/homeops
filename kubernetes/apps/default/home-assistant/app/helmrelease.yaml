@@ -32,12 +32,6 @@ spec:
               TZ: Europe/Berlin
               HASS_HTTP_TRUSTED_PROXY_1: 192.168.178.0/24
               HASS_HTTP_TRUSTED_PROXY_2: 10.42.0.0/16
-            securityContext:
-              capabilities:
-                add:
-                  - NET_ADMIN
-                  - NET_RAW
-                  - NET_BROADCAST
             resources:
               requests:
                 cpu: 10m
@@ -87,3 +81,4 @@ spec:
                 subPath: tts
               - path: /tmp
                 subPath: tmp
+    hostNetwork: true
