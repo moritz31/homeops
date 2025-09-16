@@ -6,6 +6,7 @@ resources:
   - bitnami.yaml
   - bjw-s.yaml
   - cloudnative-pg.yaml
+  - community-charts.yaml
   - external-dns.yaml
   - ingress-nginx.yaml
   - jetstack.yaml

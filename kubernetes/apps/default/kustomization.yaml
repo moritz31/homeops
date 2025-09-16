@@ -6,6 +6,7 @@ resources:
   # Pre Flux-Kustomizations
   - ./namespace.yaml
   # Flux-Kustomizations
+  - ./actualbudget/ks.yaml
   - ./authelia/ks.yaml
   - ./cloudnative-pg/ks.yaml
   - ./home-assistant/ks.yaml
