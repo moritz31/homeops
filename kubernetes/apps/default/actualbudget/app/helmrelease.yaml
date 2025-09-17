@@ -27,6 +27,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    extraEnvVar:
+      ACTUAL_OPENID_SERVER_HOSTNAME: 'https://actual.int.kirstein.me'
     ingress:
       enabled: true
       className: internal-ingress
