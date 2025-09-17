@@ -38,3 +38,14 @@ spec:
     persistence:
       enabled: true
       storageClass: nfs-client
+    login:
+      method: "openid"
+      openid:
+        enforce: true
+        providerName: "Authelia"
+        discoveryUrl: "https://auth.kirstein.me/.well-known/openid-configuration"
+        tokenExpiration: 3600
+        existingSecret:
+          name: "actualbudget"
+          clientIdKey: "clientId"
+          clientSecretKey: "clientSecret"
