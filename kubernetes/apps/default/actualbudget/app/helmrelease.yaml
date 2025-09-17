@@ -44,7 +44,7 @@ spec:
         enforce: true
         providerName: "Authelia"
         discoveryUrl: "https://auth.kirstein.me/.well-known/openid-configuration"
-        tokenExpiration: "3600"
+        tokenExpiration: "openid-provider"
         existingSecret:
           name: "actualbudget"
           clientIdKey: "clientId"
