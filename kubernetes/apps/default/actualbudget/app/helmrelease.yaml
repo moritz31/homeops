@@ -28,15 +28,20 @@ spec:
     keepHistory: false
   values:
     extraEnvVar:
-      ACTUAL_OPENID_SERVER_HOSTNAME: 'https://actual.int.kirstein.me'
+      ACTUAL_OPENID_SERVER_HOSTNAME: 'https://actual.kirstein.me'
     ingress:
       enabled: true
-      className: internal-ingress
+      className: external-ingress
+      annotations:
+          external-dns.alpha.kubernetes.io/target: "home.kirstein.me"
       hosts:
-      - host: actual.int.kirstein.me
-        paths:
-          - path: /
-            pathType: ImplementationSpecific
+        - host: &host actual.kirstein.me
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+      tls:
+        - hosts: 
+          - *host
     persistence:
       enabled: true
       storageClass: nfs-client
