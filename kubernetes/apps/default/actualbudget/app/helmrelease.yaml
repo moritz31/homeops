@@ -42,6 +42,7 @@ spec:
       tls:
         - hosts: 
           - *host
+          secretName: actualbudget-tls
     persistence:
       enabled: true
       storageClass: nfs-client

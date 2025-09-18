@@ -73,7 +73,7 @@ data:
           require_pkce: false
           pkce_challenge_method: ''
           redirect_uris:
-            - 'https://actual.int.kirstein.me/openid/callback'
+            - 'https://actual.kirstein.me/openid/callback'
           scopes:
             - 'openid'
             - 'profile'
