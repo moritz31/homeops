@@ -18,7 +18,7 @@ spec:
           main:
             image:
               repository: linuxserver/orcaslicer
-              tag: 2.3.0
+              tag: 2.3.1
               pullPolicy: Always
             env:
               PUID: 1000
