@@ -11,7 +11,7 @@
     ":automergeDigest",
     ":automergeBranch",
     "helpers:pinGitHubActionDigests",
-    "github>moritz31/home-ops//.github/autoMerge.json5"
+    "github>moritz31/homeops//.github/autoMerge.json5"
   ],
   "platform": "github",
   "onboarding": false,
