@@ -28,7 +28,7 @@ spec:
     keepHistory: false
   values:
     image:
-      tag: 1.33.0
+      tag: 2.1.1
     env:
       - name: DATABASE_HOST
         value: teslamate-database-rw
