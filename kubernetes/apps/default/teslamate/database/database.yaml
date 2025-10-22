@@ -6,6 +6,7 @@ metadata:
   name: teslamate-database
   namespace: default
 spec:
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.6
   instances: 1
   primaryUpdateStrategy: unsupervised
   storage:
