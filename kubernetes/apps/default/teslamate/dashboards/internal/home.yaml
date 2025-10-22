@@ -1,12 +1,11 @@
-
 apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata: 
-  name: teslamate-internal-charge-details
+  name: teslamate-internal-home
   namespace: monitoring
 spec:
   instanceSelector:
     matchLabels:
       dashboards: "grafana"
   folder: "TeslaMate_Internal"
-  url: https://raw.githubusercontent.com/teslamate-org/teslamate/refs/tags/v2.1.1/grafana/dashboards/internal/charge-details.json
+  url: https://raw.githubusercontent.com/teslamate-org/teslamate/refs/tags/v2.1.1/grafana/dashboards/internal/home.json

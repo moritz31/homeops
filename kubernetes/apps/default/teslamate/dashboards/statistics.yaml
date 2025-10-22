@@ -9,4 +9,4 @@ spec:
     matchLabels:
       dashboards: "grafana"
   folder: "TeslaMate"
-  url: https://raw.githubusercontent.com/adriankumpf/teslamate/master/grafana/dashboards/statistics.json
+  url: https://raw.githubusercontent.com/teslamate-org/teslamate/refs/tags/v2.1.1/grafana/dashboards/statistics.json
