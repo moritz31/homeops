@@ -20,8 +20,6 @@ spec:
               envFrom:
                 - secretRef:
                     name: grafana-secrets
-                - secretRef:
-                    name: grafana-env
               resources:
                 limits:
                   memory: 200Mi
