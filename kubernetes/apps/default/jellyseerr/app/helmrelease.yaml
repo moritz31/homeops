@@ -33,11 +33,11 @@ spec:
     deployment:
       container:
         image:
-          tag: '2.3.0'
+          tag: '2.7.3'
     ingress:
       enabled: true
-      className: internal-ingress
-      host: jellyseerr.int.kirstein.me 
+      className: external-ingress
+      host: jellyseerr.kirstein.me 
     persistentVolumeClaims:
       jellyseerr-config:
         storageClassName: "nfs-client"
