@@ -37,7 +37,12 @@ spec:
     ingress:
       enabled: true
       className: external-ingress
-      host: jellyseerr.kirstein.me 
+      host: &host jellyseerr.kirstein.me 
+      tls:
+      - hosts: 
+        - *host
+      annotations:
+          external-dns.alpha.kubernetes.io/target: "home.kirstein.me"
     persistentVolumeClaims:
       jellyseerr-config:
         storageClassName: "nfs-client"
