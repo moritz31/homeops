@@ -101,8 +101,8 @@ spec:
     defaultDatasources:
       grafanaOperator:
         enabled: true
-        spec:
-          instanceSelector:
-            matchLabels:
-              dashboards: grafana
+    defaultDashboards:
+      enabled: true
+      grafanaOperator:
+        enabled: true
         
