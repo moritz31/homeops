@@ -97,3 +97,11 @@ spec:
     victoria-metrics-operator:
       operator:
         disable_prometheus_converter: false
+    defaultDatasources:
+      grafanaOperator:
+        enabled: true
+        spec:
+          instanceSelector:
+            matchLabels:
+              dashboards: grafana
+        
