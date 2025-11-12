@@ -16,7 +16,6 @@ resources:
   - ./lldap/ks.yaml
   - ./mosquitto/ks.yaml
   - ./opendtu/ks.yaml
-  - ./orca/ks.yaml
   - ./paperless/ks.yaml
   - ./teslamate/ks.yaml
   - ./radarr/ks.yaml
