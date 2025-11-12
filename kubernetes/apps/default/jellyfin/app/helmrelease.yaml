@@ -51,6 +51,13 @@ spec:
         - *host
       annotations:
           external-dns.alpha.kubernetes.io/target: "home.kirstein.me"
+          nginx.ingress.kubernetes.io/server-snippet: |
+            location /metrics {
+              deny all;
+              allow 10.0.0.0/8;
+              allow 192.168.0.0/16;
+              allow 172.16.0.0/12;
+            }
     deployment:
       container:
         securityContext:
