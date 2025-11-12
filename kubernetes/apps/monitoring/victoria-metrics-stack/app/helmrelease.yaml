@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: victoria-metrics-k8s-stack
-      version: 0.48.1
+      version: 0.63.5
       sourceRef:
         kind: HelmRepository
         name: victoriametrics
@@ -40,10 +40,6 @@ spec:
         kubelet: false
         kubeScheduler: false
     grafana:
-      enabled: false
-    kubelet:
-      enabled: false
-    kubeApiServer:
       enabled: false
     kubeControllerManager:
       enabled: false
