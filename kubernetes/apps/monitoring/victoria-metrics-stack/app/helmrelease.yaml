@@ -41,6 +41,7 @@ spec:
         kubeScheduler: false
     grafana:
       enabled: false
+      forceDeployDatasource: true
     kubeControllerManager:
       enabled: false
     kubeEtcd:
