@@ -1,20 +1,18 @@
 
 ---
-# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/helmrelease_v2beta1.json
-apiVersion: helm.toolkit.fluxcd.io/v2
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.jsonapiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: mosquitto
   namespace: default
 spec:
-  interval: 15m
+  interval: 1h
   chart:
     spec:
       chart: mosquitto
-      version: 4.8.2
-      sourceRef:
-        kind: HelmRepository
-        name: k8s-at-home
+      chartRef:
+        kind: OCIRepository
+        name: app-template
         namespace: flux-system
   maxHistory: 3
   install:
@@ -28,14 +26,62 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    controllers:
+        mosquitto:
+          type: statefulset
+          containers:
+            app:
+              image:
+                repository: public.ecr.aws/docker/library/eclipse-mosquitto
+                tag: 2.0.22
+              env:
+                TZ: Europe/Berlin
+              securityContext:
+                allowPrivilegeEscalation: false
+                readOnlyRootFilesystem: true
+                capabilities: {drop: ["ALL"]}
+              resources:
+                requests:
+                  cpu: 10m
+                limits:
+                  memory: 100Mi
+          statefulset:
+            volumeClaimTemplates:
+              - name: config
+                storageClass: nfs-client
+                accessMode: ReadWriteOnce
+                size: 100Mi
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
     service:
-      main:
+      app:
         type: LoadBalancer
         annotations:
-          external-dns.alpha.kubernetes.io/hostname: mqtt2.nas01.kirstein.me
-    persistence:
+          external-dns.alpha.kubernetes.io/hostname: mqtt.int.kirstein.me
+        externalTrafficPolicy: Local
+        ports:
+          mqtt:
+            port: 1883
+    configMaps:
+      config:
         data:
-          enabled: true
-          storageClassName: nfs-client
-          accessMode: ReadWriteOnce
-          size: 100Mi
+          mosquitto.conf: |-
+            allow_anonymous true
+            autosave_interval 60
+            connection_messages false
+            listener 1883
+            per_listener_settings false
+            persistence true
+            persistence_location /config
+    persistence:
+      config-file:
+        type: configMap
+        identifier: config
+        globalMounts:
+          - path: /mosquitto/config/mosquitto.conf
+            subPath: mosquitto.conf
