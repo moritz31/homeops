@@ -8,13 +8,10 @@ metadata:
   namespace: default
 spec:
   interval: 1h
-  chart:
-    spec:
-      chart: mosquitto
-      chartRef:
-        kind: OCIRepository
-        name: app-template
-        namespace: flux-system
+  chartRef:
+    kind: OCIRepository
+    name: app-template
+    namespace: flux-system
   maxHistory: 3
   install:
     createNamespace: true
