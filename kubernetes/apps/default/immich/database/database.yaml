@@ -24,12 +24,12 @@ spec:
       secret:
         name: immich-postgres-user
       postInitSQL:
-        - CREATE EXTENSION IF NOT EXISTS "vectors";
+        - CREATE EXTENSION IF NOT EXISTS "vchord";
         - CREATE EXTENSION IF NOT EXISTS "cube" CASCADE;
         - CREATE EXTENSION IF NOT EXISTS "earthdistance" CASCADE;
   postgresql:
     shared_preload_libraries:
-      - "vectors.so"
+      - "vchord.so"
     pg_hba:
       - hostssl app app 192.168.178.0/24 md5
   monitoring:
