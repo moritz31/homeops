@@ -62,11 +62,14 @@ spec:
             nginx.ingress.kubernetes.io/proxy-body-size: "0"
           ingressClassName: "external-ingress"
           hosts:
-            - host: photos.kirstein.me
+            - host: &host photos.kirstein.me
               paths:
                 - path: "/"
                   service:
                     identifier: main
+          tls:
+          - hosts: 
+            - *host
     machine-learning:
       enabled: true
       env:
