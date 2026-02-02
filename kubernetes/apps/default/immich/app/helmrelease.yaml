@@ -29,8 +29,8 @@ spec:
   values:
     immich:
       persistence:
-      library:
-        existingClaim: immich-library-pvc
+        library:
+          existingClaim: immich-library-pvc
     redis:
       enabled: true
       architecture: standalone
@@ -53,7 +53,7 @@ spec:
       env:
         TRANSFORMERS_CACHE: /cache
       persistence:
-      cache:
-        enabled: true
-        size: 10Gi
-        existingClaim: immich-ml-pvc
+        cache:
+          enabled: true
+          size: 10Gi
+          existingClaim: immich-ml-pvc
