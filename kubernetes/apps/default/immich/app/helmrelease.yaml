@@ -60,7 +60,7 @@ spec:
           annotations:
             external-dns.alpha.kubernetes.io/target: home.kirstein.me
             nginx.ingress.kubernetes.io/proxy-body-size: "0"
-          ingressClassName: "external-ingress"
+          className: "external-ingress"
           hosts:
             - host: &host photos.kirstein.me
               paths:
