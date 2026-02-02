@@ -32,7 +32,7 @@ spec:
         containers:
           main:
             env: 
-              DB_HOSTNAME: "immich-postgres-rw.default.svc.cluster.local"
+              DB_HOSTNAME: "immich-database-rw.default.svc.cluster.local"
               DB_DATABASE_NAME: "app"
               DB_USERNAME:
                 valueFrom:
