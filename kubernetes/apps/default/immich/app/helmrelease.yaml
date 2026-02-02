@@ -31,11 +31,8 @@ spec:
       persistence:
         library:
           existingClaim: immich-library-pvc
-    redis:
+    valkey:
       enabled: true
-      architecture: standalone
-      auth:
-        enabled: false
     server:
       enabled: true
       ingress:
