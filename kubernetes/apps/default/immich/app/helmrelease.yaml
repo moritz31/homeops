@@ -27,19 +27,23 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    env: 
-      DB_HOSTNAME: "immich-postgres-rw"
-      DB_DATABASE_NAME: "app"
-      DB_USERNAME:
-        valueFrom:
-          secretKeyRef:
-            name: immich-database-app
-            key: username
-      DB_PASSWORD: 
-        valueFrom:
-          secretKeyRef:
-            name: immich-database-app
-            key: password
+    controllers:
+      main:
+        containers:
+          main:
+            env: 
+              DB_HOSTNAME: "immich-postgres-rw"
+              DB_DATABASE_NAME: "app"
+              DB_USERNAME:
+                valueFrom:
+                  secretKeyRef:
+                    name: immich-database-app
+                    key: username
+              DB_PASSWORD: 
+                valueFrom:
+                  secretKeyRef:
+                    name: immich-database-app
+                    key: password
     immich:
       persistence:
         library:
