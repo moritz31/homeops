@@ -8,6 +8,7 @@ resources:
   - cloudnative-pg.yaml
   - community-charts.yaml
   - external-dns.yaml
+  - immich.yaml
   - ingress-nginx.yaml
   - jetstack.yaml
   - k8s-at-home.yaml

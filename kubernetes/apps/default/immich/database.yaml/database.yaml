@@ -1,0 +1,50 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/cluster_v1.json
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: immich-database
+  namespace: default
+spec:
+  instances: 1
+  imageName: ghcr.io/tensorchord/cloudnative-pgvecto.rs
+  primaryUpdateStrategy: unsupervised
+  storage:
+    size: 4Gi
+    storageClass: nfs-client
+  managed:
+    roles:
+      - name: immich
+        superuser: true
+        login: true
+  bootstrap:
+    initdb:
+      database: immich
+      owner: immich
+      secret:
+        name: immich-postgres-user
+      postInitSQL:
+        - CREATE EXTENSION IF NOT EXISTS "vectors";
+        - CREATE EXTENSION IF NOT EXISTS "cube" CASCADE;
+        - CREATE EXTENSION IF NOT EXISTS "earthdistance" CASCADE;
+  postgresql:
+    shared_preload_libraries:
+      - "vectors.so"
+    pg_hba:
+      - hostssl app app 192.168.178.0/24 md5
+  monitoring:
+    enablePodMonitor: true
+  backup:
+    retentionPolicy: 30d
+    barmanObjectStore:
+      wal:
+        compression: bzip2
+        maxParallel: 8
+      destinationPath: s3://backup-homelab-kirstein/postgresql/immich
+      s3Credentials:
+        accessKeyId:
+          name: immich-backup-secret
+          key: aws-access-key-id
+        secretAccessKey:
+          name: immich-backup-secret
+          key: aws-secret-access-key
