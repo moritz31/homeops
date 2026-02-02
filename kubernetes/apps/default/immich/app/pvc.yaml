@@ -10,7 +10,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   nfs:
-    path: /data/immich-ml
+    path: /data
     server: nas01.localdomain
   persistentVolumeReclaimPolicy: Retain
 ---
@@ -25,7 +25,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   nfs:
-    path: /data/immich
+    path: /data
     server: nas01.localdomain
   persistentVolumeReclaimPolicy: Retain
 ---
