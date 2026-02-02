@@ -12,17 +12,8 @@ spec:
   storage:
     size: 4Gi
     storageClass: nfs-client
-  managed:
-    roles:
-      - name: immich
-        superuser: true
-        login: true
   bootstrap:
     initdb:
-      database: immich
-      owner: immich
-      secret:
-        name: immich-postgres-user
       postInitSQL:
         - CREATE EXTENSION IF NOT EXISTS "vector";
         - CREATE EXTENSION IF NOT EXISTS "vchord";
