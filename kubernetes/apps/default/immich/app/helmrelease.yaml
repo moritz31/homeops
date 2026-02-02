@@ -31,6 +31,8 @@ spec:
       main:
         containers:
           main:
+            image:
+              tag: v2.5.2
             env: 
               DB_HOSTNAME: "immich-database-rw.default.svc.cluster.local"
               DB_DATABASE_NAME: "app"
