@@ -26,6 +26,7 @@ spec:
     - ReadWriteOnce
   nfs:
     path: /data/immich
+    server: nas01.localdomain
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
