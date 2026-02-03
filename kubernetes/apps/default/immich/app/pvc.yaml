@@ -25,8 +25,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   nfs:
-    path: /data
-    server: nas01.localdomain
+    path: /data/immich
   persistentVolumeReclaimPolicy: Retain
 ---
 apiVersion: v1
