@@ -18,4 +18,5 @@ resources:
   - node-red.yaml
   - prometheus-community.yaml
   - tibber.yaml
+  - valkey.yaml
   - victoriametrics.yaml
