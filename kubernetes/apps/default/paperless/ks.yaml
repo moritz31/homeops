@@ -8,7 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-paperless-database
-    - name: cluster-apps-paperless-redis
+    - name: cluster-apps-paperless-valkey
   path: ./kubernetes/apps/default/paperless/app
   prune: true
   sourceRef:
@@ -47,12 +47,12 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-paperless-redis
+  name: cluster-apps-paperless-valkey
   namespace: flux-system
 spec:
   dependsOn:
     - name: cluster-apps-nfs-subdir-external-provisioner
-  path: ./kubernetes/apps/default/paperless/redis
+  path: ./kubernetes/apps/default/paperless/valkey
   prune: true
   sourceRef:
     kind: GitRepository
