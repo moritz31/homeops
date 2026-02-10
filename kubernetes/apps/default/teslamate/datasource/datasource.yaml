@@ -25,3 +25,4 @@ spec:
       password: ${SECRET_TESLAMATE_POSTGRES_PASSWORD}
     url: 192.168.178.204:5432
     user: app
+    isDefault: true
