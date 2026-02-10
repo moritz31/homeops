@@ -11,10 +11,10 @@ spec:
   datasource:
     name: TeslaMate
     type: postgres
-    database: app
     editable: false
     access: proxy
     jsonData:
+      database: app
       connMaxLifetime: 14400
       maxIdleConns: 2
       maxOpenConns: 0
@@ -25,4 +25,3 @@ spec:
       password: ${SECRET_TESLAMATE_POSTGRES_PASSWORD}
     url: 192.168.178.204:5432
     user: app
-    isDefault: true
