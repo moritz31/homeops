@@ -82,12 +82,10 @@ spec:
       automountServiceAccountToken: false
       enableServiceLinks: false
       securityContext:
-        runAsNonRoot: true
         runAsUser: &uid 1000
         runAsGroup: *uid
         fsGroup: *uid
-        fsGroupChangePolicy: Always
-        seccompProfile: { type: "RuntimeDefault" }
+        fsGroupChangePolicy: OnRootMismatch
     persistence:
       data:
         enabled: true
