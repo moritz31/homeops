@@ -96,7 +96,7 @@ spec:
         accessMode: ReadWriteOnce
         size: 1Gi
       usb:
-        enabled: true
+        type: hostPath
         hostPath: *usbdevice
         hostPathType: CharDevice
         globalMounts:
