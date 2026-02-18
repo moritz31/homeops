@@ -59,8 +59,6 @@ spec:
               # adapter
               ZIGBEE2MQTT_CONFIG_SERIAL_PORT: &usbdevice /dev/ttyACM0
               ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER: deconz
-              # frontend
-              ZIGBEE2MQTT_CONFIG_FRONTEND_URL: https://z2m.nas01.kirstein.me/#/
     service:
       zigbee2mqtt:
         controller: *app
@@ -78,14 +76,6 @@ spec:
             path: /metrics
             interval: 1m
             scrapeTimeout: 10s
-    defaultPodOptions:
-      automountServiceAccountToken: false
-      enableServiceLinks: false
-      securityContext:
-        runAsUser: &uid 1000
-        runAsGroup: *uid
-        fsGroup: *uid
-        fsGroupChangePolicy: OnRootMismatch
     persistence:
       data:
         enabled: true
