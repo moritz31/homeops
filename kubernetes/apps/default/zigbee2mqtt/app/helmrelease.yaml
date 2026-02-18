@@ -110,7 +110,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: "internal-ingress"
+        className: "internal-ingress"
         annotations: 
           external-dns.alpha.kubernetes.io/hostname: z2m.nas01.kirstein.me
         hosts:
