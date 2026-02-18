@@ -60,15 +60,13 @@ spec:
               ZIGBEE2MQTT_CONFIG_SERIAL_PORT: &usbdevice /dev/ttyACM0
               ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER: deconz
               # frontend
-              ZIGBEE2MQTT_CONFIG_FRONTEND: "false"
-              ZIGBEE2MQTT_CONFIG_FRONTEND_PORT: &port 8080
               ZIGBEE2MQTT_CONFIG_FRONTEND_URL: https://z2m.nas01.kirstein.me/#/
     service:
       zigbee2mqtt:
         controller: *app
         ports:
           http:
-            port: *port
+            port: 8080
             protocol: HTTP
             appProtocol: http
     serviceMonitor:
