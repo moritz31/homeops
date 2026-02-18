@@ -30,7 +30,7 @@ spec:
           main:
             image: 
               repository: ghcr.io/koenkk/zigbee2mqtt
-              tag: 1.41.0
+              tag: 2.8.0@sha256:89cf02f379aa743a68494388e3a26fba7b8c9101f8b452038cc07aeff3fc983c
             resources:
               requests:
                 cpu: 15m
