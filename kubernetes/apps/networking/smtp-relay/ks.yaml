@@ -2,14 +2,13 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-apps-holepunch
-  namespace: flux-system
+  name: smtp-relay
 spec:
-  path: ./kubernetes/apps/networking/holepunch/app
+  interval: 1h
+  path: ./kubernetes/apps/networking/smtp-relay/app
   prune: true
   sourceRef:
     kind: GitRepository
     name: home-kubernetes
-  interval: 30m
-  retryInterval: 1m
-  timeout: 3m
+    namespace: flux-system
+  targetNamespace: networking
