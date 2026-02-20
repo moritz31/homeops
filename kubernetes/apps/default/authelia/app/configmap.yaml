@@ -110,6 +110,7 @@ data:
       disable_startup_check: true
       smtp:
         host: smtp-relay.networking
+        disable_starttls: true
         port: 25
         sender: "Authelia"
     session:
