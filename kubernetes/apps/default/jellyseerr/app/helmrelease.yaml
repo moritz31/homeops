@@ -73,6 +73,8 @@ spec:
         storageClass: nfs-client
         accessMode: ReadWriteOnce
         size: 1Gi
+        globalMounts:
+          - path: /app/config
       tmp:
         type: emptyDir
     ingress:
