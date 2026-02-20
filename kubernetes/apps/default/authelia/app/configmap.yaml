@@ -85,12 +85,32 @@ data:
             - 'authorization_code'
           access_token_signed_response_alg: 'none'
           userinfo_signed_response_alg: 'none'
-          token_endpoint_auth_method: 'client_secret_basic'  
+          token_endpoint_auth_method: 'client_secret_basic' 
+        - client_id: 'jellyfin'
+        client_name: 'Jellyfin'
+        client_secret: '$argon2id$v=19$m=65536,t=3,p=4$1nSraidgD3Kv8pP+03dtvg$pcly6K00hDJ1ZkP1ZzqnDN0HZ5b7ccVlFqEice2Xst0'
+        public: false
+        authorization_policy: 'two_factor'
+        require_pkce: true
+        pkce_challenge_method: 'S256'
+        redirect_uris:
+          - 'https://jellyfin.kirstein.me/sso/OID/redirect/authelia'
+        scopes:
+          - 'openid'
+          - 'profile'
+          - 'groups'
+        response_types:
+          - 'code'
+        grant_types:
+          - 'authorization_code'
+        access_token_signed_response_alg: 'none'
+        userinfo_signed_response_alg: 'none'
+        token_endpoint_auth_method: 'client_secret_post' 
     notifier:
       disable_startup_check: true
       smtp:
-        host: email-smtp.eu-central-1.amazonaws.com
-        port: 465
+        host: smtp-relay.networking
+        port: 25
         sender: "Authelia"
     session:
       domain: kirstein.me
