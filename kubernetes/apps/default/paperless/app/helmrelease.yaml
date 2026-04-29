@@ -101,6 +101,8 @@ spec:
           secretKeyRef:
             name: paperless-encryption
             key: paperless_socialaccount_providers
+      - name: PAPERLESS_SOCIAL_ACCOUNT_SYNC_GROUPS
+        value: true
     service:
       main:
         ports:
