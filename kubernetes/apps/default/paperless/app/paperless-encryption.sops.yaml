@@ -5,27 +5,22 @@ metadata:
     namespace: default
 type: Opaque
 stringData:
-    key: ENC[AES256_GCM,data:uc76HXc+r0FPwOuBkMNWO6aKBf9J5fs7ms6m0w2cm7eSBRir/8FaOOxQqHzzySpoa4+Hz8TdAIAw20VZaXjYVg==,iv:2HqcBj78PuPR+2kPyutGU5e2MJsgus9Z96tn7sdS8yg=,tag:dLrxNhqkr5Rmdx66HLBc8g==,type:str]
-    username: ENC[AES256_GCM,data:CSPVUC0=,iv:5sx1gZm9y4yiRG3bLmORN+yn/TmSU0PtO8y2k2SJq0g=,tag:CHTzSV0Zh9TLkujmuINv9g==,type:str]
-    password: ENC[AES256_GCM,data:amiTDjurqUwsKUFbGWzjqWWI968=,iv:512UXwy3BdzJDHed4rqMVvZli7oajvJ3Xbntc0ysnX0=,tag:9lKQeiymsOfUpI6lCA0i4Q==,type:str]
-    paperless_socialaccount_providers: ENC[AES256_GCM,data:+d6anquQh5INWGtNMRU8ybwrRCoHeefIekkudEYJ4Lx+Wd9H922Nwdk25kFPz3N7CdO9l/tl0k1S4tw9zK3AnEQOJgeK1XpzcVdV2x9V1Wk+dcdIR7DaSDGISY0DYuMqtX84o/8fC+/VVzgZBk+VM/bI2RbV6QILimYmqWDJQDYd5sSvF6YPMtZREYPouJuQMQS3rOrxDfAQPH29bDn/vqAboM28Eo3BBHMIx+W2eR+YDnjdsg4AeV+Md2c3N6m5hAHYPDF90h39svdu0qQd0KdAuGpKDLP++rJv9nzcngSyZKPAajpB0J6ZaacpgH7Pwuaks+bzKjR1TMGFAee04Mk/LITga19TmsYGZLVrOadx76dqhTPh92rN7Vf1nZ1lgqGMiWEXhK09q+/d/cDm/yxbXD9aol1XnsDqE3dqE6A21rb98ioNEpDWykZ9,iv:IAWN6xk5MQknSrXeNpgsjjp6I6qrJucEwWFmAXS2Bgc=,tag:UEKw6fpE+DvYbaEY8ish8A==,type:str]
+    key: ENC[AES256_GCM,data:TCiHnBt/0umZIeimUnhCFNsBQ3RK2CzGFsqIhNS+uHEZ5THF7DyZODKGjLA0ce8XDnEET0T0tvIapmPjGYmp+g==,iv:gXXH4yZUsbPqDcuK50jXjjkpCsh9o3m+rX3qyVNC3Pg=,tag:O91IopAPJ4G6SI2a69UDUQ==,type:str]
+    username: ENC[AES256_GCM,data:BbC1DgQ=,iv:m0rqhNGPyM1XkjS3ixMZKTTte4nSedkV4nhYukjSTsE=,tag:mS6ZjWUEiUIMOJS+hfoTJw==,type:str]
+    password: ENC[AES256_GCM,data:hv780duiAo2WzECBL0JzSrWhUhU=,iv:giYxoCljZA0ywE+Xk4zFeYreIkGInuvk6zZuNFmnEG8=,tag:GjINhS6k41JXtDg2vTWOYA==,type:str]
+    paperless_socialaccount_providers: ENC[AES256_GCM,data:gRdTpt2AOoQ9DPTdoFMd6cWFee3ozqUtSuC+MEMQVFAXQArSkp2TflxswsdXXkAFqVQRolzGiGRh5c9yqz/P6xM44yyjn7WjVeMzBfbkNewr6N7BEs+BbeH0pLVlgVb9iO53qn5zKBQawrqDxIl4BDj0ow4Ou2QRg9kAvtbgTdhrJVs9GB45JW8XqnzuinAhRWbqKFHV5XBIalDVLyeg4lSu4kFFx3sCRYUpBf1w39Pxyzf2evPIvo8Nw2/SzT29gPdK+megPGFDrdRPW18rmChAmzKdSI77aOL5pfR1CvgiskNoiazwaabdGA+5bjdtHz+YyvU8wX0Z419gBCgcCrAxtHlgVNbuebGu8xJoF937FxZLfcb05wdqDMryj6SsmOKrrmYLZlQfk4VVZaEO3xTMBGv/NNADtwrYVQkrnngW3vHRGM49ljuXVp+y0oFd1vALHtzQGhcmtTsibYHGp4rJojo/mTxMYI2osC3FPTGZrDLiSOcxNO3mN5Ei,iv:fh+fubYf6RIAwl5whpJ4SxSJcHoUaHroFPgsFO5kCOs=,tag:l2Z+/R3v0h6coZ8xxkeDAg==,type:str]
 sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
     age:
         - recipient: age1l6hn6tqssp82508dcmyrg0dcxrzjv04m0xc7apcffly02y9prqlsj3zmt2
           enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBGWnpNbU9nSUZia01rTTF3
-            c1pydkVSa3RGR1EyUHJmQ0lJOENCSkxRR2ljCjVETHE1Ym5TSkRPZ21qQ2JQZndP
-            allGcXliQmtvY3V4WHV1a2xoOXpNaEkKLS0tIG9jR3l0REI2aEFaMHBWZXN2Z1FF
-            aHFWT1BjRUZZWm5WN20wQjNtbE9raW8KPdLtknIv7oYHvRJSxlu3y15Dd0rmQ8jO
-            dMnD43uisStk7jFQt4z49LYt1e4U/ATfX0M2pvq8QEC+Qa9DqWuarQ==
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBJRm5veU12TGlHUGZUN2ZZ
+            emE4d05DM2VwUmp0b3VIMHBzdXE5MGQ3RGh3CitqNkVoM2Y1S1poZEdSczBvRkFU
+            K1UxTjNKQjdDRXFXcUw0Nm05VG91L2sKLS0tIEVYczlBbkhGWTVpMzlUenBCYVJ2
+            OFdqRllsYUxpS2V6bjNyMTJJMWRTdTAKCdk+0Cn15ZLNDnA9AFymfUKTb7wulLAs
+            r7RRufZDerrP4/BNJ6yLLiuSRroNYk0B1FJhz64Elx39xY12D4pLfQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-02-12T15:39:48Z"
-    mac: ENC[AES256_GCM,data:88WqKGRGGrrF15YzZstU2yXrpc/VOP9HJfd56fhZm7iTTpTPUoNb5PhO6w9myJ4IcfUb8y4hiVBZYUNe8BcFzOkLNQEoEHItl7+Z10uTjGrauj/v3mr1aKuBfrFp2/Fs7I0e8iia2YsnlsEiX9ehQQSdNHTtDXu2O0u6X7AsOMo=,iv:Ipk84GPJ1RLhxFZQueZsFFbmGVSVq2Z8pZzvDOz2tPY=,tag:xF28uvz/UwbaBBPAiMT3mg==,type:str]
-    pgp: []
+    lastmodified: "2026-04-29T08:29:53Z"
+    mac: ENC[AES256_GCM,data:xfSp0IqWPoj5SAIDiWIN6j9PvAHIhQNQ8LBwDX4M1KR6XASsg4Z/tfJm09K3EI47IXIVL5KSjgneHKvwIo+teOdEPt0FghsTBnFDEH7eNytaaMeG2oeS82nYZM9HX562YaXTOMGkpyl0GIUHpQLEYveKN+qBIfllwUAMfTT+dr0=,iv:PPvkcmYLO3/4ad7HESa/SjElRzlp0bRINMzud9AK4CA=,tag:wExRxRTJd963InpUXeML6w==,type:str]
     encrypted_regex: ^(data|stringData)$
-    version: 3.8.1
+    version: 3.12.2
