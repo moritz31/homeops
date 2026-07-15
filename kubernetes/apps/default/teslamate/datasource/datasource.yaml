@@ -17,7 +17,7 @@ spec:
       database: app
       connMaxLifetime: 14400
       maxIdleConns: 2
-      maxOpenConns: 0
+      maxOpenConns: 1
       postgresVersion: 1400
       sslmode: disable
       timescaledb: false
