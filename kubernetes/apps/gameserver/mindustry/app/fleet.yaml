@@ -44,9 +44,6 @@ spec:
           containers:
             - name: mindustry-fleet
               image: docker.io/salmonit/agones-mindustry:156.2.0
-              envFrom:
-                - configMapRef:
-                    name: mindustry-fleet-config
               ports:
                 - name: main
                   containerPort: 34197
