@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: gameserver
+resources:
+- fleet.yaml
+- pvc.yaml
+labels:
+  - pairs:
+      app.kubernetes.io/name: mindustry
+      app.kubernetes.io/instance: mindustry
+      app.kubernetes.io/part-of: mindustry

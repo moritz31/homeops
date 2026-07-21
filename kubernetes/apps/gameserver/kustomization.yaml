@@ -8,3 +8,4 @@ resources:
   # Flux-Kustomizations
   - ./factorio/ks.yaml
   - ./terraria/ks.yaml
+  - ./mindustry/ks.yaml
