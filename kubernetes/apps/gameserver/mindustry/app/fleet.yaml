@@ -41,7 +41,7 @@ spec:
         grpcPort: 9357
         httpPort: 9358
       players:
-        initialCapacity: 32
+        initialCapacity: 4
       template:
         metadata:
           labels:
@@ -49,7 +49,7 @@ spec:
         spec:
           containers:
             - name: mindustry-fleet
-              image: docker.io/salmonit/agones-mindustry:159.7.0
+              image: docker.io/salmonit/agones-mindustry:159.7.1
               ports:
                 - name: main
                   containerPort: 6567
@@ -61,3 +61,10 @@ spec:
                 limits:
                   cpu: '2'
                   memory: 2Gi
+              volumeMounts:
+                - name: data
+                  mountPath: /data
+          volumes:
+            - name: data
+              persistentVolumeClaim:
+                claimName: mindustry-data
