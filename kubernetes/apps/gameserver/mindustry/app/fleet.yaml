@@ -46,11 +46,7 @@ spec:
               image: docker.io/salmonit/agones-mindustry:159.7.0
               ports:
                 - name: main
-                  containerPort: 34197
-                  protocol: UDP
-                - name: rcon
-                  containerPort: 27015
-                  protocol: TCP
+                  containerPort: 6567
               stdin: true
               resources:
                 requests:
