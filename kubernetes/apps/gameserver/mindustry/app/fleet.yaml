@@ -49,7 +49,7 @@ spec:
         spec:
           containers:
             - name: mindustry-fleet
-              image: docker.io/salmonit/agones-mindustry:159.7.3
+              image: docker.io/salmonit/agones-mindustry:159.7.4
               ports:
                 - name: main
                   containerPort: 6567
