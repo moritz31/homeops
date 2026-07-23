@@ -19,11 +19,18 @@ spec:
     spec:
       container: mindustry-fleet
       ports:
-      - name: default
+      - name: default-tcp
         portPolicy: Static
         container: mindustry-fleet
         containerPort: 6567
         hostPort: 7337
+        protocol: TCP
+      - name: default-udp
+        portPolicy: Static
+        container: mindustry-fleet
+        containerPort: 6567
+        hostPort: 7337
+        protocol: UDP
       health:
         disabled: false
         initialDelaySeconds: 45
