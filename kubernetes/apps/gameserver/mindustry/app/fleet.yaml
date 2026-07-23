@@ -22,7 +22,7 @@ spec:
       - name: default
         portPolicy: Static
         container: mindustry-fleet
-        containerPort: 34197
+        containerPort: 6567
         hostPort: 7337
         protocol: UDP
       health:
@@ -43,7 +43,7 @@ spec:
         spec:
           containers:
             - name: mindustry-fleet
-              image: docker.io/salmonit/agones-mindustry:156.2.3
+              image: docker.io/salmonit/agones-mindustry:159.7.0
               ports:
                 - name: main
                   containerPort: 34197
