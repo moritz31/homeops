@@ -51,6 +51,7 @@ spec:
                 - name: rcon
                   containerPort: 27015
                   protocol: TCP
+              stdin: true
               resources:
                 requests:
                   cpu: '1'
