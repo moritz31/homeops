@@ -44,6 +44,10 @@ spec:
               tag: stable-2026-07-20
             env:
               TZ: Europe/Berlin
+            ports:
+              - name: ipp
+                containerPort: 631
+                protocol: TCP
             probes:
               liveness: &probes
                 enabled: true
