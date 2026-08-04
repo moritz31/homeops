@@ -42,6 +42,16 @@ spec:
             image:
               repository: docker.io/olbat/cupsd
               tag: stable-2026-07-20
+            command:
+              - /bin/sh
+              - -ec
+              - |
+                export DEBIAN_FRONTEND=noninteractive
+                apt-get update
+                apt-get install -y --no-install-recommends \
+                  cups-backend-bjnp \
+                  printer-driver-gutenprint
+                exec /usr/sbin/cupsd -f
             env:
               TZ: Europe/Berlin
             ports:
