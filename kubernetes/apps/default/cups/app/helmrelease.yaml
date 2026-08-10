@@ -49,9 +49,19 @@ spec:
                 export DEBIAN_FRONTEND=noninteractive
                 apt-get update
                 apt-get install -y --no-install-recommends \
+                  avahi-daemon \
                   cups-backend-bjnp \
                   printer-driver-gutenprint
-                exec /usr/sbin/cupsd -f
+                mkdir -p /run/dbus
+                dbus-daemon --system --fork
+                avahi-daemon --daemonize
+
+                /usr/sbin/cupsd -f &
+                cupsd_pid=$!
+                trap 'kill -TERM "$cupsd_pid"; wait "$cupsd_pid"; exit' TERM INT
+                until [ -S /run/cups/cups.sock ]; do sleep 1; done
+                cupsctl --share-printers
+                wait "$cupsd_pid"
             env:
               TZ: Europe/Berlin
             ports:
@@ -78,6 +88,8 @@ spec:
                 memory: 512Mi
     defaultPodOptions:
       automountServiceAccountToken: false
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       securityContext:
         runAsUser: 0
         runAsGroup: 0
