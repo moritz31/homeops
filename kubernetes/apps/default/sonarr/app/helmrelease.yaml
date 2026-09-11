@@ -27,10 +27,14 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    secrets:
+      - name: apiKey
+        value: ${SECRET_SONARR_API_KEY}
     application:
       port: 80
       urlBase: ''
       config:
+        secrets: [apiKey]
         filename: 'config.xml'
         contents: |
           <Config>
@@ -38,7 +42,7 @@ spec:
             <EnableSsl>False</EnableSsl>
             <AnalyticsEnabled>False</AnalyticsEnabled>
             <AuthenticationMethod>External</AuthenticationMethod>
-            <ApiKey>${SECRET_SONARR_API_KEY}</ApiKey>
+            <ApiKey>$apiKey</ApiKey>
             <Port>80</Port>
           </Config>
     ingress:
