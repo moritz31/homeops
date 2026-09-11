@@ -27,14 +27,13 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    secrets:
-      - name: apiKey
-        value: ${SECRET_RADARR_API_KEY}
     application:
       port: 80
       urlBase: ''
       config:
-        secrets: [apiKey]
+        # Flux substitutes the API key before Helm renders this config.
+        # Disable the chart's separate default secret injector.
+        secrets: []
         filename: 'config.xml'
         contents: |
           <Config>
@@ -42,7 +41,7 @@ spec:
             <EnableSsl>False</EnableSsl>
             <AnalyticsEnabled>False</AnalyticsEnabled>
             <AuthenticationMethod>External</AuthenticationMethod>
-            <ApiKey>$apiKey</ApiKey>
+            <ApiKey>${SECRET_RADARR_API_KEY}</ApiKey>
             <Port>80</Port>
           </Config>
     ingress:
