@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: victoria-metrics-k8s-stack
-      version: 0.86.0
+      version: 0.86.1
       sourceRef:
         kind: HelmRepository
         name: victoriametrics
@@ -31,14 +31,26 @@ spec:
   values:
     fullnameOverride: "victoria-metrics"
     defaultRules:
-      rules:
-        etcd: false
-        kubeApiserver: false
-        kubeApiserverAvailability: false
-        kubeApiserverBurnrate: false
-        kubeApiserverSlos: false
-        kubelet: false
-        kubeScheduler: false
+      # Chart 0.86 uses upstream rule-group names with enabled flags.
+      groups:
+        etcd:
+          enabled: false
+        kubernetes-system-apiserver:
+          enabled: false
+        kube-apiserver-histogram.rules:
+          enabled: false
+        kube-apiserver-burnrate.rules:
+          enabled: false
+        kube-apiserver-slos:
+          enabled: false
+        kubelet.rules:
+          enabled: false
+        kubernetes-system-kubelet:
+          enabled: false
+        kube-scheduler.rules:
+          enabled: false
+        kubernetes-system-scheduler:
+          enabled: false
     grafana:
       enabled: false
       forceDeployDatasource: true
@@ -105,4 +117,3 @@ spec:
       enabled: true
       grafanaOperator:
         enabled: true
-        

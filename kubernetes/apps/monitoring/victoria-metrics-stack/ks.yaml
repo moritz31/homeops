@@ -20,7 +20,7 @@ spec:
       namespace: monitoring
   interval: 30m
   retryInterval: 1m
-  timeout: 5ms
+  timeout: 5m
 ---
 # yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/kustomization_v1beta2.json
 apiVersion: kustomize.toolkit.fluxcd.io/v1
@@ -43,4 +43,4 @@ spec:
       namespace: monitoring
   interval: 30m
   retryInterval: 1m
-  timeout: 5ms
+  timeout: 5m
