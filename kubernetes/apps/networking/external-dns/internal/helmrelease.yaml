@@ -33,10 +33,12 @@ spec:
       webhook:
         image:
           repository: ghcr.io/kashalls/external-dns-unifi-webhook
-          tag: main # replace with a versioned release tag  
+          tag: v0.8.2@sha256:7f0ddbbc83a36a2a9d762e25eef9cafcb3adf0493068a27d72ae71087eafe6f0
         env:
         - name: UNIFI_HOST
-          value: https://unifi.kirstein.me # replace with the address to your UniFi router/controller
+          # Avoid the DNS dependency cycle: this controller creates the record
+          # that was previously needed to reach UniFi.
+          value: https://unifi.default.svc.cluster.local:8443
         - name: UNIFI_EXTERNAL_CONTROLLER
           value: "true"
         - name: UNIFI_USER
@@ -73,6 +75,3 @@ spec:
     sources: ["ingress"]
     podAnnotations:
       secret.reloader.stakater.com/reload: external-dns-secret
-
-
-      

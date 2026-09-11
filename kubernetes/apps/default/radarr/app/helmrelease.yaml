@@ -31,6 +31,9 @@ spec:
       port: 80
       urlBase: ''
       config:
+        # Flux substitutes the API key before Helm renders this config.
+        # Disable the chart's separate default secret injector.
+        secrets: []
         filename: 'config.xml'
         contents: |
           <Config>
