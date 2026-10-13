@@ -1,0 +1,116 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: openhands
+  namespace: openhands
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: openhands
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    controllers:
+      openhands:
+        type: deployment
+        replicas: 1
+        containers:
+          app:
+            image:
+              repository: ghcr.io/openhands/agent-canvas
+              tag: 1.27.1
+            command:
+            - node
+            - /opt/agent-canvas/static-server.mjs
+            args:
+            - --host
+            - 0.0.0.0
+            - --port
+            - '8000'
+            - --dir
+            - /opt/agent-canvas/frontend
+            - --base-path
+            - /canvas
+            - --reject-prefix
+            - /api
+            - --reject-prefix
+            - /sockets
+            - --reject-prefix
+            - /server_info
+            - --reject-prefix
+            - /health
+            - --reject-prefix
+            - /ready
+            - --reject-prefix
+            - /alive
+            - --reject-prefix
+            - /docs
+            - --reject-prefix
+            - /redoc
+            - --reject-prefix
+            - /openapi.json
+            - --reject-prefix
+            - /vscode
+            probes:
+              readiness:
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /canvas/
+                    port: http
+              liveness:
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /canvas/
+                    port: http
+                  initialDelaySeconds: 10
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities:
+                drop:
+                - ALL
+            resources:
+              requests:
+                cpu: 10m
+                memory: 64Mi
+              limits:
+                memory: 256Mi
+    defaultPodOptions:
+      automountServiceAccountToken: false
+    service:
+      app:
+        controller: openhands
+        ports:
+          http:
+            port: 8000
+    ingress:
+      main:
+        enabled: true
+        className: internal-ingress
+        hosts:
+        - host: openhands.int.kirstein.me
+          paths:
+          - path: /
+            pathType: Prefix
+            service:
+              identifier: app
+              port: http
+        tls:
+        - hosts:
+          - openhands.int.kirstein.me
