@@ -7,9 +7,16 @@ metadata:
   namespace: openhands
 spec:
   interval: 1h
-  chartRef:
-    kind: OCIRepository
-    name: openhands
+  timeout: 10m
+  chart:
+    spec:
+      chart: ./helm/agent-canvas
+      reconcileStrategy: Revision
+      sourceRef:
+        kind: GitRepository
+        name: openhands
+        namespace: flux-system
+      interval: 1h
   maxHistory: 3
   install:
     createNamespace: true
@@ -22,95 +29,64 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    controllers:
-      openhands:
-        type: deployment
-        replicas: 1
-        containers:
-          app:
-            image:
-              repository: ghcr.io/openhands/agent-canvas
-              tag: 1.27.1
-            command:
-            - node
-            - /opt/agent-canvas/static-server.mjs
-            args:
-            - --host
-            - 0.0.0.0
-            - --port
-            - '8000'
-            - --dir
-            - /opt/agent-canvas/frontend
-            - --base-path
-            - /canvas
-            - --reject-prefix
-            - /api
-            - --reject-prefix
-            - /sockets
-            - --reject-prefix
-            - /server_info
-            - --reject-prefix
-            - /health
-            - --reject-prefix
-            - /ready
-            - --reject-prefix
-            - /alive
-            - --reject-prefix
-            - /docs
-            - --reject-prefix
-            - /redoc
-            - --reject-prefix
-            - /openapi.json
-            - --reject-prefix
-            - /vscode
-            probes:
-              readiness:
-                enabled: true
-                custom: true
-                spec:
-                  httpGet:
-                    path: /canvas/
-                    port: http
-              liveness:
-                enabled: true
-                custom: true
-                spec:
-                  httpGet:
-                    path: /canvas/
-                    port: http
-                  initialDelaySeconds: 10
-            securityContext:
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
-              capabilities:
-                drop:
-                - ALL
-            resources:
-              requests:
-                cpu: 10m
-                memory: 64Mi
-              limits:
-                memory: 256Mi
-    defaultPodOptions:
+    fullnameOverride: openhands
+    replicaCount: 1
+    image:
+      repository: ghcr.io/openhands/agent-canvas
+      tag: 1.27.1
+    serviceAccount:
       automountServiceAccountToken: false
-    service:
-      app:
-        controller: openhands
-        ports:
-          http:
-            port: 8000
+    rbac:
+      enabled: false
+    config:
+      extraEnv:
+      - name: TZ
+        value: Europe/Berlin
+      - name: AUTOMATION_BASE_URL
+        value: https://openhands.int.kirstein.me
     ingress:
-      main:
-        enabled: true
-        className: internal-ingress
-        hosts:
-        - host: openhands.int.kirstein.me
-          paths:
-          - path: /
-            pathType: Prefix
-            service:
-              identifier: app
-              port: http
-        tls:
-        - hosts:
-          - openhands.int.kirstein.me
+      enabled: true
+      className: internal-ingress
+      annotations:
+        nginx.ingress.kubernetes.io/proxy-read-timeout: '3600'
+        nginx.ingress.kubernetes.io/proxy-send-timeout: '3600'
+        nginx.ingress.kubernetes.io/proxy-body-size: 50m
+      hosts:
+      - host: openhands.int.kirstein.me
+        paths:
+        - path: /
+          pathType: Prefix
+      tls:
+      - hosts:
+        - openhands.int.kirstein.me
+    persistence:
+      enabled: true
+      storageClassName: nfs-client
+      accessModes:
+      - ReadWriteOnce
+      size: 5Gi
+      mounts:
+      - mountPath: /home/openhands/.openhands
+        subPath: openhands
+      - mountPath: /home/openhands/workspace
+        subPath: workspace
+      - mountPath: /home/openhands/.codex
+        subPath: codex
+    podSecurityContext:
+      runAsNonRoot: true
+      runAsUser: 10001
+      runAsGroup: 10001
+      fsGroup: 10001
+      fsGroupChangePolicy: OnRootMismatch
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+    resources:
+      requests:
+        cpu: 100m
+        memory: 512Mi
+      limits:
+        cpu: null
+        memory: 2Gi

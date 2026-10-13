@@ -1,0 +1,15 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/source.toolkit.fluxcd.io/gitrepository_v1.json
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: openhands
+  namespace: flux-system
+spec:
+  interval: 1h
+  url: https://github.com/OpenHands/OpenHands
+  ref:
+    tag: v1.27.1
+  ignore: |
+    /*
+    !/helm

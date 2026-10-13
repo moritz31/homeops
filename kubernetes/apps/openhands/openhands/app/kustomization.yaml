@@ -5,7 +5,6 @@ kind: Kustomization
 namespace: openhands
 resources:
   - ./helmrelease.yaml
-  - ./ocirepository.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: openhands
