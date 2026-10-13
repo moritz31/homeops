@@ -43,7 +43,7 @@ spec:
       - name: TZ
         value: Europe/Berlin
       - name: AUTOMATION_BASE_URL
-        value: https://openhands.int.kirstein.me
+        value: "http://127.0.0.1:8000"
       # Embed the backend session key for automatic setup on the trusted internal UI.
       - name: AGENT_CANVAS_ALLOW_LAN_SESSION_KEY
         value: "true"
