@@ -44,6 +44,9 @@ spec:
         value: Europe/Berlin
       - name: AUTOMATION_BASE_URL
         value: https://openhands.int.kirstein.me
+      # Embed the backend session key for automatic setup on the trusted internal UI.
+      - name: AGENT_CANVAS_ALLOW_LAN_SESSION_KEY
+        value: "true"
     ingress:
       enabled: true
       className: internal-ingress
