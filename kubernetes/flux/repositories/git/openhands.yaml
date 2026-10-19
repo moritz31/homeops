@@ -9,7 +9,7 @@ spec:
   interval: 1h
   url: https://github.com/OpenHands/OpenHands
   ref:
-    tag: v1.27.1
+    tag: v1.28.1
   ignore: |
     /*
     !/helm
