@@ -33,7 +33,7 @@ spec:
     replicaCount: 1
     image:
       repository: ghcr.io/openhands/agent-canvas
-      tag: 1.27.1
+      tag: 1.28.1
     serviceAccount:
       automountServiceAccountToken: false
     rbac:
