@@ -8,7 +8,7 @@ metadata:
 spec:
   deployment:
     spec:
-      replicas: 1
+      replicas: 0
       template:
         spec:
           containers:
