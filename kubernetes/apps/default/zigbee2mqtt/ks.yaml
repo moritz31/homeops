@@ -8,6 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-mosquitto
+    - name: cluster-apps-envoy-gateway-internal
   path: ./kubernetes/apps/default/zigbee2mqtt/app
   prune: true
   sourceRef:

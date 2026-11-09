@@ -7,14 +7,9 @@ metadata:
   namespace: default
 spec:
   interval: 15m
-  chart:
-    spec:
-      chart: app-template
-      version: 1.5.1
-      sourceRef:
-        kind: HelmRepository
-        name: bjw-s
-        namespace: flux-system
+  chartRef:
+    kind: OCIRepository
+    name: lldap
   maxHistory: 3
   install:
     createNamespace: true
@@ -26,53 +21,83 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              kind: StatefulSet
+              name: lldap
+            patch: |
+              - op: remove
+                path: /spec/selector/matchLabels/app.kubernetes.io~1controller
   values:
-    controller:
-      type: statefulset
-    image:
-      repository: ghcr.io/lldap/lldap
-      tag: v0.6.3
-    env:
-      TZ: Europe/Berlin
-      LLDAP_HTTP_PORT: &http-port 80
-      LLDAP_LDAP_PORT: &ldap-port 3890
-      LLDAP_HTTP_URL: https://lldap.nas01.kirstein.me
-      LLDAP_LDAP_BASE_DN: dc=kirstein,dc=me
-      LLDAP_USER_DN: admin
-      LLDAP_VERBOSE: true
-    envFrom:
-      - secretRef:
-          name: lldap-secret
+    controllers:
+      lldap:
+        type: statefulset
+        containers:
+          app:
+            image:
+              repository: ghcr.io/lldap/lldap
+              tag: v0.6.3
+            env:
+              TZ: Europe/Berlin
+              LLDAP_HTTP_PORT: 80
+              LLDAP_LDAP_PORT: 3890
+              LLDAP_HTTP_URL: https://lldap.int.kirstein.me
+              LLDAP_LDAP_BASE_DN: dc=kirstein,dc=me
+              LLDAP_USER_DN: admin
+              LLDAP_VERBOSE: "true"
+            envFrom:
+              - secretRef:
+                  name: lldap-secret
+            probes:
+              startup:
+                enabled: true
+                type: TCP
+                port: 80
+                spec:
+                  failureThreshold: 30
+                  periodSeconds: 5
+              liveness:
+                enabled: true
+                type: TCP
+                port: 80
+              readiness:
+                enabled: true
+                type: TCP
+                port: 80
+            resources:
+              requests:
+                cpu: 100m
+                memory: 100Mi
+              limits:
+                memory: 500Mi
     service:
       main:
+        controller: lldap
         ports:
           http:
-            port: *http-port
+            port: 80
           ldap:
-            enabled: true
-            port: *ldap-port
-    ingress:
+            port: 3890
+    route:
       main:
-        enabled: true
-        ingressClassName: internal-ingress
-        hosts:
-        - host: &host lldap.nas01.kirstein.me
-          paths:
-            - path: /
-              pathType: Prefix
-        tls:
-          - secretName: lldap-tls-certificate
-            hosts:
-              - *host
+        parentRefs:
+          - name: internal
+            namespace: networking
+            sectionName: https
+        hostnames:
+          - lldap.int.kirstein.me
+        rules:
+          - backendRefs:
+              - identifier: main
+                port: 80
     persistence:
       data:
         enabled: true
+        forceRename: lldap-data
         storageClass: nfs-client
         accessMode: ReadWriteMany
         size: 1Gi
-    resources:
-      requests:
-        cpu: 100m
-        memory: 100Mi
-      limits:
-        memory: 500Mi
+        globalMounts:
+          - path: /data

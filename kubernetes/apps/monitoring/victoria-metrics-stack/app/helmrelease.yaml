@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: victoria-metrics-k8s-stack
-      version: 0.95.0
+      version: 0.98.1
       sourceRef:
         kind: HelmRepository
         name: victoriametrics
@@ -61,13 +61,14 @@ spec:
     kubeScheduler:
       enabled: false
     alertmanager:
-      ingress:
+      route:
         enabled: true
-        annotations:
-          external-dns.alpha.kubernetes.io/hostname: alertmanager.nas01.kirstein.me
-        ingressClassName: internal-ingress
-        hosts:
-          - "alertmanager.nas01.kirstein.me"
+        parentRefs:
+          - name: internal
+            namespace: networking
+            sectionName: https
+        hostnames:
+          - alertmanager.int.kirstein.me
       config:
         global:
           resolve_timeout: 5m
@@ -91,6 +92,14 @@ spec:
               matchers:
                 - alertname =~ "Watchdog"
     vmsingle:
+      route:
+        enabled: true
+        parentRefs:
+          - name: internal
+            namespace: networking
+            sectionName: https
+        hostnames:
+          - vm.int.kirstein.me
       spec:
         retentionPeriod: 2y
         storage:
@@ -100,13 +109,6 @@ spec:
           resources:
             requests:
               storage: 20Gi
-      ingress:
-        enabled: true
-        annotations:
-          external-dns.alpha.kubernetes.io/hostname: vm.nas01.kirstein.me
-        ingressClassName: internal-ingress
-        hosts: 
-          - "vm.nas01.kirstein.me"
     victoria-metrics-operator:
       operator:
         disable_prometheus_converter: false

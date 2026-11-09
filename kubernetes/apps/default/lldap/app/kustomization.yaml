@@ -6,6 +6,7 @@ namespace: default
 resources:
   - ./lldap-secret.sops.yaml
   - ./helmrelease.yaml
+  - ./ocirepository.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: lldap

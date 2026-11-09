@@ -25,12 +25,13 @@ spec:
     controllers:
       *app :
         type: deployment
+        strategy: Recreate
         replicas: 1
         containers:
           main:
             image: 
               repository: ghcr.io/koenkk/zigbee2mqtt
-              tag: 2.13.0@sha256:4fb4db4d49a217bed6d0204f454ce809febc565bbe051b85c556ee2bcef73d8c
+              tag: 2.14.3@sha256:fb4a6b0f6868ad1cd6a9996479802b2420e599c3463b62bbff8c8cd9a908f43a
             resources:
               requests:
                 cpu: 15m
@@ -70,15 +71,6 @@ spec:
             port: 8080
             protocol: HTTP
             appProtocol: http
-    serviceMonitor:
-      app:
-        serviceName: *app
-        endpoints:
-          - port: http
-            scheme: http
-            path: /metrics
-            interval: 1m
-            scrapeTimeout: 10s
     persistence:
       data:
         enabled: true
@@ -93,14 +85,14 @@ spec:
           - path: *usbdevice
     securityContext:
       privileged: true
-    ingress:
+    route:
       main:
-        enabled: true
-        className: "internal-ingress"
-        annotations: 
-          external-dns.alpha.kubernetes.io/hostname: z2m.nas01.kirstein.me
-        hosts:
-          - host: "z2m.nas01.kirstein.me"
-            paths:
-              - path: /
-                pathType: Prefix
+        parentRefs:
+          - name: internal
+            namespace: networking
+            sectionName: https
+        hostnames:
+          - z2m.int.kirstein.me
+        rules:
+          - backendRefs:
+              - identifier: zigbee2mqtt

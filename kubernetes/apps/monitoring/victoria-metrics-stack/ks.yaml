@@ -8,6 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-nfs-subdir-external-provisioner
+    - name: cluster-apps-envoy-gateway-internal
   path: ./kubernetes/apps/monitoring/victoria-metrics-stack/app
   prune: true
   sourceRef:
