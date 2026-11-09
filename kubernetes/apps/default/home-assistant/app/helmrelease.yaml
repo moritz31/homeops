@@ -9,8 +9,7 @@ spec:
   interval: 1h
   chartRef:
     kind: OCIRepository
-    name: app-template
-    namespace: flux-system
+    name: home-assistant
   install:
     remediation:
       retries: -1
@@ -18,16 +17,32 @@ spec:
     cleanupOnFail: true
     remediation:
       retries: 3
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              kind: Deployment
+              name: home-assistant
+            patch: |
+              - op: remove
+                path: /spec/selector/matchLabels/app.kubernetes.io~1controller
+              - op: add
+                path: /spec/selector/matchLabels/app.kubernetes.io~1component
+                value: home-assistant
+              - op: add
+                path: /spec/template/metadata/labels/app.kubernetes.io~1component
+                value: home-assistant
   values:
     controllers:
       home-assistant:
+        strategy: Recreate
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
           app:
             image:
               repository: ghcr.io/home-operations/home-assistant
-              tag: 2026.3.1@sha256:067e54e2e107892a584936f064147f8bf47c0120eed34e272cf6eb6c8520b0de
+              tag: 2026.11.0@sha256:7c1ab60a4bb4cc1f34c314bc209d72d7b7336f0da38d4a69064935d01bba1ba6
             env:
               TZ: Europe/Berlin
               HASS_HTTP_TRUSTED_PROXY_1: 192.168.178.0/24
@@ -51,17 +66,17 @@ spec:
         ports:
           http:
             port: 8123
-    ingress:
+    route:
       app:
-        className: internal-ingress
-        hosts:
-          - host: &host hass.int.kirstein.me
-            paths: 
-              - path: /
-                pathType: Prefix
-                service: 
-                  identifier: app
-                  port: http
+        parentRefs:
+          - name: internal
+            namespace: networking
+            sectionName: https
+        hostnames:
+          - hass.int.kirstein.me
+        rules:
+          - backendRefs:
+              - identifier: app
     persistence:
       config:
         existingClaim: home-assistant

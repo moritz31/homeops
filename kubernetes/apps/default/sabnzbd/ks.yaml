@@ -6,6 +6,8 @@ metadata:
   name: cluster-apps-sabnzbd
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: cluster-apps-envoy-gateway-internal
   path: ./kubernetes/apps/default/sabnzbd/app
   prune: true
   sourceRef:

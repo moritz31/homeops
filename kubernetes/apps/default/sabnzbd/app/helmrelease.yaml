@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: sabnzbd
-      version: 1.7.0
+      version: 1.9.2
       sourceRef:
         kind: HelmRepository
         name: media-servarr
@@ -34,9 +34,7 @@ spec:
       config: null
       urlBase: ''
     ingress:
-      enabled: true
-      className: internal-ingress
-      host: sabnzbd.int.kirstein.me
+      enabled: false
     deployment:
       container:
         volumeMounts:

@@ -6,6 +6,8 @@ metadata:
   name: cluster-apps-openhands
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: cluster-apps-envoy-gateway-internal
   path: ./kubernetes/apps/openhands/openhands/app
   prune: true
   sourceRef:

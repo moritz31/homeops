@@ -33,7 +33,7 @@ spec:
     replicaCount: 1
     image:
       repository: ghcr.io/openhands/agent-canvas
-      tag: 1.27.1
+      tag: 1.37.0
     serviceAccount:
       automountServiceAccountToken: false
     rbac:
@@ -47,21 +47,6 @@ spec:
       # Embed the backend session key for automatic setup on the trusted internal UI.
       - name: AGENT_CANVAS_ALLOW_LAN_SESSION_KEY
         value: "true"
-    ingress:
-      enabled: true
-      className: internal-ingress
-      annotations:
-        nginx.ingress.kubernetes.io/proxy-read-timeout: '3600'
-        nginx.ingress.kubernetes.io/proxy-send-timeout: '3600'
-        nginx.ingress.kubernetes.io/proxy-body-size: 50m
-      hosts:
-      - host: openhands.int.kirstein.me
-        paths:
-        - path: /
-          pathType: Prefix
-      tls:
-      - hosts:
-        - openhands.int.kirstein.me
     persistence:
       enabled: true
       storageClassName: nfs-client

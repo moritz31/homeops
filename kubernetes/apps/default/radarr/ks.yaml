@@ -6,6 +6,8 @@ metadata:
   name: cluster-apps-radarr
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: cluster-apps-envoy-gateway-internal
   path: ./kubernetes/apps/default/radarr/app
   prune: true
   sourceRef:

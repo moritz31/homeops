@@ -5,6 +5,7 @@ kind: Kustomization
 namespace: default
 resources:
   - ./helmrelease.yaml
+  - ./httproute.yaml
 labels:
   - pairs:
       app.kubernetes.io/name: radarr
