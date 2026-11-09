@@ -7,14 +7,9 @@ metadata:
   namespace: default
 spec:
   interval: 15m
-  chart:
-    spec:
-      chart: teslamate
-      version: 7.1.2
-      sourceRef:
-        kind: HelmRepository
-        name: k8s-at-home
-        namespace: flux-system
+  chartRef:
+    kind: OCIRepository
+    name: teslamate
   maxHistory: 3
   install:
     createNamespace: true
@@ -27,38 +22,75 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    image:
-      tag: 4.0.1
-    env:
-      - name: DATABASE_HOST
-        value: teslamate-database-rw
-      - name: DATABASE_USER
-        valueFrom:
-          secretKeyRef:
-            name: teslamate-database-app
-            key: username
-      - name: DATABASE_PASS
-        valueFrom:
-          secretKeyRef:
-            name: teslamate-database-app
-            key: password
-      - name: ENCRYPTION_KEY
-        valueFrom:
-          secretKeyRef:
-            name: teslamate-encryption
-            key: key
-      - name: DATABASE_NAME
-        value: app
-      - name: DISABLE_MQTT
-        value: true
-    ingress:
+    controllers:
+      teslamate:
+        # The previous chart uses a different immutable Deployment selector.
+        forceRename: teslamate-app
+        strategy: Recreate
+        containers:
+          app:
+            image:
+              repository: teslamate/teslamate
+              tag: 4.4.0
+            probes:
+              startup:
+                enabled: true
+                custom: true
+                spec:
+                  tcpSocket:
+                    port: 4000
+                  periodSeconds: 5
+                  failureThreshold: 30
+                  timeoutSeconds: 1
+              liveness: &health-probe
+                enabled: true
+                custom: true
+                spec:
+                  tcpSocket:
+                    port: 4000
+                  periodSeconds: 10
+                  failureThreshold: 3
+                  timeoutSeconds: 1
+              readiness: *health-probe
+            env:
+              DATABASE_HOST: teslamate-database-rw
+              DATABASE_USER:
+                valueFrom:
+                  secretKeyRef:
+                    name: teslamate-database-app
+                    key: username
+              DATABASE_PASS:
+                valueFrom:
+                  secretKeyRef:
+                    name: teslamate-database-app
+                    key: password
+              ENCRYPTION_KEY:
+                valueFrom:
+                  secretKeyRef:
+                    name: teslamate-encryption
+                    key: key
+              DATABASE_NAME: app
+              DISABLE_MQTT: "true"
+              VIRTUAL_HOST: tesla.int.kirstein.me
+    service:
       main:
-        enabled: true
-        ingressClassName: "internal-ingress"
-        annotations: 
-          external-dns.alpha.kubernetes.io/hostname: tesla.nas01.kirstein.me
-        hosts:
-          - host: tesla.nas01.kirstein.me
-            paths:
-            - path: /
-              pathType: Prefix
+        controller: teslamate
+        ports:
+          http:
+            port: 4000
+    route:
+      main:
+        kind: HTTPRoute
+        parentRefs:
+          - name: internal
+            namespace: networking
+            sectionName: https
+        hostnames:
+          - tesla.int.kirstein.me
+        rules:
+          - matches:
+              - path:
+                  type: PathPrefix
+                  value: /
+            backendRefs:
+              - identifier: main

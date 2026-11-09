@@ -68,10 +68,12 @@ spec:
     extraArgs:
     - --ignore-ingress-tls-spec
     - --ingress-class=internal-ingress
+    - --gateway-name=internal
+    - --gateway-namespace=networking
     policy: sync
     txtPrefix: k8s.
     txtOwnerId: internal
     domainFilters: ["kirstein.me"]
-    sources: ["ingress"]
+    sources: ["ingress", "gateway-httproute"]
     podAnnotations:
       secret.reloader.stakater.com/reload: external-dns-secret

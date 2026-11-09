@@ -6,6 +6,8 @@ resources:
   - charge-level.yaml
   - charges.yaml
   - charging-stats.yaml
+  - database-info.yaml
+  - dutch-tax.yaml
   - drive-stats.yaml
   - drives.yaml
   - efficiency.yaml
@@ -15,6 +17,7 @@ resources:
   - projected-range.yaml
   - states.yaml
   - statistics.yaml
+  - temperatures.yaml
   - timeline.yaml
   - trip.yaml
   - updates.yaml

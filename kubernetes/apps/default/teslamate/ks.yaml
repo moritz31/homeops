@@ -8,6 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-teslamate-database
+    - name: cluster-apps-envoy-gateway-internal
   path: ./kubernetes/apps/default/teslamate/app
   prune: true
   sourceRef:

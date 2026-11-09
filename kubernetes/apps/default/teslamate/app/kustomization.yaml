@@ -6,6 +6,7 @@ kind: Kustomization
 namespace: default
 resources:
   - ./helmrelease.yaml
+  - ./ocirepository.yaml
   - ./teslamate-encryption.sops.yaml
 generatorOptions:
   disableNameSuffixHash: true

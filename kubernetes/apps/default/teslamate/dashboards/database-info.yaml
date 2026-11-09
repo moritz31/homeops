@@ -1,0 +1,11 @@
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDashboard
+metadata:
+  name: teslamate-database-info
+  namespace: monitoring
+spec:
+  instanceSelector:
+    matchLabels:
+      dashboards: "grafana"
+  folder: "TeslaMate"
+  url: https://raw.githubusercontent.com/teslamate-org/teslamate/refs/tags/v4.4.0/grafana/dashboards/database-info.json
