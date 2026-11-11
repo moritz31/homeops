@@ -41,6 +41,10 @@ spec:
             name: external-dns-secret
             key: api-key
     policy: sync
+    sources: ["service", "ingress", "gateway-httproute"]
+    extraArgs:
+      - --gateway-name=public
+      - --gateway-namespace=networking
     txtPrefix: k8s.
     txtOwnerId: default
     domainFilters: ["kirstein.me"]

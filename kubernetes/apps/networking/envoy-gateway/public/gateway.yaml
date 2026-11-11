@@ -1,0 +1,28 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: public
+  namespace: networking
+  annotations:
+    external-dns.alpha.kubernetes.io/target: home.kirstein.me
+spec:
+  gatewayClassName: envoy
+  listeners:
+    - name: http
+      hostname: "*.kirstein.me"
+      port: 80
+      protocol: HTTP
+      allowedRoutes:
+        namespaces:
+          from: All
+    - name: https
+      hostname: "*.kirstein.me"
+      port: 443
+      protocol: HTTPS
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: kirstein-me-public-gateway-tls
+      allowedRoutes:
+        namespaces:
+          from: All
