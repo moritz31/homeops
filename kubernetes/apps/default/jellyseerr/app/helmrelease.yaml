@@ -67,6 +67,30 @@ spec:
         ports:
           http:
             port: *port
+    route:
+      app:
+        parentRefs:
+          - name: public
+            namespace: networking
+            sectionName: https
+        hostnames:
+          - jellyseerr.kirstein.me
+        rules:
+          - backendRefs:
+              - identifier: app
+      redirect:
+        parentRefs:
+          - name: public
+            namespace: networking
+            sectionName: http
+        hostnames:
+          - jellyseerr.kirstein.me
+        rules:
+          - filters:
+              - type: RequestRedirect
+                requestRedirect:
+                  scheme: https
+                  statusCode: 301
     persistence:
       jellyseerr-config:
         enabled: true
