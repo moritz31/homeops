@@ -68,8 +68,9 @@ spec:
     extraArgs:
     - --ignore-ingress-tls-spec
     - --ingress-class=internal-ingress
-    - --gateway-name=internal
     - --gateway-namespace=networking
+    # Ignore the public gateway's DNS target override and use gateway status IPs.
+    annotationPrefix: internal-dns.kirstein.me/
     policy: sync
     txtPrefix: k8s.
     txtOwnerId: internal
