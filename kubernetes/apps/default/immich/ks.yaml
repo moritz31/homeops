@@ -29,6 +29,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-immich-database
+    - name: cluster-apps-envoy-gateway-public
   path: ./kubernetes/apps/default/immich/app
   prune: true
   sourceRef:

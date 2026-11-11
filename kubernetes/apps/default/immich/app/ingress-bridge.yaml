@@ -1,0 +1,44 @@
+# Temporary bridge until the router forwards HTTP(S) to the public gateway.
+apiVersion: v1
+kind: Service
+metadata:
+  name: immich-gateway-bridge
+  namespace: default
+spec:
+  type: ExternalName
+  externalName: envoy-public.networking.svc.cluster.local
+  ports:
+    - name: https
+      port: 443
+      protocol: TCP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: immich-gateway-bridge
+  namespace: default
+  annotations:
+    external-dns.alpha.kubernetes.io/target: home.kirstein.me
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    nginx.ingress.kubernetes.io/proxy-ssl-server-name: "on"
+    nginx.ingress.kubernetes.io/proxy-ssl-name: photos.kirstein.me
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+spec:
+  ingressClassName: external-ingress
+  tls:
+    - hosts:
+        - photos.kirstein.me
+  rules:
+    - host: photos.kirstein.me
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: immich-gateway-bridge
+                port:
+                  number: 443
