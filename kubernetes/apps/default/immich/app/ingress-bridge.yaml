@@ -1,4 +1,17 @@
 # Temporary bridge until the router forwards HTTP(S) to the public gateway.
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: immich-gateway-bridge
+  namespace: default
+spec:
+  secretName: immich-gateway-bridge-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  dnsNames:
+    - photos.kirstein.me
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -20,6 +33,8 @@ metadata:
   annotations:
     external-dns.alpha.kubernetes.io/target: home.kirstein.me
     nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    # ingress-nginx requires a proxy SSL secret before it applies SNI settings.
+    nginx.ingress.kubernetes.io/proxy-ssl-secret: default/immich-gateway-bridge-tls
     nginx.ingress.kubernetes.io/proxy-ssl-server-name: "on"
     nginx.ingress.kubernetes.io/proxy-ssl-name: photos.kirstein.me
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
