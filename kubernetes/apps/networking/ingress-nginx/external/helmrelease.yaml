@@ -43,6 +43,8 @@ spec:
         default: false
         controllerValue: k8s.io/external-ingress
       ingressClassByName: true
+      config:
+        use-http2: "false"
       extraArgs:
         default-ssl-certificate: |-
           networking/kirstein-me-tls
