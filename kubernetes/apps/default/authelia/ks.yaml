@@ -6,6 +6,8 @@ metadata:
   name: cluster-apps-authelia
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: cluster-apps-envoy-gateway-public
   path: ./kubernetes/apps/default/authelia/app
   prune: true
   sourceRef:

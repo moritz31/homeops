@@ -6,6 +6,8 @@ metadata:
   name: cluster-apps-jellyseerr
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: cluster-apps-envoy-gateway-public
   path: ./kubernetes/apps/default/jellyseerr/app
   prune: true
   sourceRef:

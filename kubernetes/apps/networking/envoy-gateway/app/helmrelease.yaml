@@ -17,3 +17,8 @@ spec:
     crds: CreateReplace
     remediation:
       retries: 3
+  values:
+    config:
+      envoyGateway:
+        extensionApis:
+          enableBackend: true
