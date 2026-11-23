@@ -69,23 +69,6 @@ spec:
             port: 80
           metrics:
             port: 8080
-    ingress:
-      main:
-        className: external-ingress
-        annotations:
-          external-dns.alpha.kubernetes.io/target: home.kirstein.me
-        hosts:
-        - host: auth.kirstein.me
-          paths:
-          - path: "/"
-            pathType: Prefix
-            service:
-              identifier: main
-              port: 80
-        tls:
-        - secretName: authelia-tls-certificate
-          hosts:
-          - auth.kirstein.me
     persistence:
       data:
         forceRename: authelia-data

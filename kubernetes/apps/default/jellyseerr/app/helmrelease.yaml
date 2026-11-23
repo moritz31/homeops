@@ -101,20 +101,3 @@ spec:
           - path: /app/config
       tmp:
         type: emptyDir
-    ingress:
-      main:
-        enabled: true
-        className: external-ingress
-        hosts:
-          - host: &host jellyseerr.kirstein.me 
-            paths:
-            - path: /
-              pathType: Prefix
-              service:
-                identifier: app
-                port: http
-        tls:
-          - hosts: 
-            - *host
-        annotations:
-          external-dns.alpha.kubernetes.io/target: "home.kirstein.me"

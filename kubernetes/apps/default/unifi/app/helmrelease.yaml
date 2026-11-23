@@ -84,21 +84,6 @@ spec:
           discovery:
             port: 10001
             protocol: UDP
-    ingress:
-      main:
-        className: external-ingress
-        annotations:
-          nginx.ingress.kubernetes.io/backend-protocol: HTTPS
-          nginx.ingress.kubernetes.io/proxy-body-size: 50m
-          external-dns.alpha.kubernetes.io/target: home.kirstein.me
-        hosts:
-          - host: unifi.kirstein.me
-            paths:
-              - path: /
-                pathType: Prefix
-                service:
-                  identifier: main
-                  port: 8443
     persistence:
       data:
         forceRename: unifi-data

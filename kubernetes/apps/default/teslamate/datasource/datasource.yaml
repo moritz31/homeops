@@ -23,5 +23,5 @@ spec:
       timescaledb: false
     secureJsonData:
       password: ${SECRET_TESLAMATE_POSTGRES_PASSWORD}
-    url: 192.168.178.204:5432
+    url: teslamate-database-rw.default.svc.cluster.local:5432
     user: app

@@ -43,12 +43,7 @@ spec:
         mountPath: '/config/config/network.xml'
       urlBase: ''
     ingress:
-      enabled: true
-      className: external-ingress
-      host: &host jellyfin.kirstein.me 
-      annotations:
-        external-dns.alpha.kubernetes.io/target: "home.kirstein.me"
-        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      enabled: false
     deployment:
       container:
         image:
