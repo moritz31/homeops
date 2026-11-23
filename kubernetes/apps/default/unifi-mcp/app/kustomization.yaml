@@ -1,0 +1,13 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: default
+resources:
+  - ./unifi-mcp-secret.sops.yaml
+  - ./helmrelease.yaml
+  - ./ocirepository.yaml
+labels:
+  - pairs:
+      app.kubernetes.io/name: unifi-mcp
+      app.kubernetes.io/instance: unifi-mcp
+      app.kubernetes.io/part-of: unifi-mcp
