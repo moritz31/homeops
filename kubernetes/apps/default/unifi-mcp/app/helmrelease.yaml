@@ -30,7 +30,7 @@ spec:
               TZ: Europe/Berlin
               UNIFI_NETWORK_HOST: unifi.default.svc.cluster.local
               UNIFI_NETWORK_PORT: "8443"
-              UNIFI_NETWORK_SITE: default
+              UNIFI_NETWORK_SITE: 5vphwlie
               UNIFI_READ_ONLY: "true"
               UNIFI_NETWORK_WEBSOCKET_ENABLED: "false"
               UNIFI_MCP_HTTP_ENABLED: "true"
