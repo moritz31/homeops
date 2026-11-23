@@ -21,5 +21,6 @@ resources:
   - ./radarr/ks.yaml
   - ./sabnzbd/ks.yaml
   - ./sonarr/ks.yaml
+  - ./unifi-mcp/ks.yaml
   - ./unifi/ks.yaml
   - ./zigbee2mqtt/ks.yaml
